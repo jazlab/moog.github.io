@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>tests.moog.physics.test_collisions API documentation</title>
+<meta name="description" content="Tests for moog/physics/collisions.py …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>tests.moog.physics.test_collisions</code></h1>
+</header>
+<section id="section-intro">
+<p>Tests for moog/physics/collisions.py.</p>
+<p>To run this test, navigate to this directory and run</p>
+<pre><code class="language-bash">$ pytest test_collisions.py --capture=tee-sys
+</code></pre>
+<p>Note: The &ndash;capture=tee-sys routes print statements to stdout, which is useful
+for debugging.</p>
+<p>Alternatively, to run this test and any others, navigate to any parent directory
+and simply run</p>
+<pre><code class="language-bash">$ pytest --capture=tee-sys
+</code></pre>
+<p>This will run all test_* files in children directories.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Tests for moog/physics/collisions.py.
+
+To run this test, navigate to this directory and run
+```bash
+$ pytest test_collisions.py --capture=tee-sys
+```
+
+Note: The --capture=tee-sys routes print statements to stdout, which is useful
+for debugging.
+
+Alternatively, to run this test and any others, navigate to any parent directory
+and simply run
+```bash
+$ pytest --capture=tee-sys
+```
+This will run all test_* files in children directories.
+&#34;&#34;&#34;
+
+import sys
+sys.path.insert(0, &#39;...&#39;)  # Allow imports from moog codebase
+
+import collections
+import matplotlib
+from matplotlib import pyplot as plt
+import numpy as np
+import pytest
+
+from moog import sprite
+from moog.physics import collisions
+from moog.observers import pil_renderer
+
+# Absolute error tolerance for testing scalars (positions, velocities, etc.)
+_ATOL = 0.001
+
+
+def _apply_pairwise_force(sprites, force, symmetric):
+    &#34;&#34;&#34;Apply pair-wise force to sprites, updating the sprites in-place.
+
+    Args:
+        sprites: Iterable of instances of sprite.Sprite.
+        force: Instance of a force.
+        symmetric: Bool. Whether to apply force symmetrically. Only really makes
+            sense when len(sprites) == 2.
+    &#34;&#34;&#34;
+    num_sprites = len(sprites)
+    if symmetric:
+        inds = [(i, j) for j in range(num_sprites) for i in range(num_sprites)]
+    else:
+        inds = [(i, j) for i in range(num_sprites) for j in range(i)]
+    for i, j in inds:
+        force.step(sprites[i], sprites[j], updates_per_env_step=1)
+
+
+class MatplotlibUI():
+    &#34;&#34;&#34;Matplotlib UI.
+    
+    This can be used to visualize test conditions.
+    &#34;&#34;&#34;
+
+    def __init__(self, image_size=128, anti_aliasing=3):
+        &#34;&#34;&#34;Constructor.&#34;&#34;&#34;
+        plt.ion()
+        self._fig, self._ax = plt.subplots()
+        self._ax.axis(&#39;off&#39;)
+        self._imshow = self._ax.imshow(
+            np.zeros((image_size, image_size, 3)), interpolation=&#39;none&#39;)
+        self._renderer = pil_renderer.PILRenderer(
+            image_size=(image_size, image_size), anti_aliasing=anti_aliasing)
+        self._ax.set_xticks([])
+        self._ax.set_yticks([])
+        plt.show(block=False)
+        plt.pause(0.1)
+
+    def _render(self, state):
+        &#34;&#34;&#34;Renderer a state (ordereddict of iterables of sprites).&#34;&#34;&#34;
+        self._imshow.set_data(self._renderer(state))
+        plt.draw()
+        plt.pause(0.1)
+
+    def _simulate_video(self, sprites, force, steps, symmetric):
+        &#34;&#34;&#34;Simulate and display video.&#34;&#34;&#34;
+        for _ in range(steps):
+            self._render(collections.OrderedDict([(&#39;&#39;, sprites)]))
+            _apply_pairwise_force(sprites, force, symmetric=symmetric)
+            for s in sprites:
+                s.update_pos_from_vel(delta_t=1.)
+        
+        # Print the true positions, velocities, and angular velocities of the
+        # sprites, rounded to 4 decimal places.
+        for i, s in enumerate(sprites):
+            print(&#39;&#39;)
+            print(f&#39;Sprite {i}&#39;)
+            print(f&#39;position: [{s.position[0]:.4f}, {s.position[1]:.4f}]&#39;)
+            print(f&#39;velocity: [{s.velocity[0]:.4f}, {s.velocity[1]:.4f}]&#39;)
+            print(f&#39;angle_vel: {s.angle_vel:.4f}&#39;)
+
+
+class TestCollisions():
+    &#34;&#34;&#34;Test collisions.&#34;&#34;&#34;
+
+    @pytest.mark.parametrize(
+        (&#39;init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1, &#39;
+         &#39;elasticity, symmetric&#39;),
+        [
+            # Head-on, asymmetric
+            ([0.5, 0.35], [0., 0.], [0.5, 0.35], [0., 0.], [0.5, 0.4827],
+             [0., 0.01], 1., False),
+            # Head-on, symmetric
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3287], [0., -0.01], [0.5, 0.4613],
+             [0., 0.], 1., True),
+            # Head-on, symmetric, semi-elastic
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3337], [0., -0.0075], [0.5, 0.4563],
+             [0., -0.0025], 0.5, True),
+            # Head-on, symmetric, inelastic
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3387], [0., -0.005], [0.5, 0.4513],
+             [0., -0.005], 0., True),
+            # Head-on, symmetric, both moving
+            ([0.5, 0.35], [0., 0.01], [0.5, 0.3287], [0., -0.01], [0.5, 0.5213],
+             [0., 0.01], 1., True),
+            # Offset, asymmetric
+            ([0.44, 0.37], [0., 0.], [0.44, 0.37], [0., 0.], [0.5217, 0.4699],
+             [0.0095, 0.0031], 1., False),
+            # Offset, symmetric
+            ([0.44, 0.37], [0., 0.], [0.4291, 0.3550], [-0.0048, -0.0065],
+             [0.5109, 0.4550], [0.0048, -0.0035], 1., True),
+            # Offset, symmetric, semi-elastic
+            ([0.44, 0.37], [0., 0.], [0.4315, 0.3583], [-0.0036, -0.0049],
+             [0.5085, 0.4517], [0.0036, -0.0051], 0.5, True),
+            # Offset, symmetric, both moving
+            ([0.44, 0.37], [0., 0.01], [0.4006, 0.3758], [-0.0095, -0.0031],
+             [0.5394, 0.4942], [0.0095, 0.0031], 1., True),
+            # Offset, symmetric, both moving, diagonal motion
+            ([0.43, 0.36], [0.015, 0.01], [0.4793, 0.3286], [0.0051, -0.0123],
+             [0.5407, 0.5314], [0.0099, 0.0123], 1., True),
+        ]
+    )
+    def testCirclesSameMass(self,
+                            init_pos_0,
+                            init_vel_0,
+                            out_pos_0,
+                            out_vel_0,
+                            out_pos_1,
+                            out_vel_1,
+                            elasticity,
+                            symmetric,
+                            steps=6,
+                            plot=False):
+        &#34;&#34;&#34;Two circles with same size and mass colliding.
+        
+        Set plot = True to display videos of the test conditions.
+        &#34;&#34;&#34;
+        force = collisions.Collision(
+            elasticity=elasticity, symmetric=symmetric, update_angle_vel=False)
+        sprite_0 = sprite.Sprite(
+            x=init_pos_0[0], y=init_pos_0[1], scale=0.1, shape=&#39;circle&#39;,
+            x_vel=init_vel_0[0], y_vel=init_vel_0[1], c1=255)
+        sprite_1 = sprite.Sprite(
+            x=0.5, y=0.5, scale=0.1, shape=&#39;circle&#39;, y_vel=-0.01, c0=255)
+        
+        if plot:
+            MatplotlibUI()._simulate_video(
+                [sprite_0, sprite_1], force, steps, symmetric)
+        else:
+            for _ in range(steps):
+                _apply_pairwise_force(
+                    [sprite_0, sprite_1], force, symmetric=symmetric)
+                sprite_0.update_pos_from_vel(delta_t=1.)
+                sprite_1.update_pos_from_vel(delta_t=1.)
+            
+            assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+            assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+            assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+
+    @pytest.mark.parametrize(
+        &#39;init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1&#39;,
+        [
+            # Head-on
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3220], [0., -0.0133], [0.5, 0.4547],
+             [0., -0.0033]),
+            # Head-on, semi-elastic
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3220], [0., -0.0133],
+             [0.5, 0.4547], [0., -0.0033]),
+            # Offset, symmetric, both moving
+            ([0.44, 0.37], [0., 0.01], [0.3879, 0.3583], [-0.0127, -0.0075],
+             [0.5267, 0.4768], [0.0063, -0.0013]),
+            # Offset, symmetric, both moving, diagonal motion
+            ([0.43, 0.36], [0.015, 0.01], [0.4661, 0.2989], [0.0018, -0.0197],
+             [0.5275, 0.5017], [0.0066, 0.0048]),
+        ]
+    )
+    def testCirclesDifferentMass(self,
+                                 init_pos_0,
+                                 init_vel_0,
+                                 out_pos_0,
+                                 out_vel_0,
+                                 out_pos_1,
+                                 out_vel_1,
+                                 steps=6,
+                                 plot=False):
+        &#34;&#34;&#34;Two circles with same size and different massed colliding.
+        
+        Set plot = True to display videos of the test conditions.
+        &#34;&#34;&#34;
+        force = collisions.Collision(
+            elasticity=1., symmetric=True, update_angle_vel=False)
+        sprite_0 = sprite.Sprite(
+            x=init_pos_0[0], y=init_pos_0[1], scale=0.1, shape=&#39;circle&#39;,
+            x_vel=init_vel_0[0], y_vel=init_vel_0[1], c1=255)
+        sprite_1 = sprite.Sprite(
+            x=0.5, y=0.5, scale=0.1, shape=&#39;circle&#39;, y_vel=-0.01, c0=255,
+            mass=2.)
+        
+        if plot:
+            MatplotlibUI()._simulate_video(
+                [sprite_0, sprite_1], force, steps, symmetric=True)
+        else:
+            for _ in range(steps):
+                _apply_pairwise_force(
+                    [sprite_0, sprite_1], force, symmetric=True)
+                sprite_0.update_pos_from_vel(delta_t=1.)
+                sprite_1.update_pos_from_vel(delta_t=1.)
+            
+            assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+            assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+            assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+
+    @pytest.mark.parametrize(
+        (&#39;init_angle_vel_0, out_pos_0, out_vel_0, out_angle_vel_0, out_pos_1, &#39;
+         &#39;out_vel_1, out_angle_vel_1, elasticity, update_angle_vel&#39;),
+        [
+            # No angular velocity, elastic, no update_angle_vel
+            (0., [0.5064, 0.6776], [-0.0044, 0.0024], 0., [0.6369, 0.5358],
+             [0.0044, -0.0024], 0., 1., False),
+            # No angular velocity, elastic
+            (0., [0.5411, 0.6689], [0.0025, 0.0006], -0.0911, [0.6022, 0.5444],
+             [-0.0025, -0.0006], 0.0362, 1., True),
+            # No angular velocity, semi-elastic
+            (0., [0.5442, 0.6681], [0.0031, 0.0005], -0.0683, [0.5991, 0.5452],
+             [-0.0031, -0.0005], 0.0271, 0.5, True),
+            # Positive angular velocity, elastic
+            (0.1, [0.4950, 0.6804], [-0.0021, 0.0018], -0.1215, [0.6483, 0.5329],
+             [0.0021, -0.0018], 0.0720, 1., True),
+            # Negative angular velocity, elastic
+            (-0.02, [0.5486, 0.6670], [0.0035, 0.0004], -0.0800, [0.5947, 0.5463],
+             [-0.0035, -0.0004], 0.0250, 1., True),
+        ]
+    )
+    def testTriangles(self,
+                      init_angle_vel_0,
+                      out_pos_0,
+                      out_vel_0,
+                      out_angle_vel_0,
+                      out_pos_1,
+                      out_vel_1,
+                      out_angle_vel_1,
+                      elasticity,
+                      update_angle_vel,
+                      steps=10,
+                      plot=False):
+        &#34;&#34;&#34;Two irregular triangles.
+        
+        Set plot = True to display videos of the test conditions.
+        &#34;&#34;&#34;
+        force = collisions.Collision(
+            elasticity=elasticity, symmetric=True,
+            update_angle_vel=update_angle_vel)
+        shape_0 = np.array([[1, 1], [1, 3], [-2, -2]])
+        sprite_0 = sprite.Sprite(
+            x=0.5, y=0, scale=0.05, shape=shape_0, x_vel=0.005, y_vel=0.,
+            c0=255, angle=1., angle_vel=init_angle_vel_0)
+        shape_1 = np.array([[2, 1], [0, 1], [-1, -3]])
+        sprite_1 = sprite.Sprite(
+            x=0.31, y=0.88, scale=0.05, shape=shape_1, x_vel=-0.005, y_vel=0.,
+            c1=255)
+        
+        if plot:
+            MatplotlibUI()._simulate_video(
+                [sprite_0, sprite_1], force, steps, symmetric=True)
+        else:
+            for _ in range(steps):
+                _apply_pairwise_force(
+                    [sprite_0, sprite_1], force, symmetric=True)
+                sprite_0.update_pos_from_vel(delta_t=1.)
+                sprite_1.update_pos_from_vel(delta_t=1.)
+            
+            assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+            assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_0.angle_vel, out_angle_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+            assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+            assert np.allclose(sprite_1.angle_vel, out_angle_vel_1, atol=_ATOL)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="tests.moog.physics.test_collisions.MatplotlibUI"><code class="flex name class">
+<span>class <span class="ident">MatplotlibUI</span></span>
+<span>(</span><span>image_size=128, anti_aliasing=3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Matplotlib UI.</p>
+<p>This can be used to visualize test conditions.</p>
+<p>Constructor.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MatplotlibUI():
+    &#34;&#34;&#34;Matplotlib UI.
+    
+    This can be used to visualize test conditions.
+    &#34;&#34;&#34;
+
+    def __init__(self, image_size=128, anti_aliasing=3):
+        &#34;&#34;&#34;Constructor.&#34;&#34;&#34;
+        plt.ion()
+        self._fig, self._ax = plt.subplots()
+        self._ax.axis(&#39;off&#39;)
+        self._imshow = self._ax.imshow(
+            np.zeros((image_size, image_size, 3)), interpolation=&#39;none&#39;)
+        self._renderer = pil_renderer.PILRenderer(
+            image_size=(image_size, image_size), anti_aliasing=anti_aliasing)
+        self._ax.set_xticks([])
+        self._ax.set_yticks([])
+        plt.show(block=False)
+        plt.pause(0.1)
+
+    def _render(self, state):
+        &#34;&#34;&#34;Renderer a state (ordereddict of iterables of sprites).&#34;&#34;&#34;
+        self._imshow.set_data(self._renderer(state))
+        plt.draw()
+        plt.pause(0.1)
+
+    def _simulate_video(self, sprites, force, steps, symmetric):
+        &#34;&#34;&#34;Simulate and display video.&#34;&#34;&#34;
+        for _ in range(steps):
+            self._render(collections.OrderedDict([(&#39;&#39;, sprites)]))
+            _apply_pairwise_force(sprites, force, symmetric=symmetric)
+            for s in sprites:
+                s.update_pos_from_vel(delta_t=1.)
+        
+        # Print the true positions, velocities, and angular velocities of the
+        # sprites, rounded to 4 decimal places.
+        for i, s in enumerate(sprites):
+            print(&#39;&#39;)
+            print(f&#39;Sprite {i}&#39;)
+            print(f&#39;position: [{s.position[0]:.4f}, {s.position[1]:.4f}]&#39;)
+            print(f&#39;velocity: [{s.velocity[0]:.4f}, {s.velocity[1]:.4f}]&#39;)
+            print(f&#39;angle_vel: {s.angle_vel:.4f}&#39;)</code></pre>
+</details>
+</dd>
+<dt id="tests.moog.physics.test_collisions.TestCollisions"><code class="flex name class">
+<span>class <span class="ident">TestCollisions</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test collisions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestCollisions():
+    &#34;&#34;&#34;Test collisions.&#34;&#34;&#34;
+
+    @pytest.mark.parametrize(
+        (&#39;init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1, &#39;
+         &#39;elasticity, symmetric&#39;),
+        [
+            # Head-on, asymmetric
+            ([0.5, 0.35], [0., 0.], [0.5, 0.35], [0., 0.], [0.5, 0.4827],
+             [0., 0.01], 1., False),
+            # Head-on, symmetric
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3287], [0., -0.01], [0.5, 0.4613],
+             [0., 0.], 1., True),
+            # Head-on, symmetric, semi-elastic
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3337], [0., -0.0075], [0.5, 0.4563],
+             [0., -0.0025], 0.5, True),
+            # Head-on, symmetric, inelastic
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3387], [0., -0.005], [0.5, 0.4513],
+             [0., -0.005], 0., True),
+            # Head-on, symmetric, both moving
+            ([0.5, 0.35], [0., 0.01], [0.5, 0.3287], [0., -0.01], [0.5, 0.5213],
+             [0., 0.01], 1., True),
+            # Offset, asymmetric
+            ([0.44, 0.37], [0., 0.], [0.44, 0.37], [0., 0.], [0.5217, 0.4699],
+             [0.0095, 0.0031], 1., False),
+            # Offset, symmetric
+            ([0.44, 0.37], [0., 0.], [0.4291, 0.3550], [-0.0048, -0.0065],
+             [0.5109, 0.4550], [0.0048, -0.0035], 1., True),
+            # Offset, symmetric, semi-elastic
+            ([0.44, 0.37], [0., 0.], [0.4315, 0.3583], [-0.0036, -0.0049],
+             [0.5085, 0.4517], [0.0036, -0.0051], 0.5, True),
+            # Offset, symmetric, both moving
+            ([0.44, 0.37], [0., 0.01], [0.4006, 0.3758], [-0.0095, -0.0031],
+             [0.5394, 0.4942], [0.0095, 0.0031], 1., True),
+            # Offset, symmetric, both moving, diagonal motion
+            ([0.43, 0.36], [0.015, 0.01], [0.4793, 0.3286], [0.0051, -0.0123],
+             [0.5407, 0.5314], [0.0099, 0.0123], 1., True),
+        ]
+    )
+    def testCirclesSameMass(self,
+                            init_pos_0,
+                            init_vel_0,
+                            out_pos_0,
+                            out_vel_0,
+                            out_pos_1,
+                            out_vel_1,
+                            elasticity,
+                            symmetric,
+                            steps=6,
+                            plot=False):
+        &#34;&#34;&#34;Two circles with same size and mass colliding.
+        
+        Set plot = True to display videos of the test conditions.
+        &#34;&#34;&#34;
+        force = collisions.Collision(
+            elasticity=elasticity, symmetric=symmetric, update_angle_vel=False)
+        sprite_0 = sprite.Sprite(
+            x=init_pos_0[0], y=init_pos_0[1], scale=0.1, shape=&#39;circle&#39;,
+            x_vel=init_vel_0[0], y_vel=init_vel_0[1], c1=255)
+        sprite_1 = sprite.Sprite(
+            x=0.5, y=0.5, scale=0.1, shape=&#39;circle&#39;, y_vel=-0.01, c0=255)
+        
+        if plot:
+            MatplotlibUI()._simulate_video(
+                [sprite_0, sprite_1], force, steps, symmetric)
+        else:
+            for _ in range(steps):
+                _apply_pairwise_force(
+                    [sprite_0, sprite_1], force, symmetric=symmetric)
+                sprite_0.update_pos_from_vel(delta_t=1.)
+                sprite_1.update_pos_from_vel(delta_t=1.)
+            
+            assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+            assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+            assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+
+    @pytest.mark.parametrize(
+        &#39;init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1&#39;,
+        [
+            # Head-on
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3220], [0., -0.0133], [0.5, 0.4547],
+             [0., -0.0033]),
+            # Head-on, semi-elastic
+            ([0.5, 0.35], [0., 0.], [0.5, 0.3220], [0., -0.0133],
+             [0.5, 0.4547], [0., -0.0033]),
+            # Offset, symmetric, both moving
+            ([0.44, 0.37], [0., 0.01], [0.3879, 0.3583], [-0.0127, -0.0075],
+             [0.5267, 0.4768], [0.0063, -0.0013]),
+            # Offset, symmetric, both moving, diagonal motion
+            ([0.43, 0.36], [0.015, 0.01], [0.4661, 0.2989], [0.0018, -0.0197],
+             [0.5275, 0.5017], [0.0066, 0.0048]),
+        ]
+    )
+    def testCirclesDifferentMass(self,
+                                 init_pos_0,
+                                 init_vel_0,
+                                 out_pos_0,
+                                 out_vel_0,
+                                 out_pos_1,
+                                 out_vel_1,
+                                 steps=6,
+                                 plot=False):
+        &#34;&#34;&#34;Two circles with same size and different massed colliding.
+        
+        Set plot = True to display videos of the test conditions.
+        &#34;&#34;&#34;
+        force = collisions.Collision(
+            elasticity=1., symmetric=True, update_angle_vel=False)
+        sprite_0 = sprite.Sprite(
+            x=init_pos_0[0], y=init_pos_0[1], scale=0.1, shape=&#39;circle&#39;,
+            x_vel=init_vel_0[0], y_vel=init_vel_0[1], c1=255)
+        sprite_1 = sprite.Sprite(
+            x=0.5, y=0.5, scale=0.1, shape=&#39;circle&#39;, y_vel=-0.01, c0=255,
+            mass=2.)
+        
+        if plot:
+            MatplotlibUI()._simulate_video(
+                [sprite_0, sprite_1], force, steps, symmetric=True)
+        else:
+            for _ in range(steps):
+                _apply_pairwise_force(
+                    [sprite_0, sprite_1], force, symmetric=True)
+                sprite_0.update_pos_from_vel(delta_t=1.)
+                sprite_1.update_pos_from_vel(delta_t=1.)
+            
+            assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+            assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+            assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+
+    @pytest.mark.parametrize(
+        (&#39;init_angle_vel_0, out_pos_0, out_vel_0, out_angle_vel_0, out_pos_1, &#39;
+         &#39;out_vel_1, out_angle_vel_1, elasticity, update_angle_vel&#39;),
+        [
+            # No angular velocity, elastic, no update_angle_vel
+            (0., [0.5064, 0.6776], [-0.0044, 0.0024], 0., [0.6369, 0.5358],
+             [0.0044, -0.0024], 0., 1., False),
+            # No angular velocity, elastic
+            (0., [0.5411, 0.6689], [0.0025, 0.0006], -0.0911, [0.6022, 0.5444],
+             [-0.0025, -0.0006], 0.0362, 1., True),
+            # No angular velocity, semi-elastic
+            (0., [0.5442, 0.6681], [0.0031, 0.0005], -0.0683, [0.5991, 0.5452],
+             [-0.0031, -0.0005], 0.0271, 0.5, True),
+            # Positive angular velocity, elastic
+            (0.1, [0.4950, 0.6804], [-0.0021, 0.0018], -0.1215, [0.6483, 0.5329],
+             [0.0021, -0.0018], 0.0720, 1., True),
+            # Negative angular velocity, elastic
+            (-0.02, [0.5486, 0.6670], [0.0035, 0.0004], -0.0800, [0.5947, 0.5463],
+             [-0.0035, -0.0004], 0.0250, 1., True),
+        ]
+    )
+    def testTriangles(self,
+                      init_angle_vel_0,
+                      out_pos_0,
+                      out_vel_0,
+                      out_angle_vel_0,
+                      out_pos_1,
+                      out_vel_1,
+                      out_angle_vel_1,
+                      elasticity,
+                      update_angle_vel,
+                      steps=10,
+                      plot=False):
+        &#34;&#34;&#34;Two irregular triangles.
+        
+        Set plot = True to display videos of the test conditions.
+        &#34;&#34;&#34;
+        force = collisions.Collision(
+            elasticity=elasticity, symmetric=True,
+            update_angle_vel=update_angle_vel)
+        shape_0 = np.array([[1, 1], [1, 3], [-2, -2]])
+        sprite_0 = sprite.Sprite(
+            x=0.5, y=0, scale=0.05, shape=shape_0, x_vel=0.005, y_vel=0.,
+            c0=255, angle=1., angle_vel=init_angle_vel_0)
+        shape_1 = np.array([[2, 1], [0, 1], [-1, -3]])
+        sprite_1 = sprite.Sprite(
+            x=0.31, y=0.88, scale=0.05, shape=shape_1, x_vel=-0.005, y_vel=0.,
+            c1=255)
+        
+        if plot:
+            MatplotlibUI()._simulate_video(
+                [sprite_0, sprite_1], force, steps, symmetric=True)
+        else:
+            for _ in range(steps):
+                _apply_pairwise_force(
+                    [sprite_0, sprite_1], force, symmetric=True)
+                sprite_0.update_pos_from_vel(delta_t=1.)
+                sprite_1.update_pos_from_vel(delta_t=1.)
+            
+            assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+            assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_0.angle_vel, out_angle_vel_0, atol=_ATOL)
+            assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+            assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+            assert np.allclose(sprite_1.angle_vel, out_angle_vel_1, atol=_ATOL)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="tests.moog.physics.test_collisions.TestCollisions.testCirclesDifferentMass"><code class="name flex">
+<span>def <span class="ident">testCirclesDifferentMass</span></span>(<span>self, init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1, steps=6, plot=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Two circles with same size and different massed colliding.</p>
+<p>Set plot = True to display videos of the test conditions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.parametrize(
+    &#39;init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1&#39;,
+    [
+        # Head-on
+        ([0.5, 0.35], [0., 0.], [0.5, 0.3220], [0., -0.0133], [0.5, 0.4547],
+         [0., -0.0033]),
+        # Head-on, semi-elastic
+        ([0.5, 0.35], [0., 0.], [0.5, 0.3220], [0., -0.0133],
+         [0.5, 0.4547], [0., -0.0033]),
+        # Offset, symmetric, both moving
+        ([0.44, 0.37], [0., 0.01], [0.3879, 0.3583], [-0.0127, -0.0075],
+         [0.5267, 0.4768], [0.0063, -0.0013]),
+        # Offset, symmetric, both moving, diagonal motion
+        ([0.43, 0.36], [0.015, 0.01], [0.4661, 0.2989], [0.0018, -0.0197],
+         [0.5275, 0.5017], [0.0066, 0.0048]),
+    ]
+)
+def testCirclesDifferentMass(self,
+                             init_pos_0,
+                             init_vel_0,
+                             out_pos_0,
+                             out_vel_0,
+                             out_pos_1,
+                             out_vel_1,
+                             steps=6,
+                             plot=False):
+    &#34;&#34;&#34;Two circles with same size and different massed colliding.
+    
+    Set plot = True to display videos of the test conditions.
+    &#34;&#34;&#34;
+    force = collisions.Collision(
+        elasticity=1., symmetric=True, update_angle_vel=False)
+    sprite_0 = sprite.Sprite(
+        x=init_pos_0[0], y=init_pos_0[1], scale=0.1, shape=&#39;circle&#39;,
+        x_vel=init_vel_0[0], y_vel=init_vel_0[1], c1=255)
+    sprite_1 = sprite.Sprite(
+        x=0.5, y=0.5, scale=0.1, shape=&#39;circle&#39;, y_vel=-0.01, c0=255,
+        mass=2.)
+    
+    if plot:
+        MatplotlibUI()._simulate_video(
+            [sprite_0, sprite_1], force, steps, symmetric=True)
+    else:
+        for _ in range(steps):
+            _apply_pairwise_force(
+                [sprite_0, sprite_1], force, symmetric=True)
+            sprite_0.update_pos_from_vel(delta_t=1.)
+            sprite_1.update_pos_from_vel(delta_t=1.)
+        
+        assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+        assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+        assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+        assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)</code></pre>
+</details>
+</dd>
+<dt id="tests.moog.physics.test_collisions.TestCollisions.testCirclesSameMass"><code class="name flex">
+<span>def <span class="ident">testCirclesSameMass</span></span>(<span>self, init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1, elasticity, symmetric, steps=6, plot=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Two circles with same size and mass colliding.</p>
+<p>Set plot = True to display videos of the test conditions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.parametrize(
+    (&#39;init_pos_0, init_vel_0, out_pos_0, out_vel_0, out_pos_1, out_vel_1, &#39;
+     &#39;elasticity, symmetric&#39;),
+    [
+        # Head-on, asymmetric
+        ([0.5, 0.35], [0., 0.], [0.5, 0.35], [0., 0.], [0.5, 0.4827],
+         [0., 0.01], 1., False),
+        # Head-on, symmetric
+        ([0.5, 0.35], [0., 0.], [0.5, 0.3287], [0., -0.01], [0.5, 0.4613],
+         [0., 0.], 1., True),
+        # Head-on, symmetric, semi-elastic
+        ([0.5, 0.35], [0., 0.], [0.5, 0.3337], [0., -0.0075], [0.5, 0.4563],
+         [0., -0.0025], 0.5, True),
+        # Head-on, symmetric, inelastic
+        ([0.5, 0.35], [0., 0.], [0.5, 0.3387], [0., -0.005], [0.5, 0.4513],
+         [0., -0.005], 0., True),
+        # Head-on, symmetric, both moving
+        ([0.5, 0.35], [0., 0.01], [0.5, 0.3287], [0., -0.01], [0.5, 0.5213],
+         [0., 0.01], 1., True),
+        # Offset, asymmetric
+        ([0.44, 0.37], [0., 0.], [0.44, 0.37], [0., 0.], [0.5217, 0.4699],
+         [0.0095, 0.0031], 1., False),
+        # Offset, symmetric
+        ([0.44, 0.37], [0., 0.], [0.4291, 0.3550], [-0.0048, -0.0065],
+         [0.5109, 0.4550], [0.0048, -0.0035], 1., True),
+        # Offset, symmetric, semi-elastic
+        ([0.44, 0.37], [0., 0.], [0.4315, 0.3583], [-0.0036, -0.0049],
+         [0.5085, 0.4517], [0.0036, -0.0051], 0.5, True),
+        # Offset, symmetric, both moving
+        ([0.44, 0.37], [0., 0.01], [0.4006, 0.3758], [-0.0095, -0.0031],
+         [0.5394, 0.4942], [0.0095, 0.0031], 1., True),
+        # Offset, symmetric, both moving, diagonal motion
+        ([0.43, 0.36], [0.015, 0.01], [0.4793, 0.3286], [0.0051, -0.0123],
+         [0.5407, 0.5314], [0.0099, 0.0123], 1., True),
+    ]
+)
+def testCirclesSameMass(self,
+                        init_pos_0,
+                        init_vel_0,
+                        out_pos_0,
+                        out_vel_0,
+                        out_pos_1,
+                        out_vel_1,
+                        elasticity,
+                        symmetric,
+                        steps=6,
+                        plot=False):
+    &#34;&#34;&#34;Two circles with same size and mass colliding.
+    
+    Set plot = True to display videos of the test conditions.
+    &#34;&#34;&#34;
+    force = collisions.Collision(
+        elasticity=elasticity, symmetric=symmetric, update_angle_vel=False)
+    sprite_0 = sprite.Sprite(
+        x=init_pos_0[0], y=init_pos_0[1], scale=0.1, shape=&#39;circle&#39;,
+        x_vel=init_vel_0[0], y_vel=init_vel_0[1], c1=255)
+    sprite_1 = sprite.Sprite(
+        x=0.5, y=0.5, scale=0.1, shape=&#39;circle&#39;, y_vel=-0.01, c0=255)
+    
+    if plot:
+        MatplotlibUI()._simulate_video(
+            [sprite_0, sprite_1], force, steps, symmetric)
+    else:
+        for _ in range(steps):
+            _apply_pairwise_force(
+                [sprite_0, sprite_1], force, symmetric=symmetric)
+            sprite_0.update_pos_from_vel(delta_t=1.)
+            sprite_1.update_pos_from_vel(delta_t=1.)
+        
+        assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+        assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+        assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+        assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)</code></pre>
+</details>
+</dd>
+<dt id="tests.moog.physics.test_collisions.TestCollisions.testTriangles"><code class="name flex">
+<span>def <span class="ident">testTriangles</span></span>(<span>self, init_angle_vel_0, out_pos_0, out_vel_0, out_angle_vel_0, out_pos_1, out_vel_1, out_angle_vel_1, elasticity, update_angle_vel, steps=10, plot=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Two irregular triangles.</p>
+<p>Set plot = True to display videos of the test conditions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@pytest.mark.parametrize(
+    (&#39;init_angle_vel_0, out_pos_0, out_vel_0, out_angle_vel_0, out_pos_1, &#39;
+     &#39;out_vel_1, out_angle_vel_1, elasticity, update_angle_vel&#39;),
+    [
+        # No angular velocity, elastic, no update_angle_vel
+        (0., [0.5064, 0.6776], [-0.0044, 0.0024], 0., [0.6369, 0.5358],
+         [0.0044, -0.0024], 0., 1., False),
+        # No angular velocity, elastic
+        (0., [0.5411, 0.6689], [0.0025, 0.0006], -0.0911, [0.6022, 0.5444],
+         [-0.0025, -0.0006], 0.0362, 1., True),
+        # No angular velocity, semi-elastic
+        (0., [0.5442, 0.6681], [0.0031, 0.0005], -0.0683, [0.5991, 0.5452],
+         [-0.0031, -0.0005], 0.0271, 0.5, True),
+        # Positive angular velocity, elastic
+        (0.1, [0.4950, 0.6804], [-0.0021, 0.0018], -0.1215, [0.6483, 0.5329],
+         [0.0021, -0.0018], 0.0720, 1., True),
+        # Negative angular velocity, elastic
+        (-0.02, [0.5486, 0.6670], [0.0035, 0.0004], -0.0800, [0.5947, 0.5463],
+         [-0.0035, -0.0004], 0.0250, 1., True),
+    ]
+)
+def testTriangles(self,
+                  init_angle_vel_0,
+                  out_pos_0,
+                  out_vel_0,
+                  out_angle_vel_0,
+                  out_pos_1,
+                  out_vel_1,
+                  out_angle_vel_1,
+                  elasticity,
+                  update_angle_vel,
+                  steps=10,
+                  plot=False):
+    &#34;&#34;&#34;Two irregular triangles.
+    
+    Set plot = True to display videos of the test conditions.
+    &#34;&#34;&#34;
+    force = collisions.Collision(
+        elasticity=elasticity, symmetric=True,
+        update_angle_vel=update_angle_vel)
+    shape_0 = np.array([[1, 1], [1, 3], [-2, -2]])
+    sprite_0 = sprite.Sprite(
+        x=0.5, y=0, scale=0.05, shape=shape_0, x_vel=0.005, y_vel=0.,
+        c0=255, angle=1., angle_vel=init_angle_vel_0)
+    shape_1 = np.array([[2, 1], [0, 1], [-1, -3]])
+    sprite_1 = sprite.Sprite(
+        x=0.31, y=0.88, scale=0.05, shape=shape_1, x_vel=-0.005, y_vel=0.,
+        c1=255)
+    
+    if plot:
+        MatplotlibUI()._simulate_video(
+            [sprite_0, sprite_1], force, steps, symmetric=True)
+    else:
+        for _ in range(steps):
+            _apply_pairwise_force(
+                [sprite_0, sprite_1], force, symmetric=True)
+            sprite_0.update_pos_from_vel(delta_t=1.)
+            sprite_1.update_pos_from_vel(delta_t=1.)
+        
+        assert np.allclose(sprite_0.position, out_pos_0, atol=_ATOL)
+        assert np.allclose(sprite_0.velocity, out_vel_0, atol=_ATOL)
+        assert np.allclose(sprite_0.angle_vel, out_angle_vel_0, atol=_ATOL)
+        assert np.allclose(sprite_1.position, out_pos_1, atol=_ATOL)
+        assert np.allclose(sprite_1.velocity, out_vel_1, atol=_ATOL)
+        assert np.allclose(sprite_1.angle_vel, out_angle_vel_1, atol=_ATOL)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="tests.moog.physics" href="index.html">tests.moog.physics</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="tests.moog.physics.test_collisions.MatplotlibUI" href="#tests.moog.physics.test_collisions.MatplotlibUI">MatplotlibUI</a></code></h4>
+</li>
+<li>
+<h4><code><a title="tests.moog.physics.test_collisions.TestCollisions" href="#tests.moog.physics.test_collisions.TestCollisions">TestCollisions</a></code></h4>
+<ul class="">
+<li><code><a title="tests.moog.physics.test_collisions.TestCollisions.testCirclesDifferentMass" href="#tests.moog.physics.test_collisions.TestCollisions.testCirclesDifferentMass">testCirclesDifferentMass</a></code></li>
+<li><code><a title="tests.moog.physics.test_collisions.TestCollisions.testCirclesSameMass" href="#tests.moog.physics.test_collisions.TestCollisions.testCirclesSameMass">testCirclesSameMass</a></code></li>
+<li><code><a title="tests.moog.physics.test_collisions.TestCollisions.testTriangles" href="#tests.moog.physics.test_collisions.TestCollisions.testTriangles">testTriangles</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

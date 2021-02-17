@@ -268,4 +268,3 @@ def get_config(level):
     if not isinstance(level, int):
         raise ValueError(f'level is {level}, but must be an integer.')
     return _get_config(num_obstacles=level, valid_step_range=(50, 150))
-    

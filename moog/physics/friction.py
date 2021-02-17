@@ -54,4 +54,3 @@ class Drag(abstract_force.AbstractNewtonianForce):
     def _compute_forces(self, sprite):
         force = -1 * self._coeff_friction * sprite.velocity * sprite.mass
         return (force,)
-        

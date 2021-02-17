@@ -43,4 +43,3 @@ class ChangeLayer(abstract_rule.AbstractRule):
             state[self._new_layer].append(
                 state[self._old_layer].pop(i - count_changed_already))
             count_changed_already += 1
-        

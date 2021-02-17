@@ -30,4 +30,3 @@ class StayAlive(abstract_task.AbstractTask):
             reward = 0
             
         return reward, False
-        

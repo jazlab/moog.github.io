@@ -40,4 +40,3 @@ class CompositeTask(abstract_task.AbstractTask):
             should_reset = should_reset or task_should_reset
         
         return reward, should_reset
-        

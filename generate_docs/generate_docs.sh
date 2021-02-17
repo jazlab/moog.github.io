@@ -37,18 +37,22 @@ done
 
 # Run the pdoc3 command
 rm -r docs
+
+find . -type f -name '*.py' -exec sed -i '' 's/from\ absl\ import\ flags/from\ generate_docs\ import\ dummy_flags\ as\ flags/g' {} +
 pdoc3 --html . --skip-errors --output-dir docs
+find . -type f -name '*.py' -exec sed -i '' 's/from\ generate_docs\ import\ dummy_flags\ as\ flags/from\ absl\ import\ flags/g' {} +
 
 # Clean up the docs, replacing strings to make them look nicer
 cd docs
 mv __moog_tmp__/* .
 rm __moog_tmp__
-find . -type f -exec sed -i '' 's/__moog_tmp__/object_oriented_games/g' {} +
-find . -type f -exec sed -i '' 's/object_oriented_games.moog/moog/g' {} +
-find . -type f -exec sed -i '' 's/object_oriented_games.tests/tests/g' {} +
-find . -type f -exec sed -i '' 's/object_oriented_games.mworks/mworks/g' {} +
-find . -type f -exec sed -i '' 's/object_oriented_games.multi_agent_example/multi_agent_example/g' {} +
-find . -type f -exec sed -i '' 's/object_oriented_games/Homepage/g' {} +
+find . -type f -exec sed -i '' 's/__moog_tmp__/modular_object_oriented_games/g' {} +
+find . -type f -exec sed -i '' 's/modular_object_oriented_games.generate_docs/generate_docs/g' {} +
+find . -type f -exec sed -i '' 's/modular_object_oriented_games.moog/moog/g' {} +
+find . -type f -exec sed -i '' 's/modular_object_oriented_games.multi_agent_example/multi_agent_example/g' {} +
+find . -type f -exec sed -i '' 's/modular_object_oriented_games.mworks/mworks/g' {} +
+find . -type f -exec sed -i '' 's/modular_object_oriented_games.tests/tests/g' {} +
+find . -type f -exec sed -i '' 's/modular_object_oriented_games/Homepage/g' {} +
 cd ..
 
 # Undo replace relative links

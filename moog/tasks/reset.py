@@ -59,4 +59,3 @@ class Reset(abstract_task.AbstractTask):
         should_reset = self._steps_until_reset < 0
 
         return reward, should_reset
-        

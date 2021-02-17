@@ -24,4 +24,3 @@ class RandomForce(abstract_force.AbstractNewtonianForce):
         theta = np.random.uniform(0, 2 * np.pi)
         force = np.array([r * np.cos(theta), r * np.sin(theta)])
         return (force,)
-        

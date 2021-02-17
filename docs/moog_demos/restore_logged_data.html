@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>moog_demos.restore_logged_data API documentation</title>
+<meta name="description" content="Restore and plot logged data …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>moog_demos.restore_logged_data</code></h1>
+</header>
+<section id="section-intro">
+<p>Restore and plot logged data.</p>
+<p>This file can be used to visualize data logged by
+..moog.env_wrappers.logger.LoggingEnvironment.</p>
+<p>To run, first play .run_demo.py with flag &ndash;log_data=True. Then find the log
+directory that was written to, which will be printed at the beginning of playing
+the demo and should be of the form 'logs/config_name/$integer/$date_time'. Then
+using that directory, run
+$ python3 restore_logged_data.py &ndash;config='path.to.your.config'
+&ndash;log_directory=your_log_directory</p>
+<p>You may need to also set the &ndash;level flag.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Restore and plot logged data.
+
+This file can be used to visualize data logged by
+..moog.env_wrappers.logger.LoggingEnvironment.
+
+To run, first play .run_demo.py with flag --log_data=True. Then find the log
+directory that was written to, which will be printed at the beginning of playing
+the demo and should be of the form &#39;logs/config_name/$integer/$date_time&#39;. Then
+using that directory, run
+$ python3 restore_logged_data.py --config=&#39;path.to.your.config&#39; \
+  --log_directory=your_log_directory
+
+You may need to also set the --level flag.
+&#34;&#34;&#34;
+import sys
+sys.path.insert(0, &#39;..&#39;)
+
+from absl import app
+from generate_docs import dummy_flags as flags
+
+import collections
+import importlib
+import json
+import logging
+import numpy as np
+import os
+from moog import observers
+from moog import sprite as sprite_lib
+
+from matplotlib import path as mpl_path
+from matplotlib import pyplot as plt
+from matplotlib import transforms as mpl_transforms
+
+FLAGS = flags.FLAGS
+flags.DEFINE_string(&#39;config&#39;,
+                    &#39;example_configs.pong&#39;,
+                    &#39;Filename of task config to use.&#39;)
+flags.DEFINE_integer(&#39;level&#39;, 0, &#39;Level of task config to run.&#39;)
+flags.DEFINE_string(&#39;log_directory&#39;,
+                    &#39;logs/pong/0/2021_02_06_16_18_58&#39;,
+                    &#39;Directory of logs to restore.&#39;)
+flags.DEFINE_integer(&#39;num_episodes&#39;, 3, &#39;Number of episodes to restore.&#39;)
+
+
+def _create_new_sprite(sprite_kwargs, vertices=None):
+    &#34;&#34;&#34;Create new sprite from factors.
+
+    Args:
+        sprite_kwargs: Dict. Keyword arguments for sprite_lib.Sprite.__init__().
+            All of the strings in sprite_lib.Sprite.FACTOR_NAMES must be keys of
+            sprite_kwargs.
+        vertices: Optional numpy array of vertices. If provided, are used to
+            define the shape of the sprite. Otherwise, sprite_kwargs[&#39;shape&#39;] is
+            used.
+
+    Returns:
+        Instance of sprite_lib.Sprite.
+    &#34;&#34;&#34;
+    if vertices is not None:
+        # Have vertices, so must invert the translation, rotation, and
+        # scaling transformations to get the original sprite shape.
+        center_translate = mpl_transforms.Affine2D().translate(
+            -sprite_kwargs[&#39;x&#39;], -sprite_kwargs[&#39;y&#39;])
+        x_y_scale = 1. / np.array([
+            sprite_kwargs[&#39;scale&#39;],
+            sprite_kwargs[&#39;scale&#39;] * sprite_kwargs[&#39;aspect_ratio&#39;]
+        ])
+        transform = (
+            center_translate +
+            mpl_transforms.Affine2D().rotate(-sprite_kwargs[&#39;angle&#39;]) +
+            mpl_transforms.Affine2D().scale(*x_y_scale)
+        )
+        vertices = mpl_path.Path(vertices)
+        vertices = transform.transform_path(vertices).vertices
+
+        sprite_kwargs[&#39;shape&#39;] = vertices
+
+    return sprite_lib.Sprite(**sprite_kwargs)
+
+
+def _state_str_to_image(state_str, renderer, attributes, stored_sprites):
+    &#34;&#34;&#34;Convert state string to image.
+
+    Args:
+        state_str: String. This should be a state string from an episode log.
+            It should contain a list of layers, each of which is of the form
+            [layer_name, sprites_attributes] where sprites_attributes is a list
+            of attributes of all the sprites in the layer.
+        renderer: Instance of observers.PILRenderer. Used to renderer the state.
+        attributes: List of strings. Each must be either an element of
+            sprite_lib.Sprite.FACTOR_NAMES of &#39;id&#39;.
+        stored_sprites: Dict. Keys are unique id values of sprites, and values
+            are sprite instances. This dictionary is dynamically updated to keep
+            track of sprites so they don&#39;t need to be re-instantianted every
+            step.
+
+    Returns:
+        Image of rendered state.
+    &#34;&#34;&#34;
+    state = collections.OrderedDict()
+
+    # Will keep track of which sprite ids are still in use
+    active_sprite_ids = []
+
+    for layer_name, layer_str in state_str:
+        layer_sprites = []
+
+        for sprite_str in layer_str:
+            create_new_sprite = False
+            vertices = None
+
+            if len(sprite_str) == len(attributes) + 1:
+                # Vertices are the last element of sprite_str
+                vertices = np.array(sprite_str.pop(-1))
+                create_new_sprite = True
+            elif len(sprite_str) != len(attributes):
+                raise ValueError(
+                    &#39;len(sprite_str) = {} must be equal to or one greater than &#39;
+                    &#39;len(attributes) = {}&#39;.format(
+                        len(sprite_str), len(attributes)))
+
+            # Kwargs for the constructor of sprite_lib.Sprite()
+            sprite_kwargs = {
+                k: v for k, v in zip(attributes, sprite_str)
+            }
+
+            # All attributes other than &#39;id&#39; should be in
+            # sprite_lib.Sprite.FACTOR_NAMES
+            sprite_id = sprite_kwargs.pop(&#39;id&#39;)
+            active_sprite_ids.append(sprite_id)
+
+            if sprite_id not in stored_sprites:
+                create_new_sprite = True
+
+            # Create new sprite if necessary, else update old sprite
+            if create_new_sprite:
+                sprite = _create_new_sprite(sprite_kwargs, vertices=vertices)
+                stored_sprites[sprite_id] = sprite
+            else:
+                sprite = stored_sprites[sprite_id]
+                sprite_lib.update_sprite(sprite, **sprite_kwargs)
+
+            layer_sprites.append(sprite)
+        state[layer_name] = layer_sprites
+
+    # Purge stored_sprites, removing all inactive sprites
+    inactive_ids = [k for k in stored_sprites if k not in active_sprite_ids]
+    [stored_sprites.pop(k) for k in inactive_ids]
+
+    return renderer(state)
+
+
+def main(_):
+    &#34;&#34;&#34;Restore and render logged data.&#34;&#34;&#34;
+    log_dir = FLAGS.log_directory
+
+    ############################################################################
+    #### Create renderer
+    ############################################################################
+
+    # Use the PILRenderer in config[&#39;observers&#39;] if it exists
+    config = importlib.import_module(FLAGS.config)
+    config = config.get_config(FLAGS.level)
+    renderer_observer = False
+    for renderer in config[&#39;observers&#39;].values():
+        if isinstance(renderer, observers.PILRenderer):
+            renderer_observer = True
+            break
+    if not renderer_observer:
+        # config[&#39;observers&#39;] has no PILRenderer, so use this one and hope for
+        # the best
+        renderer = observers.PILRenderer(
+            image_size=(256, 256),
+            anti_aliasing=1,
+            color_to_rgb=&#39;hsv_to_rgb&#39;,  # Depends on the config
+        )
+
+    logging.info(&#39;Renderer instantiated.&#39;)
+
+    ############################################################################
+    #### Load logged episodes
+    ############################################################################
+
+    log_filenames = sorted(
+        filter(lambda s: s.isnumeric(), os.listdir(log_dir)))
+    log_filenames = log_filenames[:min(FLAGS.num_episodes, len(log_filenames))]
+    episode_strings = [
+        json.load(open(os.path.join(log_dir, x))) for x in log_filenames]
+    attributes = json.load(open(os.path.join(log_dir, &#39;attributes.txt&#39;)))
+
+    logging.info(&#39;Episode strings read.&#39;)
+
+    ############################################################################
+    #### Render logged episodes
+    ############################################################################
+
+    episode_images = []
+    stored_sprites = {}
+    for i, episode_str in enumerate(episode_strings):
+        logging.info(&#39;Rendering episode {}&#39;.format(i))
+        for timestep in episode_str:
+            state_str = timestep[-1]
+            image = _state_str_to_image(
+                state_str, renderer, attributes, stored_sprites)
+            episode_images.append(image)
+
+    ############################################################################
+    #### Display video of logged episodes
+    ############################################################################
+
+    logging.info(&#39;Displaying rendered episodes in infinite loop.&#39;)
+    ax = plt.subplots()[1]
+    imshow = ax.imshow(episode_images[0])
+
+    index = 0
+    while True:
+        index = (index + 1) % len(episode_images)
+        imshow.set_data(episode_images[index])
+        plt.draw()
+        plt.pause(0.001)
+
+
+if __name__ == &#34;__main__&#34;:
+    app.run(main)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="moog_demos.restore_logged_data.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>_)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Restore and render logged data.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main(_):
+    &#34;&#34;&#34;Restore and render logged data.&#34;&#34;&#34;
+    log_dir = FLAGS.log_directory
+
+    ############################################################################
+    #### Create renderer
+    ############################################################################
+
+    # Use the PILRenderer in config[&#39;observers&#39;] if it exists
+    config = importlib.import_module(FLAGS.config)
+    config = config.get_config(FLAGS.level)
+    renderer_observer = False
+    for renderer in config[&#39;observers&#39;].values():
+        if isinstance(renderer, observers.PILRenderer):
+            renderer_observer = True
+            break
+    if not renderer_observer:
+        # config[&#39;observers&#39;] has no PILRenderer, so use this one and hope for
+        # the best
+        renderer = observers.PILRenderer(
+            image_size=(256, 256),
+            anti_aliasing=1,
+            color_to_rgb=&#39;hsv_to_rgb&#39;,  # Depends on the config
+        )
+
+    logging.info(&#39;Renderer instantiated.&#39;)
+
+    ############################################################################
+    #### Load logged episodes
+    ############################################################################
+
+    log_filenames = sorted(
+        filter(lambda s: s.isnumeric(), os.listdir(log_dir)))
+    log_filenames = log_filenames[:min(FLAGS.num_episodes, len(log_filenames))]
+    episode_strings = [
+        json.load(open(os.path.join(log_dir, x))) for x in log_filenames]
+    attributes = json.load(open(os.path.join(log_dir, &#39;attributes.txt&#39;)))
+
+    logging.info(&#39;Episode strings read.&#39;)
+
+    ############################################################################
+    #### Render logged episodes
+    ############################################################################
+
+    episode_images = []
+    stored_sprites = {}
+    for i, episode_str in enumerate(episode_strings):
+        logging.info(&#39;Rendering episode {}&#39;.format(i))
+        for timestep in episode_str:
+            state_str = timestep[-1]
+            image = _state_str_to_image(
+                state_str, renderer, attributes, stored_sprites)
+            episode_images.append(image)
+
+    ############################################################################
+    #### Display video of logged episodes
+    ############################################################################
+
+    logging.info(&#39;Displaying rendered episodes in infinite loop.&#39;)
+    ax = plt.subplots()[1]
+    imshow = ax.imshow(episode_images[0])
+
+    index = 0
+    while True:
+        index = (index + 1) % len(episode_images)
+        imshow.set_data(episode_images[index])
+        plt.draw()
+        plt.pause(0.001)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="moog_demos" href="index.html">moog_demos</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="moog_demos.restore_logged_data.main" href="#moog_demos.restore_logged_data.main">main</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

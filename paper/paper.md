@@ -23,9 +23,9 @@ authors:
 affiliations:
  - name: Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology
    index: 1
- - name: Center for Brains, Minds and Machines, Massachusetts Institute of Technology
+ - name: Center for Brains, Minds and Machines, MIT
    index: 2
- - name: McGovern Institute of Brain Research, Massachusetts Institute of Technology
+ - name: McGovern Institute of Brain Research, MIT
    index: 3
 date: 17 February 2021
 bibliography: paper.bib
@@ -46,7 +46,7 @@ also use object-based visual stimuli to probe questions about object-oriented
 reasoning in infants and young animals [@spelke2007core; @wood2020reverse]. In
 neuroscience, object-based computer games have recently been used to study
 decision-making and physical reasoning in both human and non-human primates
-[@fischer2016functional; @mcdonald2019bayesian; @yoo2020neural,
+[@fischer2016functional; @mcdonald2019bayesian; @yoo2020neural;
 @Rajalingham2021].
 
 Furthermore, a growing number of researchers are studying tasks using a

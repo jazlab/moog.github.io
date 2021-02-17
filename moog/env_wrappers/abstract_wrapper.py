@@ -85,4 +85,3 @@ class AbstractEnvironmentWrapper(abc.ABC):
     @property
     def reset_next_step(self):
         return self._environment.reset_next_step
-    

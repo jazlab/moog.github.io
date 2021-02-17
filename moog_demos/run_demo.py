@@ -1,4 +1,4 @@
-"""Run joystick demo.
+"""Demo script.
 
 This script can be used to play with and test prototype tasks with a matplotlib
 interface. This demo does not run with a fast frame-rate or control timing well,

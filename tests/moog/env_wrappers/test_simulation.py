@@ -126,4 +126,3 @@ class TestSimulation():
         assert timestep.last()
 
         assert (env.meta_state['key'] == 7)
-        
