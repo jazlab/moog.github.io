@@ -46,7 +46,8 @@ also use object-based visual stimuli to probe questions about object-oriented
 reasoning in infants and young animals [@spelke2007core; @wood2020reverse]. In
 neuroscience, object-based computer games have recently been used to study
 decision-making and physical reasoning in both human and non-human primates
-[@fischer2016functional; @mcdonald2019bayesian; @yoo2020neural].
+[@fischer2016functional; @mcdonald2019bayesian; @yoo2020neural,
+@Rajalingham2021].
 
 Furthermore, a growing number of researchers are studying tasks using a
 combination of approaches from these fields. Comparing artificial agents with

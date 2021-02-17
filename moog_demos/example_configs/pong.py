@@ -1,6 +1,8 @@
 """Pong task.
 
-This task is closed based on the task in Rajalingham, Piccato, & Jazayeri, 2020.
+This task is based on the task in the following paper:
+Rajalingham, Rishi and Piccato, Aida and Jazayeri, Mehrdad (2021). The role of
+mental simulation in primate physical inference abilities.
 
 In this task the subject controls a paddle at the bottom of the screen with a
 joystick. The paddle is constrained to only move left-right. Each trial one ball
