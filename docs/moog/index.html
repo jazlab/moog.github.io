@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>moog API documentation</title>
+<meta name="description" content="__init__.py …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>moog</code></h1>
+</header>
+<section id="section-intro">
+<p><strong>init</strong>.py.</p>
+<h1 id="modular-object-oriented-games">Modular Object-Oriented Games</h1>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog/../readme_visuals/moog_header.gif?raw=true" width="900"></p>
+<h2 id="description">Description</h2>
+<p>The core philosophy of MOOG is <strong>"one task, one file."</strong> Namely, each task can
+be implemented with a single configuration file. This configuration file should
+be a short "recipe" for the task, containing as little substantive code as
+possible, and should define a set of components to pass to the MOOG environment.
+See <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/example_configs">configs</a> for example configuration files.</p>
+<p>A MOOG environment has the following components. It receives these (or callables
+returning these) from the configuration file:</p>
+<ul>
+<li><strong>State</strong>. The state is a collection of sprites. Sprites are polygonal shapes
+with color and physical attributes (position, velocity, angular velocity, and
+mass). Sprites are 2-dimensional, and the state is 2.5-dimensional with
+z-ordering for occlusion. The initial state can be procedurally generated from
+a custom distribution at the beginning of each episode. The state is
+structured in terms of layers, which helps hierarchical organization. See
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./state_initialization">state_initialization</a> for procedural generation
+tools.</li>
+<li><strong>Physics</strong>. The physics is a collection of forces that operate on the
+sprites. There are a variety of forces built into MOOG (collisions, friction,
+gravity, rigid tethers, &hellip;) and it is easy to implement your own custom
+force. Forces perturb the velocity and angular velocity of sprites, and the
+sprite positions and angles are updated with Newton's method. See
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./physics">physics</a> for more.</li>
+<li><strong>Task</strong>. The task defines the rewards and specifies when to terminate a
+trial. See <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./tasks">tasks</a> for more.</li>
+<li><strong>Action Space</strong>. The action space allows the subject to control the
+environment. Every environment step calls for an action from the subject.
+Action spaces may impart a force on a sprite (like a joystick), move a sprite
+in a grid (like an arrow-key interface), set the position of a sprite (like a
+touch-screen), or be customized. The action space may also be a composite of
+constituent action spaces, allowing for multi-agent tasks and multi-controller
+games. See <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./action_spaces">action_spaces</a> for more.</li>
+<li><strong>Observers</strong>. Observers expose an observation of the environment at each
+timestep, allowing subjects to observe the environment state. Typically, the
+observer includes a renderer producing an image. However, it is possible to
+implement a custom observer that exposes any function of the environment
+state. The environment can also have multiple observers. See
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./observers">observers</a> for more.</li>
+<li><strong>Game Rules</strong> (optional). If provided, the game rules define dynamics of the
+environment not captured by the physics. A variety of game rules are provided,
+including rules to modify sprites when they come in contact, create new
+sprites upon a condition, and control phase structure of trials (e.g. fixation
+phase &ndash;&gt; stimulus phase &ndash;&gt; response phase). You can also implement your own
+custom game rules (as in the
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/example_configs/functional_maze.py"><code>functional_maze</code></a> example
+config). See <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./game_rules">game_rules</a> for more.</li>
+<li><strong>Meta-state</strong> (optional). If provided, the meta-state contains addition state
+information not represented by the sprites. It is often unused, but can be
+used to record the phase of the task or the game level (this can be useful for
+analysis, particularly of psychophysics data). It is fully customizable.</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<p>The best way to become familiar with the MOOG framework is by looking at example
+task configuration files. See the <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/README.md"><code>moog_demos</code> README</a>
+for videos of example configs and the
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/example_configs"><code>moog_demos/example_configs</code></a> directory for the
+example config files. The simplest config is
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/example_configs/predators_arena.py"><code>predators_arena</code></a>, so that
+is a good place to start.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;__init__.py.
+
+.. include:: README.md
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="moog.action_spaces" href="action_spaces/index.html">moog.action_spaces</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py.</p></div>
+</dd>
+<dt><code class="name"><a title="moog.env_wrappers" href="env_wrappers/index.html">moog.env_wrappers</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py.</p></div>
+</dd>
+<dt><code class="name"><a title="moog.environment" href="environment.html">moog.environment</a></code></dt>
+<dd>
+<div class="desc"><p>Environment …</p></div>
+</dd>
+<dt><code class="name"><a title="moog.game_rules" href="game_rules/index.html">moog.game_rules</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py.</p></div>
+</dd>
+<dt><code class="name"><a title="moog.maze_lib" href="maze_lib/index.html">moog.maze_lib</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py.</p></div>
+</dd>
+<dt><code class="name"><a title="moog.observers" href="observers/index.html">moog.observers</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py.</p></div>
+</dd>
+<dt><code class="name"><a title="moog.physics" href="physics/index.html">moog.physics</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py</p></div>
+</dd>
+<dt><code class="name"><a title="moog.shapes" href="shapes.html">moog.shapes</a></code></dt>
+<dd>
+<div class="desc"><p>Shapes and shape-fetching functions for common use across tasks.</p></div>
+</dd>
+<dt><code class="name"><a title="moog.sprite" href="sprite.html">moog.sprite</a></code></dt>
+<dd>
+<div class="desc"><p>Sprite …</p></div>
+</dd>
+<dt><code class="name"><a title="moog.state_initialization" href="state_initialization/index.html">moog.state_initialization</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="moog.tasks" href="tasks/index.html">moog.tasks</a></code></dt>
+<dd>
+<div class="desc"><p><strong>init</strong>.py.</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#modular-object-oriented-games">Modular Object-Oriented Games</a><ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Homepage" href="../index.html">Homepage</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="moog.action_spaces" href="action_spaces/index.html">moog.action_spaces</a></code></li>
+<li><code><a title="moog.env_wrappers" href="env_wrappers/index.html">moog.env_wrappers</a></code></li>
+<li><code><a title="moog.environment" href="environment.html">moog.environment</a></code></li>
+<li><code><a title="moog.game_rules" href="game_rules/index.html">moog.game_rules</a></code></li>
+<li><code><a title="moog.maze_lib" href="maze_lib/index.html">moog.maze_lib</a></code></li>
+<li><code><a title="moog.observers" href="observers/index.html">moog.observers</a></code></li>
+<li><code><a title="moog.physics" href="physics/index.html">moog.physics</a></code></li>
+<li><code><a title="moog.shapes" href="shapes.html">moog.shapes</a></code></li>
+<li><code><a title="moog.sprite" href="sprite.html">moog.sprite</a></code></li>
+<li><code><a title="moog.state_initialization" href="state_initialization/index.html">moog.state_initialization</a></code></li>
+<li><code><a title="moog.tasks" href="tasks/index.html">moog.tasks</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

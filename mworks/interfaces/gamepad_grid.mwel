@@ -1,0 +1,59 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// PS3 Gamepad grid interface
+//
+// Usage: Use the left-side rocker to control left/right/up/down motion, and use
+// the 'X' button (bottom of the four on the right side) as a surrogate space
+// bar.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+%define update_controller ()
+    right_pressed = rocker_x > 128 + 24
+    left_pressed = rocker_x < 128 - 24
+    up_pressed = rocker_y < 128 - 24
+    down_pressed = rocker_y > 128 + 24
+%end
+
+group 'Controller variables' {
+    var right_pressed = 0
+    var left_pressed = 0
+    var up_pressed = 0
+    var down_pressed = 0
+
+    var rocker_x = 128 {
+        update_controller ()
+    }
+    var rocker_y = 128 {
+        update_controller ()
+    }
+}
+
+%define joystick_device ()
+    iodevice/usbhid_generic (
+        usage_page = 1
+        usage = 5
+        // preferred_location_id = 338755584  // sony PS3 gamepad laptop
+        // log_all_input_values = true
+        )
+%end
+
+%define joystick_name_to_usage = {
+    'rocker_X_channel': 48,
+    'rocker_Y_channel': 49,
+    'button_X_channel': 2
+}
+
+joystick_device controller {
+    iochannel/usbhid_generic_input_channel (
+        usage_page = 1
+        usage = joystick_name_to_usage['rocker_X_channel']
+        value = rocker_x
+        )
+    iochannel/usbhid_generic_input_channel (
+        usage_page = 1
+        usage = joystick_name_to_usage['rocker_Y_channel']
+        value = rocker_y
+        )
+}

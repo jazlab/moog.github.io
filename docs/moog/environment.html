@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>moog.environment API documentation</title>
+<meta name="description" content="Environment …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>moog.environment</code></h1>
+</header>
+<section id="section-intro">
+<p>Environment.</p>
+<p>This contains the Environment class. Evey MOOG task is an instance of this
+Environment. It inherits from the dm_env.Environment API, but see
+env_wrappers.gym_wrapper for an OpenAI Gym interface.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Environment.
+
+This contains the Environment class. Evey MOOG task is an instance of this
+Environment. It inherits from the dm_env.Environment API, but see
+env_wrappers.gym_wrapper for an OpenAI Gym interface.
+&#34;&#34;&#34;
+
+import dm_env
+
+
+class Environment(dm_env.Environment):
+    &#34;&#34;&#34;Environment class.
+
+    Every object-oriented game is an instance of this class. This class pulls
+    together all of the components of the game, such as the state initializer,
+    physics (physics and forces), task (reward function), action space,
+    observer (renderer), and game rules (game_rules). This is the only place
+    where all of those components interact.
+
+    The state of the environment is an OrderedDict containing all of physical
+    objects (sprites) in the environment. The keys of the state are strings, and
+    the values are iterables of sprite.Sprite instances. This state can be
+    thought of as an ordered set of layers in the environment. This state is
+    passed into physics and action space for updating, into the task for
+    computing reward, and into the observer for rendering.
+    &#34;&#34;&#34;
+
+    def __init__(self,
+                 state_initializer,
+                 physics,
+                 task,
+                 action_space,
+                 observers,
+                 game_rules=(),
+                 meta_state_initializer=None):
+        &#34;&#34;&#34;Constructor.
+
+        Args:
+            state_initializer: Callable returning an initial state, which is an
+                OrderedDict of iterables of sprite.Sprite instances. This is
+                called at the beginning of each episode.
+            physics: Instance of physics.AbstractPhysics. Must have methods:
+                * reset(state)
+                * step(state) --- in-place update the state each timestep.
+            task: Instance of tasks.AbstractTask. Must have methods:
+                * reset(state, meta_state)
+                * reward(state, meta_state, step_count) returning scalar reward
+                    and bool should_reset.
+            action_space: Instance of action_spaces.AbstractActionSpace. Must
+                have methods:
+                * step(state, action)
+                * reset(state)
+            observers: Dict. Each value must be an instance of
+                observers.AbstractObserver, hence callable taking in state and
+                returning observation.
+            game_rules: Iterable of instances of
+                game_rules.AbstractRule. Each element is called on the state
+                and meta_state every environment step and can modify them
+                in-place.
+            meta_state_initializer: Optional callable returning environment
+                meta_state. If provided, is called every episode reset.
+                Environment meta_state is only used by task and game rules.
+        &#34;&#34;&#34;
+        self.state_initializer = state_initializer
+        self.physics = physics
+        self.task = task
+        self.action_space = action_space
+        self.observers = observers
+        self.game_rules = game_rules
+
+        if meta_state_initializer is None:
+            self._meta_state_initializer = lambda: None
+        else:
+            self._meta_state_initializer = meta_state_initializer
+
+    def reset(self):
+        self._reset_next_step = False
+        self.step_count = 0
+        
+        self._state = self.state_initializer()
+        self._meta_state = self._meta_state_initializer()
+        self.task.reset(self._state, self._meta_state)
+        self.physics.reset(self._state)
+        self.action_space.reset(self._state)
+        for rule in self.game_rules:
+            rule.reset(self._state, self._meta_state)
+            rule.step(self._state, self._meta_state)
+        
+        return dm_env.restart(self.observation())
+
+    def step(self, action):
+        &#34;&#34;&#34;Step the environment with an action.&#34;&#34;&#34;
+        if self._reset_next_step:
+            return self.reset()
+
+        # Apply the game_rules
+        for rule in self.game_rules:
+            rule.step(self._state, self._meta_state)
+
+        # Apply the action
+        self.action_space.step(self._state, action)
+
+        # Step the physics
+        self.physics.step(self._state)
+
+        # Compute reward
+        self.step_count += 1
+        reward, should_reset = self.task.reward(
+            self._state, self._meta_state, self.step_count)
+
+        # Take observation
+        observation = self.observation()
+
+        # Return transition
+        if should_reset:
+            self._reset_next_step = True
+            return dm_env.termination(reward=reward, observation=observation)
+        else:
+            return dm_env.transition(reward=reward, observation=observation)
+
+    def observation(self):
+        return {k: observer(self._state)
+                for k, observer in self.observers.items()}
+
+    def observation_spec(self):
+        observation_specs = {
+            name: observer.observation_spec()
+            for name, observer in self.observers.items()
+        }
+        return observation_specs
+
+    def action_spec(self):
+        return self.action_space.action_spec()
+
+    @property
+    def state(self):
+        return self._state
+    
+    @property
+    def meta_state(self):
+        return self._meta_state
+
+    @property
+    def reset_next_step(self):
+        return self._reset_next_step</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="moog.environment.Environment"><code class="flex name class">
+<span>class <span class="ident">Environment</span></span>
+<span>(</span><span>state_initializer, physics, task, action_space, observers, game_rules=(), meta_state_initializer=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Environment class.</p>
+<p>Every object-oriented game is an instance of this class. This class pulls
+together all of the components of the game, such as the state initializer,
+physics (physics and forces), task (reward function), action space,
+observer (renderer), and game rules (game_rules). This is the only place
+where all of those components interact.</p>
+<p>The state of the environment is an OrderedDict containing all of physical
+objects (sprites) in the environment. The keys of the state are strings, and
+the values are iterables of sprite.Sprite instances. This state can be
+thought of as an ordered set of layers in the environment. This state is
+passed into physics and action space for updating, into the task for
+computing reward, and into the observer for rendering.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>state_initializer</code></strong></dt>
+<dd>Callable returning an initial state, which is an
+OrderedDict of iterables of sprite.Sprite instances. This is
+called at the beginning of each episode.</dd>
+<dt><strong><code>physics</code></strong></dt>
+<dd>Instance of physics.AbstractPhysics. Must have methods:
+* reset(state)
+* step(state) &mdash; in-place update the state each timestep.</dd>
+<dt><strong><code>task</code></strong></dt>
+<dd>Instance of tasks.AbstractTask. Must have methods:
+* reset(state, meta_state)
+* reward(state, meta_state, step_count) returning scalar reward
+and bool should_reset.</dd>
+<dt><strong><code>action_space</code></strong></dt>
+<dd>Instance of action_spaces.AbstractActionSpace. Must
+have methods:
+* step(state, action)
+* reset(state)</dd>
+<dt><strong><code>observers</code></strong></dt>
+<dd>Dict. Each value must be an instance of
+observers.AbstractObserver, hence callable taking in state and
+returning observation.</dd>
+<dt><strong><code>game_rules</code></strong></dt>
+<dd>Iterable of instances of
+game_rules.AbstractRule. Each element is called on the state
+and meta_state every environment step and can modify them
+in-place.</dd>
+<dt><strong><code>meta_state_initializer</code></strong></dt>
+<dd>Optional callable returning environment
+meta_state. If provided, is called every episode reset.
+Environment meta_state is only used by task and game rules.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Environment(dm_env.Environment):
+    &#34;&#34;&#34;Environment class.
+
+    Every object-oriented game is an instance of this class. This class pulls
+    together all of the components of the game, such as the state initializer,
+    physics (physics and forces), task (reward function), action space,
+    observer (renderer), and game rules (game_rules). This is the only place
+    where all of those components interact.
+
+    The state of the environment is an OrderedDict containing all of physical
+    objects (sprites) in the environment. The keys of the state are strings, and
+    the values are iterables of sprite.Sprite instances. This state can be
+    thought of as an ordered set of layers in the environment. This state is
+    passed into physics and action space for updating, into the task for
+    computing reward, and into the observer for rendering.
+    &#34;&#34;&#34;
+
+    def __init__(self,
+                 state_initializer,
+                 physics,
+                 task,
+                 action_space,
+                 observers,
+                 game_rules=(),
+                 meta_state_initializer=None):
+        &#34;&#34;&#34;Constructor.
+
+        Args:
+            state_initializer: Callable returning an initial state, which is an
+                OrderedDict of iterables of sprite.Sprite instances. This is
+                called at the beginning of each episode.
+            physics: Instance of physics.AbstractPhysics. Must have methods:
+                * reset(state)
+                * step(state) --- in-place update the state each timestep.
+            task: Instance of tasks.AbstractTask. Must have methods:
+                * reset(state, meta_state)
+                * reward(state, meta_state, step_count) returning scalar reward
+                    and bool should_reset.
+            action_space: Instance of action_spaces.AbstractActionSpace. Must
+                have methods:
+                * step(state, action)
+                * reset(state)
+            observers: Dict. Each value must be an instance of
+                observers.AbstractObserver, hence callable taking in state and
+                returning observation.
+            game_rules: Iterable of instances of
+                game_rules.AbstractRule. Each element is called on the state
+                and meta_state every environment step and can modify them
+                in-place.
+            meta_state_initializer: Optional callable returning environment
+                meta_state. If provided, is called every episode reset.
+                Environment meta_state is only used by task and game rules.
+        &#34;&#34;&#34;
+        self.state_initializer = state_initializer
+        self.physics = physics
+        self.task = task
+        self.action_space = action_space
+        self.observers = observers
+        self.game_rules = game_rules
+
+        if meta_state_initializer is None:
+            self._meta_state_initializer = lambda: None
+        else:
+            self._meta_state_initializer = meta_state_initializer
+
+    def reset(self):
+        self._reset_next_step = False
+        self.step_count = 0
+        
+        self._state = self.state_initializer()
+        self._meta_state = self._meta_state_initializer()
+        self.task.reset(self._state, self._meta_state)
+        self.physics.reset(self._state)
+        self.action_space.reset(self._state)
+        for rule in self.game_rules:
+            rule.reset(self._state, self._meta_state)
+            rule.step(self._state, self._meta_state)
+        
+        return dm_env.restart(self.observation())
+
+    def step(self, action):
+        &#34;&#34;&#34;Step the environment with an action.&#34;&#34;&#34;
+        if self._reset_next_step:
+            return self.reset()
+
+        # Apply the game_rules
+        for rule in self.game_rules:
+            rule.step(self._state, self._meta_state)
+
+        # Apply the action
+        self.action_space.step(self._state, action)
+
+        # Step the physics
+        self.physics.step(self._state)
+
+        # Compute reward
+        self.step_count += 1
+        reward, should_reset = self.task.reward(
+            self._state, self._meta_state, self.step_count)
+
+        # Take observation
+        observation = self.observation()
+
+        # Return transition
+        if should_reset:
+            self._reset_next_step = True
+            return dm_env.termination(reward=reward, observation=observation)
+        else:
+            return dm_env.transition(reward=reward, observation=observation)
+
+    def observation(self):
+        return {k: observer(self._state)
+                for k, observer in self.observers.items()}
+
+    def observation_spec(self):
+        observation_specs = {
+            name: observer.observation_spec()
+            for name, observer in self.observers.items()
+        }
+        return observation_specs
+
+    def action_spec(self):
+        return self.action_space.action_spec()
+
+    @property
+    def state(self):
+        return self._state
+    
+    @property
+    def meta_state(self):
+        return self._meta_state
+
+    @property
+    def reset_next_step(self):
+        return self._reset_next_step</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>dm_env._environment.Environment</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="moog.environment.Environment.meta_state"><code class="name">var <span class="ident">meta_state</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def meta_state(self):
+    return self._meta_state</code></pre>
+</details>
+</dd>
+<dt id="moog.environment.Environment.reset_next_step"><code class="name">var <span class="ident">reset_next_step</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def reset_next_step(self):
+    return self._reset_next_step</code></pre>
+</details>
+</dd>
+<dt id="moog.environment.Environment.state"><code class="name">var <span class="ident">state</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def state(self):
+    return self._state</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="moog.environment.Environment.action_spec"><code class="name flex">
+<span>def <span class="ident">action_spec</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the actions that should be provided to <code>step</code>.</p>
+<p>May use a subclass of <code>specs.Array</code> that specifies additional properties
+such as min and max bounds on the values.</p>
+<h2 id="returns">Returns</h2>
+<p>An <code>Array</code> spec, or a nested dict, list or tuple of <code>Array</code> specs.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def action_spec(self):
+    return self.action_space.action_spec()</code></pre>
+</details>
+</dd>
+<dt id="moog.environment.Environment.observation"><code class="name flex">
+<span>def <span class="ident">observation</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def observation(self):
+    return {k: observer(self._state)
+            for k, observer in self.observers.items()}</code></pre>
+</details>
+</dd>
+<dt id="moog.environment.Environment.observation_spec"><code class="name flex">
+<span>def <span class="ident">observation_spec</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Defines the observations provided by the environment.</p>
+<p>May use a subclass of <code>specs.Array</code> that specifies additional properties
+such as min and max bounds on the values.</p>
+<h2 id="returns">Returns</h2>
+<p>An <code>Array</code> spec, or a nested dict, list or tuple of <code>Array</code> specs.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def observation_spec(self):
+    observation_specs = {
+        name: observer.observation_spec()
+        for name, observer in self.observers.items()
+    }
+    return observation_specs</code></pre>
+</details>
+</dd>
+<dt id="moog.environment.Environment.reset"><code class="name flex">
+<span>def <span class="ident">reset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Starts a new sequence and returns the first <code>TimeStep</code> of this sequence.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>A <code>TimeStep</code> namedtuple containing:</dt>
+<dt><code>
+step_type</code></dt>
+<dd>A <code>StepType</code> of <code>FIRST</code>.
+reward: <code>None</code>, indicating the reward is undefined.
+discount: <code>None</code>, indicating the discount is undefined.
+observation: A NumPy array, or a nested dict, list or tuple of arrays.
+Scalar values that can be cast to NumPy arrays (e.g. Python floats)
+are also valid in place of a scalar array. Must conform to the
+specification returned by <code>observation_spec()</code>.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self):
+    self._reset_next_step = False
+    self.step_count = 0
+    
+    self._state = self.state_initializer()
+    self._meta_state = self._meta_state_initializer()
+    self.task.reset(self._state, self._meta_state)
+    self.physics.reset(self._state)
+    self.action_space.reset(self._state)
+    for rule in self.game_rules:
+        rule.reset(self._state, self._meta_state)
+        rule.step(self._state, self._meta_state)
+    
+    return dm_env.restart(self.observation())</code></pre>
+</details>
+</dd>
+<dt id="moog.environment.Environment.step"><code class="name flex">
+<span>def <span class="ident">step</span></span>(<span>self, action)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Step the environment with an action.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def step(self, action):
+    &#34;&#34;&#34;Step the environment with an action.&#34;&#34;&#34;
+    if self._reset_next_step:
+        return self.reset()
+
+    # Apply the game_rules
+    for rule in self.game_rules:
+        rule.step(self._state, self._meta_state)
+
+    # Apply the action
+    self.action_space.step(self._state, action)
+
+    # Step the physics
+    self.physics.step(self._state)
+
+    # Compute reward
+    self.step_count += 1
+    reward, should_reset = self.task.reward(
+        self._state, self._meta_state, self.step_count)
+
+    # Take observation
+    observation = self.observation()
+
+    # Return transition
+    if should_reset:
+        self._reset_next_step = True
+        return dm_env.termination(reward=reward, observation=observation)
+    else:
+        return dm_env.transition(reward=reward, observation=observation)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="moog" href="index.html">moog</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="moog.environment.Environment" href="#moog.environment.Environment">Environment</a></code></h4>
+<ul class="two-column">
+<li><code><a title="moog.environment.Environment.action_spec" href="#moog.environment.Environment.action_spec">action_spec</a></code></li>
+<li><code><a title="moog.environment.Environment.meta_state" href="#moog.environment.Environment.meta_state">meta_state</a></code></li>
+<li><code><a title="moog.environment.Environment.observation" href="#moog.environment.Environment.observation">observation</a></code></li>
+<li><code><a title="moog.environment.Environment.observation_spec" href="#moog.environment.Environment.observation_spec">observation_spec</a></code></li>
+<li><code><a title="moog.environment.Environment.reset" href="#moog.environment.Environment.reset">reset</a></code></li>
+<li><code><a title="moog.environment.Environment.reset_next_step" href="#moog.environment.Environment.reset_next_step">reset_next_step</a></code></li>
+<li><code><a title="moog.environment.Environment.state" href="#moog.environment.Environment.state">state</a></code></li>
+<li><code><a title="moog.environment.Environment.step" href="#moog.environment.Environment.step">step</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

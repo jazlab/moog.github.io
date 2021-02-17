@@ -1,0 +1,2017 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>moog.sprite API documentation</title>
+<meta name="description" content="Sprite …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>moog.sprite</code></h1>
+</header>
+<section id="section-intro">
+<p>Sprite.</p>
+<p>The main class in this file is Sprite. Instances of Sprite comprise the state of
+an environment. This file also contains some helper functions for updating the
+attributes of a sprite and computing crossing points of lines and sprite edges.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># This file was forked and heavily modified from the file here:
+# https://github.com/deepmind/spriteworld/blob/master/spriteworld/sprite.py
+# Here is the license header for that file:
+
+# Copyright 2019 DeepMind Technologies Limited.
+#
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ============================================================================
+&#34;&#34;&#34;Sprite.
+
+The main class in this file is Sprite. Instances of Sprite comprise the state of
+an environment. This file also contains some helper functions for updating the 
+attributes of a sprite and computing crossing points of lines and sprite edges.
+&#34;&#34;&#34;
+
+import collections
+from matplotlib import path as mpl_path
+from matplotlib import transforms as mpl_transforms
+import numpy as np
+from moog import shapes
+
+GLOBAL_SPRITE_COUNT = 0
+
+# Tiny float for numerical stability in segment_crossings()
+_EPSILON_INTERPOLATION = 1e-8
+
+
+def update_sprite(sprite, **factors):
+    &#34;&#34;&#34;Update sprite in place given an entirely new set of factors.
+
+    This file updates a sprite as efficienctly as possible, i.e. without
+    resetting the shape or transforming the path unless those are necessary.
+
+    Args:
+        sprite: Instance of Sprite.
+        **factors: Dict. Keys must be in Sprite.FACTOR_NAMES. Values are new
+            values for those factors.
+    &#34;&#34;&#34;
+    # Some factors can be set directly
+    for k in [&#39;c0&#39;, &#39;c1&#39;, &#39;c2&#39;, &#39;opacity&#39;, &#39;angle_vel&#39;, &#39;mass&#39;, &#39;metadata&#39;]:
+        if k in factors:
+            setattr(sprite, k, factors[k])
+
+    # Set position
+    if &#39;x&#39; in factors or &#39;y&#39; in factors:
+        sprite.position = [
+            factors.get(&#39;x&#39;, sprite.position[0]),
+            factors.get(&#39;y&#39;, sprite.position[1]),
+        ]
+
+    # Set velocity
+    if &#39;x_vel&#39; in factors or &#39;y_vel&#39; in factors:
+        sprite.velocity = [
+            factors.get(&#39;x_vel&#39;, sprite.velocity[0]),
+            factors.get(&#39;y_vel&#39;, sprite.velocity[1]),
+        ]
+
+    # Setting shape, angle, scale, or aspect_ratio requires transforming the
+    # sprite path, which is somewhat computationally expensive, so for these we
+    # check to see if they&#39;ve changed before setting them.
+    for k in [&#39;angle&#39;, &#39;scale&#39;, &#39;aspect_ratio&#39;]:
+        if k in factors and getattr(sprite, k) != factors[k]:
+            setattr(sprite, k, factors[k])
+    if &#39;shape&#39; in factors:
+        if isinstance(factors[&#39;shape&#39;], str):
+            # Shape is encoded as a string, not as vertices, so we can just
+            # reset the shape attribute
+            if sprite.shape != factors[&#39;shape&#39;]:
+                sprite.shape = factors[&#39;shape&#39;]
+        else:
+            # Shape is encoded as an array of vertices.
+            if not np.array_equal(sprite.vertices, factors[&#39;shape&#39;]):
+                # Note that we could invert the angle, scale, aspect_ratio, and
+                # position transformations to then use the sprite&#39;s shape
+                # setter, but this would add about 15 lines of code and would
+                # not be very readable. So instead we take a shortcut and
+                # directly override the protected sprite._path attribute.
+                vertices = np.concatenate(
+                    (factors[&#39;shape&#39;], factors[&#39;shape&#39;][:1]), axis=0)
+                sprite._path = mpl_path.Path(vertices)  #pylint: disable=protected-access
+
+    return
+
+
+def segment_crossing_coefficients(start_0, end_0, start_1, end_1):
+    &#34;&#34;&#34;Solves linear equations to compute crossing points of segments.
+
+    Finding the crossing point between segment [start_0, end_0] and segment
+    [start_1, end_1] can be done by solving
+        start_0 + A * delta_0 = start_1 + B * delta_1
+    for A and B, where delta_i = end_i - start_i.
+
+    The solution (by a little vector algebra) is
+        A = ((start_1 - start_0) x delta_1) / (delta_0 x delta_1)
+        B = ((start_1 - start_0) x delta_0) / (delta_0 x delta_1)
+    where x denotes cross product. If A and B are both in [0, 1], then the
+    segments [start_0, end_0] and [start_1, end_1] intersect at point
+    start_0 + A * delta_0.
+
+    This function does this computation vectorized to handle multiple segments
+    at once, returning the coefficients A and B. Namely, it computes all
+    pairwise crossings between two arrays of segments.
+
+    The reason this function is factored out of segment_crossings() below is
+    because some calling code (e.g. collisions) need to use the A and B
+    coefficients.
+
+    Args:
+        start_0: Numpy array of shape [N, 2]. Starting points for set 0.
+        end_0: Numpy array of shape [N, 2]. Ending points for set 0.
+        start_1: Numpy array of shape [M, 2]. Starting points for set 1.
+        end_1: Numpy array of shape [M, 2]. Ending points for set 1.
+
+    Returns:
+        A: Numpy array of shape [N, N]. A[i, j] is the coefficient A (see above)
+            for the crossing of segment [start_0[i], end_0[i]] and the segment
+            [start_1[j], end_1[j]].
+        B: Numpy array of shape [N, N]. B[i, j] is the coefficient B (see above)
+            for the crossing of segment [start_0[i], end_0[i]] and the segment
+            [start_1[j], end_1[j]].
+    &#34;&#34;&#34;
+    s_0 = start_0
+    ds_0 = end_0 - start_0
+    s_1 = start_1
+    ds_1 = end_1 - start_1
+
+    # Expand the _0&#39;s and _1&#39;s in different dimensions to leverage broadcasting.
+    s_0 = s_0[:, np.newaxis]
+    ds_0 = ds_0[:, np.newaxis]
+    s_1 = s_1[np.newaxis]
+    ds_1 = ds_1[np.newaxis]
+
+    # Need to add small epsilon for stability, else may divide by zero below
+    ds_0_cross_ds_1 = np.cross(ds_0, ds_1) + _EPSILON_INTERPOLATION
+    s_1_minus_s_0 = s_1 - s_0
+
+    A = np.cross(s_1_minus_s_0, ds_1) / ds_0_cross_ds_1
+    B = np.cross(s_1_minus_s_0, ds_0) / ds_0_cross_ds_1
+
+    return A, B
+
+
+def segment_crossings(start_0, end_0, start_1, end_1):
+    &#34;&#34;&#34;Finds all pairwise crossings between two arrays of segments.
+
+    See segment_crossing_coefficients() documentation above for an explanation
+    of how this is done. In contrast to segment_crossing_coefficients(), this
+    function outputs the actual crossing points themselves.
+
+    Args:
+        start_0: Numpy array of shape [N, 2]. Starting points for set 0.
+        end_0: Numpy array of shape [N, 2]. Ending points for set 0.
+        start_1: Numpy array of shape [M, 2]. Starting points for set 1.
+        end_1: Numpy array of shape [M, 2]. Ending points for set 1.
+
+    Returns:
+        crossing_points: Numpy array of shape [K, 2] containing all crossing
+            points. Here K is the number of crossing points.
+        inds_crossings: Numpy array of shape [K, 2] containing indices for
+            segments_0 and segments_1 respectively. Specifically,
+            inds_crossings[i][0] is the index in [0, N] of the set 0 segment and
+            inds_crossings[i][1] is the index in [0, M] of the set 1 segment in
+            crossing point i.
+    &#34;&#34;&#34;
+    A, B = segment_crossing_coefficients(start_0, end_0, start_1, end_1)
+
+    # Crossings occur when A and B are both in [0, 1]
+    crossings = (A &gt; 0) * (A &lt; 1) * (B &gt; 0) * (B &lt; 1)
+    inds_crossings = np.argwhere(crossings)
+
+    # Linear combination of segment 0 with A coefficients gives crossing points
+    crossing_points = np.array([
+        start_0[ind_0] + A[ind_0, ind_1] * (end_0[ind_0] - start_0[ind_0])
+        for (ind_0, ind_1) in inds_crossings
+    ])
+    return crossing_points, inds_crossings
+
+
+def sprite_edge_crossings(sprite_0, sprite_1):
+    &#34;&#34;&#34;Find all points where the boundary of sprite_0 and sprite_1 cross.
+
+    See segment_crossings() documentation for details.
+
+    Args:
+        sprite_0: Instance of Sprite.
+        sprite_1: Instance of Sprite.
+
+    Returns:
+        crossing_points: Numpy float array of shape [K, 2] where K is the number
+            of crossings of the boundaries of sprite_0 and sprite_1.
+        inds_crossings: Numpy ind array of shape [K, 2].
+    &#34;&#34;&#34;
+    path_0 = sprite_0.path.vertices
+    path_1 = sprite_1.path.vertices
+
+    crossing_points, inds_crossings = segment_crossings(
+        start_0=path_0[:-1],
+        end_0=path_0[1:],
+        start_1=path_1[:-1],
+        end_1=path_1[1:],
+    )
+
+    return crossing_points, inds_crossings
+
+
+class Sprite(object):
+    &#34;&#34;&#34;Sprite class.
+
+    Sprites are polygons parameterized by a few factors (such as position,
+    shape, angle, scale, color, velocity, and mass). They are the building
+    blocks of the environment and the objects upon which physics can act.
+    &#34;&#34;&#34;
+
+    FACTOR_NAMES = (
+        &#39;x&#39;,  # x-position of sprite center-of-mass (float)
+        &#39;y&#39;,  # y-position of sprite center-of-mass (float)
+        &#39;shape&#39;,  # shape (string)
+        &#39;angle&#39;,  # angle in radians (float)
+        &#39;scale&#39;,  # size of sprite (float)
+        &#39;aspect_ratio&#39;,  # aspect ratio of sprite (float)
+        &#39;c0&#39;,  # first color component (scalar)
+        &#39;c1&#39;,  # second color component (scalar)
+        &#39;c2&#39;,  # third color component (scalar)
+        &#39;opacity&#39;,  # opacity of sprite in [0, 255]
+        &#39;x_vel&#39;,  # x-component of velocity (float)
+        &#39;y_vel&#39;,  # y-component of velocity (float)
+        &#39;angle_vel&#39;,  # angular velocity in radians/time
+        &#39;mass&#39;,  # mass
+        &#39;metadata&#39;,  # optional metadata
+    )
+
+    # Shape factor name for shapes not in shapes.SHAPES
+    _CUSTOM_SHAPE = &#39;custom&#39;
+
+    # Name for a circle. Must match that in shapes.SHAPES
+    _CIRCLE_NAME = &#39;circle&#39;
+
+    def __init__(self,
+                 x=0.5,
+                 y=0.5,
+                 shape=&#39;square&#39;,
+                 angle=0.,
+                 scale=1.,
+                 aspect_ratio=1.,
+                 c0=0,
+                 c1=0,
+                 c2=0,
+                 opacity=255,
+                 x_vel=0.,
+                 y_vel=0.,
+                 angle_vel=0.,
+                 mass=1.,
+                 metadata=None):
+        &#34;&#34;&#34;Construct sprite.
+
+        This class is agnostic to the color scheme, namely (c1, c2, c3) could be
+        in RGB coordinates or HSV, HSL, etc. without this class knowing. The
+        color scheme conversion for rendering must be done in the renderer.
+
+        Args:
+            x: Float in [0, 1]. x-position.
+            y: Float in [0, 1]. y-position.
+            shape: String or numpy array of vertices. Shape of the sprite. If
+                string, must be a key of shapes.SHAPES. If array, must have
+                shape [N, 2] defining the vertices of the polygonal shape.
+            angle: Float. Angle in radians.
+            scale: Float. Scale (size) of the sprite. This is multiplied to the
+                shape vertex array when constructing the sprite, hence the
+                sprite width scales linearly with respect to scape, and sprite
+                area scales with power 2.
+            aspect_ratio: Scalar. Height/width aspect ratio.
+            c0: Scalar. First coordinate of color.
+            c1: Scalar. Second coordinate of color.
+            c2: Scalar. Third coordinate of color.
+            opacity: Integer in [0, 255]. Opacity of sprite.
+            x_vel: Float. x-velocity.
+            y_vel: Float. y-velocity.
+            angle_vel: Float. Angular velocity in radians/time.
+            mass: Float. Mass.
+            metadata: Any type. Optional metadata. If None, defaults to empty
+                dictionary.
+        &#34;&#34;&#34;
+        # The angle, scale, and aspect ratio must be converted to floats.
+        # Sometimes the state initializer distribution will feed them in as
+        # numpy scalars but this causes the updating to not work.
+        self._position = np.array([x, y])
+        self._angle = float(angle)
+        self._scale = float(scale)
+        self._aspect_ratio = float(aspect_ratio)
+        self._color = (c0, c1, c2)
+        self._opacity = opacity
+        self._velocity = np.array([x_vel, y_vel])
+        self._angle_vel = angle_vel
+        self._mass = mass
+        self.metadata = metadata
+
+        # This calls shape.setter, which does shape path setting
+        self.shape = shape
+
+        # Increment the global sprite count and set self._id, which can be used
+        # to identify sprite instances.
+        global GLOBAL_SPRITE_COUNT
+        self._id = GLOBAL_SPRITE_COUNT
+        GLOBAL_SPRITE_COUNT += 1
+
+    def _set_shape_path(self, shape_path):
+        &#34;&#34;&#34;Set shape path and moment of inertia.
+
+        The self._shape_path set by this function is centered around the shape&#39;s
+        center of mass, assuming a uniform mass distribution. Moment of inertia
+        is calculated in tandem, to avoid having to iterate through vertices
+        multiple times.
+
+        The rotational moment of intertia of a 2-dimensional body about the
+        z-axis (i.e. perpendicular to the plane and passing through the origin):
+            I = density * integral_{area}[x^2 + y^2 dx dy]
+              = I_x + I_y
+
+        This is important to have because it is needed to relate torque to
+        rotational acceleration via Newton&#39;s Law:
+            torque = I * rotational_acceleration
+        This is needed in our environment to simulate realistic physical
+        collisions when sprites are allowed to rotate.
+
+        In this function we compute I_x and I_y themselves and set
+            self._x_y_rotational_inertia = [I_x, I_y]
+        The reason to have these components is to allow them to be adjusted upon
+        changes in aspect ratio without having to re-compute them from scratch
+        by re-running this function. See self._set_path().
+
+        Also see self.moment_of_inertia for the summed moment of inertia I.
+
+        Computing I_x and I_y of a polygon can be done by breaking the polygon
+        into triangles. Then for a triangle with one vertex at the origin the
+        above integral can be solved analytically.
+        &#34;&#34;&#34;
+        # Compute centroid, intertia, and area
+        num_vertices = shape_path.shape[0]
+        inertia = np.array([0., 0.])
+        area = 0.
+        centroid = np.array([0., 0.])
+        for i in range(num_vertices):
+            vertex_0 = shape_path[i]
+            vertex_1 = shape_path[(i + 1) % num_vertices]
+
+            # x and y moments of inertia
+            cross = np.cross(vertex_0, vertex_1)
+            inertia += (1. / 12.) * cross * (
+                vertex_0 * vertex_0 + vertex_1 * vertex_1 + vertex_0 * vertex_1)
+
+            # area and centroid
+            triangle_area = cross / 2.
+            triangle_centroid = (vertex_0 + vertex_1) / 3.
+            area += triangle_area
+            centroid += triangle_centroid * triangle_area
+        centroid /= area
+
+        if area &lt; 0:
+            # Path was defined clockwise, which will mess up collisions, so we
+            # reverse the path and correct for the negative area and inertia.
+            # The centroid is fine, because was divided by the area.
+            shape_path = shape_path[::-1]
+            inertia *= -1.
+            area *= -1.
+
+        # Set shape path with center of mass at origin
+        center_translate = mpl_transforms.Affine2D().translate(*(-1 * centroid))
+        # Make shape path be a full loop + 1 (i.e. last point in the array is
+        # the first point). This makes calculating sprite overlaps easier,
+        # because mpl_path.Path.intersects_path requires the full loop + 1.
+        shape_path = np.concatenate((shape_path, [shape_path[0]]))
+        self._shape_path = center_translate.transform_path(
+            mpl_path.Path(shape_path))
+
+        # Use parallel axis theorem to compute moment of inertia around center
+        # of mass, so we don&#39;t have to iterate through the points again
+        inertia -= area * np.square(centroid)
+        self._x_y_rotational_inertia = inertia / area
+
+        # We must call self._set_path() before updating self.position, becuase
+        # the position setter uses self._path, which is set in self._set_path()
+        self._set_path()
+        self.position = self._position + centroid
+
+        # Make sure self._just_set_shape is True
+        self._just_set_shape = True
+
+    def _set_path(self):
+        &#34;&#34;&#34;Rotate and scale self._shape path.&#34;&#34;&#34;
+        x_y_scale = np.array([self._scale, self._scale * self._aspect_ratio])
+        transform = (
+            mpl_transforms.Affine2D().scale(*x_y_scale) +
+            mpl_transforms.Affine2D().rotate(self._angle) +
+            mpl_transforms.Affine2D().translate(*self._position))
+        self._path = transform.transform_path(self._shape_path)
+        self._max_radius = np.max(
+            np.linalg.norm(self.vertices - self._position, axis=1))
+
+        # Adjust rotational inertia to accomodate the change in aspect ratio and
+        # scale
+        self._x_y_rotational_inertia *= np.square(x_y_scale)
+
+    def update_pos_from_vel(self, delta_t):
+        &#34;&#34;&#34;Update position based on velocity.&#34;&#34;&#34;
+        self.position = self.position + delta_t * self.velocity
+        if self._angle_vel:
+            self.angle = self.angle + delta_t * self._angle_vel
+
+    def contains_point(self, point):
+        &#34;&#34;&#34;Check if the point is contained in the Sprite.&#34;&#34;&#34;
+        if self.is_symmetric_circle:
+            contains_point = (
+                np.linalg.norm(point - self.position) &lt; self.max_radius)
+        else:
+            contains_point = self.path.contains_point(point)
+
+        return contains_point
+
+    def contains_points(self, points):
+        &#34;&#34;&#34;Check if the points are contained in the Sprite.
+
+        Args:
+            points: Numpy array of size (N, 2) containing coordinates of N
+                points.
+
+        Returns:
+            contains_points: Boolean numpy array of size (N,), indicating for
+                each point whether it is in this sprite.
+        &#34;&#34;&#34;
+        if self.is_symmetric_circle:
+            contains_points = (
+                np.linalg.norm(points - self.position, axis=1) &lt;=
+                self.max_radius)
+        else:
+            contains_points = self._path.contains_points(points)
+
+        return contains_points
+
+    def overlaps_sprite(self, sprite):
+        &#34;&#34;&#34;Check if this and the argument sprite overlap.&#34;&#34;&#34;
+        center_dist = np.linalg.norm(self.position - sprite.position)
+        if center_dist &gt; self.max_radius + sprite.max_radius:
+            return False
+
+        # WARNING: You might think that the case of two circles depends only on
+        # their radius, but using this shortcut causes instability in
+        # collisions, since there is currently no special treatment for circles
+        # in collisions (collisions depend on the vertices themselves). So we
+        # give no special treatment to circles here.
+
+        # Note: mpl_path.Path.intersects_path() treats its input paths as
+        # paths with endpoints. Namely, an input array of N vertices
+        # corresponds to a path with N - 1 edges. Thus to apply it to detect
+        # intersection of sprites, we must feed it an array of length
+        # len(self.vertices) + 1. In fact self._path is an array of length
+        # len(self.vertices) + 1, by construction (see self._set_path()).
+        # Profiling note: Using mpl_path.Path.intersects_path() is slightly
+        # faster than `len(sprite_edge_crossings(self, sprite)[1] &gt; 0)`.
+        overlap = mpl_path.Path.intersects_path(
+            self.path, sprite.path, filled=True)
+        return overlap
+
+    @property
+    def vertices(self):
+        &#34;&#34;&#34;Numpy array of vertices of the shape.&#34;&#34;&#34;
+        return self.path.vertices[:-1]
+
+    @property
+    def path(self):
+        &#34;&#34;&#34;Numpy array of length len(self.vertices) + 1, loop of the shape.&#34;&#34;&#34;
+        return self._path
+
+    @property
+    def max_radius(self):
+        return self._max_radius
+
+    @property
+    def is_symmetric_circle(self):
+        return self.shape == Sprite._CIRCLE_NAME and self.aspect_ratio == 1
+
+    @property
+    def x(self):
+        return self._position[0]
+
+    @property
+    def y(self):
+        return self._position[1]
+
+    @property
+    def shape(self):
+        return self._shape
+
+    @shape.setter
+    def shape(self, shape):
+        if isinstance(shape, str) and shape in shapes.SHAPES:
+            self._shape = shape
+            shape_path = shapes.SHAPES[shape]
+        else:
+            self._shape = Sprite._CUSTOM_SHAPE
+            shape_path = shape
+
+        self._set_shape_path(shape_path)
+
+    @property
+    def angle(self):
+        return self._angle
+
+    @angle.setter
+    def angle(self, a):
+        if id(a) == id(self._angle):
+            # See comment in @position.setter for why we catch this.
+            raise ValueError(
+                &#39;Cannot call in-place operations on sprite.angle.&#39;)
+        rotate = mpl_transforms.Affine2D().rotate_around(
+            self.x, self.y, a - self._angle)
+        self._path = rotate.transform_path(self._path)
+        self._angle = a
+
+    @property
+    def scale(self):
+        return self._scale
+
+    @scale.setter
+    def scale(self, s):
+        self._scale = s
+        self._set_path()
+
+    @property
+    def aspect_ratio(self):
+        return self._aspect_ratio
+
+    @aspect_ratio.setter
+    def aspect_ratio(self, a):
+        self._aspect_ratio = a
+        self._set_path()
+
+    @property
+    def c0(self):
+        return self._color[0]
+
+    @c0.setter
+    def c0(self, c0):
+        self._color = (c0, self.c1, self.c2)
+
+    @property
+    def c1(self):
+        return self._color[1]
+
+    @c1.setter
+    def c1(self, c1):
+        self._color = (self.c0, c1, self.c2)
+
+    @property
+    def c2(self):
+        return self._color[2]
+
+    @c2.setter
+    def c2(self, c2):
+        self._color = (self.c0, self.c1, c2)
+
+    @property
+    def opacity(self):
+        return self._opacity
+
+    @opacity.setter
+    def opacity(self, opacity):
+        self._opacity = opacity
+
+    @property
+    def x_vel(self):
+        return self._velocity[0]
+
+    @property
+    def y_vel(self):
+        return self._velocity[1]
+
+    @property
+    def mass(self):
+        return self._mass
+
+    @mass.setter
+    def mass(self, mass):
+        self._mass = mass
+
+    @property
+    def color(self):
+        return self._color
+
+    @property
+    def position(self):
+        return self._position
+
+    @position.setter
+    def position(self, pos):
+        if id(pos) == id(self.position):
+            # This setter references the pre-set position self._position, but
+            # with an in-place operation, the pre-set position is the same array
+            # as `pos`, the position to be set, so this setter function does not
+            # work as intended. In practice, this means that an in-place
+            # operation updates self._position but doesn&#39;t update self._path,
+            # which causes sprites to not move. Consequently, calling code must
+            # not update position in place. That can cause devious bugs if
+            # undetected, so we catch it with this ValueError.
+            raise ValueError(
+                &#39;Cannot call in-place operations on sprite.position.&#39;)
+        if not isinstance(pos, np.ndarray):
+            pos = np.array(pos)
+        translate = mpl_transforms.Affine2D().translate(*pos - self._position)
+        self._path = translate.transform_path(self._path)
+        self._position = pos
+
+    @property
+    def velocity(self):
+        return self._velocity
+
+    @velocity.setter
+    def velocity(self, vel):
+        if not isinstance(vel, np.ndarray):
+            vel = np.array(vel)
+        self._velocity = vel
+
+    @property
+    def angle_vel(self):
+        return self._angle_vel
+
+    @angle_vel.setter
+    def angle_vel(self, angle_vel):
+        self._angle_vel = angle_vel
+
+    @property
+    def just_set_shape(self):
+        &#34;&#34;&#34;This property can used and set by loggers.&#34;&#34;&#34;
+        return self._just_set_shape
+
+    @just_set_shape.setter
+    def just_set_shape(self, just_set_shape):
+        self._just_set_shape = just_set_shape
+
+    @property
+    def moment_of_inertia(self):
+        return sum(self.mass * self._x_y_rotational_inertia)
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def factors(self):
+        factors = collections.OrderedDict()
+        for factor_name in Sprite.FACTOR_NAMES:
+            factors[factor_name] = getattr(self, factor_name)
+        return factors</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="moog.sprite.segment_crossing_coefficients"><code class="name flex">
+<span>def <span class="ident">segment_crossing_coefficients</span></span>(<span>start_0, end_0, start_1, end_1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Solves linear equations to compute crossing points of segments.</p>
+<p>Finding the crossing point between segment [start_0, end_0] and segment
+[start_1, end_1] can be done by solving
+start_0 + A * delta_0 = start_1 + B * delta_1
+for A and B, where delta_i = end_i - start_i.</p>
+<p>The solution (by a little vector algebra) is
+A = ((start_1 - start_0) x delta_1) / (delta_0 x delta_1)
+B = ((start_1 - start_0) x delta_0) / (delta_0 x delta_1)
+where x denotes cross product. If A and B are both in [0, 1], then the
+segments [start_0, end_0] and [start_1, end_1] intersect at point
+start_0 + A * delta_0.</p>
+<p>This function does this computation vectorized to handle multiple segments
+at once, returning the coefficients A and B. Namely, it computes all
+pairwise crossings between two arrays of segments.</p>
+<p>The reason this function is factored out of segment_crossings() below is
+because some calling code (e.g. collisions) need to use the A and B
+coefficients.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start_0</code></strong></dt>
+<dd>Numpy array of shape [N, 2]. Starting points for set 0.</dd>
+<dt><strong><code>end_0</code></strong></dt>
+<dd>Numpy array of shape [N, 2]. Ending points for set 0.</dd>
+<dt><strong><code>start_1</code></strong></dt>
+<dd>Numpy array of shape [M, 2]. Starting points for set 1.</dd>
+<dt><strong><code>end_1</code></strong></dt>
+<dd>Numpy array of shape [M, 2]. Ending points for set 1.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>A</code></dt>
+<dd>Numpy array of shape [N, N]. A[i, j] is the coefficient A (see above)
+for the crossing of segment [start_0[i], end_0[i]] and the segment
+[start_1[j], end_1[j]].</dd>
+<dt><code>B</code></dt>
+<dd>Numpy array of shape [N, N]. B[i, j] is the coefficient B (see above)
+for the crossing of segment [start_0[i], end_0[i]] and the segment
+[start_1[j], end_1[j]].</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def segment_crossing_coefficients(start_0, end_0, start_1, end_1):
+    &#34;&#34;&#34;Solves linear equations to compute crossing points of segments.
+
+    Finding the crossing point between segment [start_0, end_0] and segment
+    [start_1, end_1] can be done by solving
+        start_0 + A * delta_0 = start_1 + B * delta_1
+    for A and B, where delta_i = end_i - start_i.
+
+    The solution (by a little vector algebra) is
+        A = ((start_1 - start_0) x delta_1) / (delta_0 x delta_1)
+        B = ((start_1 - start_0) x delta_0) / (delta_0 x delta_1)
+    where x denotes cross product. If A and B are both in [0, 1], then the
+    segments [start_0, end_0] and [start_1, end_1] intersect at point
+    start_0 + A * delta_0.
+
+    This function does this computation vectorized to handle multiple segments
+    at once, returning the coefficients A and B. Namely, it computes all
+    pairwise crossings between two arrays of segments.
+
+    The reason this function is factored out of segment_crossings() below is
+    because some calling code (e.g. collisions) need to use the A and B
+    coefficients.
+
+    Args:
+        start_0: Numpy array of shape [N, 2]. Starting points for set 0.
+        end_0: Numpy array of shape [N, 2]. Ending points for set 0.
+        start_1: Numpy array of shape [M, 2]. Starting points for set 1.
+        end_1: Numpy array of shape [M, 2]. Ending points for set 1.
+
+    Returns:
+        A: Numpy array of shape [N, N]. A[i, j] is the coefficient A (see above)
+            for the crossing of segment [start_0[i], end_0[i]] and the segment
+            [start_1[j], end_1[j]].
+        B: Numpy array of shape [N, N]. B[i, j] is the coefficient B (see above)
+            for the crossing of segment [start_0[i], end_0[i]] and the segment
+            [start_1[j], end_1[j]].
+    &#34;&#34;&#34;
+    s_0 = start_0
+    ds_0 = end_0 - start_0
+    s_1 = start_1
+    ds_1 = end_1 - start_1
+
+    # Expand the _0&#39;s and _1&#39;s in different dimensions to leverage broadcasting.
+    s_0 = s_0[:, np.newaxis]
+    ds_0 = ds_0[:, np.newaxis]
+    s_1 = s_1[np.newaxis]
+    ds_1 = ds_1[np.newaxis]
+
+    # Need to add small epsilon for stability, else may divide by zero below
+    ds_0_cross_ds_1 = np.cross(ds_0, ds_1) + _EPSILON_INTERPOLATION
+    s_1_minus_s_0 = s_1 - s_0
+
+    A = np.cross(s_1_minus_s_0, ds_1) / ds_0_cross_ds_1
+    B = np.cross(s_1_minus_s_0, ds_0) / ds_0_cross_ds_1
+
+    return A, B</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.segment_crossings"><code class="name flex">
+<span>def <span class="ident">segment_crossings</span></span>(<span>start_0, end_0, start_1, end_1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds all pairwise crossings between two arrays of segments.</p>
+<p>See segment_crossing_coefficients() documentation above for an explanation
+of how this is done. In contrast to segment_crossing_coefficients(), this
+function outputs the actual crossing points themselves.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start_0</code></strong></dt>
+<dd>Numpy array of shape [N, 2]. Starting points for set 0.</dd>
+<dt><strong><code>end_0</code></strong></dt>
+<dd>Numpy array of shape [N, 2]. Ending points for set 0.</dd>
+<dt><strong><code>start_1</code></strong></dt>
+<dd>Numpy array of shape [M, 2]. Starting points for set 1.</dd>
+<dt><strong><code>end_1</code></strong></dt>
+<dd>Numpy array of shape [M, 2]. Ending points for set 1.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>crossing_points</code></dt>
+<dd>Numpy array of shape [K, 2] containing all crossing
+points. Here K is the number of crossing points.</dd>
+<dt><code>inds_crossings</code></dt>
+<dd>Numpy array of shape [K, 2] containing indices for
+segments_0 and segments_1 respectively. Specifically,
+inds_crossings[i][0] is the index in [0, N] of the set 0 segment and
+inds_crossings[i][1] is the index in [0, M] of the set 1 segment in
+crossing point i.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def segment_crossings(start_0, end_0, start_1, end_1):
+    &#34;&#34;&#34;Finds all pairwise crossings between two arrays of segments.
+
+    See segment_crossing_coefficients() documentation above for an explanation
+    of how this is done. In contrast to segment_crossing_coefficients(), this
+    function outputs the actual crossing points themselves.
+
+    Args:
+        start_0: Numpy array of shape [N, 2]. Starting points for set 0.
+        end_0: Numpy array of shape [N, 2]. Ending points for set 0.
+        start_1: Numpy array of shape [M, 2]. Starting points for set 1.
+        end_1: Numpy array of shape [M, 2]. Ending points for set 1.
+
+    Returns:
+        crossing_points: Numpy array of shape [K, 2] containing all crossing
+            points. Here K is the number of crossing points.
+        inds_crossings: Numpy array of shape [K, 2] containing indices for
+            segments_0 and segments_1 respectively. Specifically,
+            inds_crossings[i][0] is the index in [0, N] of the set 0 segment and
+            inds_crossings[i][1] is the index in [0, M] of the set 1 segment in
+            crossing point i.
+    &#34;&#34;&#34;
+    A, B = segment_crossing_coefficients(start_0, end_0, start_1, end_1)
+
+    # Crossings occur when A and B are both in [0, 1]
+    crossings = (A &gt; 0) * (A &lt; 1) * (B &gt; 0) * (B &lt; 1)
+    inds_crossings = np.argwhere(crossings)
+
+    # Linear combination of segment 0 with A coefficients gives crossing points
+    crossing_points = np.array([
+        start_0[ind_0] + A[ind_0, ind_1] * (end_0[ind_0] - start_0[ind_0])
+        for (ind_0, ind_1) in inds_crossings
+    ])
+    return crossing_points, inds_crossings</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.sprite_edge_crossings"><code class="name flex">
+<span>def <span class="ident">sprite_edge_crossings</span></span>(<span>sprite_0, sprite_1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find all points where the boundary of sprite_0 and sprite_1 cross.</p>
+<p>See segment_crossings() documentation for details.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>sprite_0</code></strong></dt>
+<dd>Instance of Sprite.</dd>
+<dt><strong><code>sprite_1</code></strong></dt>
+<dd>Instance of Sprite.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>crossing_points</code></dt>
+<dd>Numpy float array of shape [K, 2] where K is the number
+of crossings of the boundaries of sprite_0 and sprite_1.</dd>
+<dt><code>inds_crossings</code></dt>
+<dd>Numpy ind array of shape [K, 2].</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sprite_edge_crossings(sprite_0, sprite_1):
+    &#34;&#34;&#34;Find all points where the boundary of sprite_0 and sprite_1 cross.
+
+    See segment_crossings() documentation for details.
+
+    Args:
+        sprite_0: Instance of Sprite.
+        sprite_1: Instance of Sprite.
+
+    Returns:
+        crossing_points: Numpy float array of shape [K, 2] where K is the number
+            of crossings of the boundaries of sprite_0 and sprite_1.
+        inds_crossings: Numpy ind array of shape [K, 2].
+    &#34;&#34;&#34;
+    path_0 = sprite_0.path.vertices
+    path_1 = sprite_1.path.vertices
+
+    crossing_points, inds_crossings = segment_crossings(
+        start_0=path_0[:-1],
+        end_0=path_0[1:],
+        start_1=path_1[:-1],
+        end_1=path_1[1:],
+    )
+
+    return crossing_points, inds_crossings</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.update_sprite"><code class="name flex">
+<span>def <span class="ident">update_sprite</span></span>(<span>sprite, **factors)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update sprite in place given an entirely new set of factors.</p>
+<p>This file updates a sprite as efficienctly as possible, i.e. without
+resetting the shape or transforming the path unless those are necessary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>sprite</code></strong></dt>
+<dd>Instance of Sprite.</dd>
+<dt><strong><code>**factors</code></strong></dt>
+<dd>Dict. Keys must be in Sprite.FACTOR_NAMES. Values are new
+values for those factors.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_sprite(sprite, **factors):
+    &#34;&#34;&#34;Update sprite in place given an entirely new set of factors.
+
+    This file updates a sprite as efficienctly as possible, i.e. without
+    resetting the shape or transforming the path unless those are necessary.
+
+    Args:
+        sprite: Instance of Sprite.
+        **factors: Dict. Keys must be in Sprite.FACTOR_NAMES. Values are new
+            values for those factors.
+    &#34;&#34;&#34;
+    # Some factors can be set directly
+    for k in [&#39;c0&#39;, &#39;c1&#39;, &#39;c2&#39;, &#39;opacity&#39;, &#39;angle_vel&#39;, &#39;mass&#39;, &#39;metadata&#39;]:
+        if k in factors:
+            setattr(sprite, k, factors[k])
+
+    # Set position
+    if &#39;x&#39; in factors or &#39;y&#39; in factors:
+        sprite.position = [
+            factors.get(&#39;x&#39;, sprite.position[0]),
+            factors.get(&#39;y&#39;, sprite.position[1]),
+        ]
+
+    # Set velocity
+    if &#39;x_vel&#39; in factors or &#39;y_vel&#39; in factors:
+        sprite.velocity = [
+            factors.get(&#39;x_vel&#39;, sprite.velocity[0]),
+            factors.get(&#39;y_vel&#39;, sprite.velocity[1]),
+        ]
+
+    # Setting shape, angle, scale, or aspect_ratio requires transforming the
+    # sprite path, which is somewhat computationally expensive, so for these we
+    # check to see if they&#39;ve changed before setting them.
+    for k in [&#39;angle&#39;, &#39;scale&#39;, &#39;aspect_ratio&#39;]:
+        if k in factors and getattr(sprite, k) != factors[k]:
+            setattr(sprite, k, factors[k])
+    if &#39;shape&#39; in factors:
+        if isinstance(factors[&#39;shape&#39;], str):
+            # Shape is encoded as a string, not as vertices, so we can just
+            # reset the shape attribute
+            if sprite.shape != factors[&#39;shape&#39;]:
+                sprite.shape = factors[&#39;shape&#39;]
+        else:
+            # Shape is encoded as an array of vertices.
+            if not np.array_equal(sprite.vertices, factors[&#39;shape&#39;]):
+                # Note that we could invert the angle, scale, aspect_ratio, and
+                # position transformations to then use the sprite&#39;s shape
+                # setter, but this would add about 15 lines of code and would
+                # not be very readable. So instead we take a shortcut and
+                # directly override the protected sprite._path attribute.
+                vertices = np.concatenate(
+                    (factors[&#39;shape&#39;], factors[&#39;shape&#39;][:1]), axis=0)
+                sprite._path = mpl_path.Path(vertices)  #pylint: disable=protected-access
+
+    return</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="moog.sprite.Sprite"><code class="flex name class">
+<span>class <span class="ident">Sprite</span></span>
+<span>(</span><span>x=0.5, y=0.5, shape='square', angle=0.0, scale=1.0, aspect_ratio=1.0, c0=0, c1=0, c2=0, opacity=255, x_vel=0.0, y_vel=0.0, angle_vel=0.0, mass=1.0, metadata=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sprite class.</p>
+<p>Sprites are polygons parameterized by a few factors (such as position,
+shape, angle, scale, color, velocity, and mass). They are the building
+blocks of the environment and the objects upon which physics can act.</p>
+<p>Construct sprite.</p>
+<p>This class is agnostic to the color scheme, namely (c1, c2, c3) could be
+in RGB coordinates or HSV, HSL, etc. without this class knowing. The
+color scheme conversion for rendering must be done in the renderer.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong></dt>
+<dd>Float in [0, 1]. x-position.</dd>
+<dt><strong><code>y</code></strong></dt>
+<dd>Float in [0, 1]. y-position.</dd>
+<dt><strong><code>shape</code></strong></dt>
+<dd>String or numpy array of vertices. Shape of the sprite. If
+string, must be a key of shapes.SHAPES. If array, must have
+shape [N, 2] defining the vertices of the polygonal shape.</dd>
+<dt><strong><code>angle</code></strong></dt>
+<dd>Float. Angle in radians.</dd>
+<dt><strong><code>scale</code></strong></dt>
+<dd>Float. Scale (size) of the sprite. This is multiplied to the
+shape vertex array when constructing the sprite, hence the
+sprite width scales linearly with respect to scape, and sprite
+area scales with power 2.</dd>
+<dt><strong><code>aspect_ratio</code></strong></dt>
+<dd>Scalar. Height/width aspect ratio.</dd>
+<dt><strong><code>c0</code></strong></dt>
+<dd>Scalar. First coordinate of color.</dd>
+<dt><strong><code>c1</code></strong></dt>
+<dd>Scalar. Second coordinate of color.</dd>
+<dt><strong><code>c2</code></strong></dt>
+<dd>Scalar. Third coordinate of color.</dd>
+<dt><strong><code>opacity</code></strong></dt>
+<dd>Integer in [0, 255]. Opacity of sprite.</dd>
+<dt><strong><code>x_vel</code></strong></dt>
+<dd>Float. x-velocity.</dd>
+<dt><strong><code>y_vel</code></strong></dt>
+<dd>Float. y-velocity.</dd>
+<dt><strong><code>angle_vel</code></strong></dt>
+<dd>Float. Angular velocity in radians/time.</dd>
+<dt><strong><code>mass</code></strong></dt>
+<dd>Float. Mass.</dd>
+<dt><strong><code>metadata</code></strong></dt>
+<dd>Any type. Optional metadata. If None, defaults to empty
+dictionary.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Sprite(object):
+    &#34;&#34;&#34;Sprite class.
+
+    Sprites are polygons parameterized by a few factors (such as position,
+    shape, angle, scale, color, velocity, and mass). They are the building
+    blocks of the environment and the objects upon which physics can act.
+    &#34;&#34;&#34;
+
+    FACTOR_NAMES = (
+        &#39;x&#39;,  # x-position of sprite center-of-mass (float)
+        &#39;y&#39;,  # y-position of sprite center-of-mass (float)
+        &#39;shape&#39;,  # shape (string)
+        &#39;angle&#39;,  # angle in radians (float)
+        &#39;scale&#39;,  # size of sprite (float)
+        &#39;aspect_ratio&#39;,  # aspect ratio of sprite (float)
+        &#39;c0&#39;,  # first color component (scalar)
+        &#39;c1&#39;,  # second color component (scalar)
+        &#39;c2&#39;,  # third color component (scalar)
+        &#39;opacity&#39;,  # opacity of sprite in [0, 255]
+        &#39;x_vel&#39;,  # x-component of velocity (float)
+        &#39;y_vel&#39;,  # y-component of velocity (float)
+        &#39;angle_vel&#39;,  # angular velocity in radians/time
+        &#39;mass&#39;,  # mass
+        &#39;metadata&#39;,  # optional metadata
+    )
+
+    # Shape factor name for shapes not in shapes.SHAPES
+    _CUSTOM_SHAPE = &#39;custom&#39;
+
+    # Name for a circle. Must match that in shapes.SHAPES
+    _CIRCLE_NAME = &#39;circle&#39;
+
+    def __init__(self,
+                 x=0.5,
+                 y=0.5,
+                 shape=&#39;square&#39;,
+                 angle=0.,
+                 scale=1.,
+                 aspect_ratio=1.,
+                 c0=0,
+                 c1=0,
+                 c2=0,
+                 opacity=255,
+                 x_vel=0.,
+                 y_vel=0.,
+                 angle_vel=0.,
+                 mass=1.,
+                 metadata=None):
+        &#34;&#34;&#34;Construct sprite.
+
+        This class is agnostic to the color scheme, namely (c1, c2, c3) could be
+        in RGB coordinates or HSV, HSL, etc. without this class knowing. The
+        color scheme conversion for rendering must be done in the renderer.
+
+        Args:
+            x: Float in [0, 1]. x-position.
+            y: Float in [0, 1]. y-position.
+            shape: String or numpy array of vertices. Shape of the sprite. If
+                string, must be a key of shapes.SHAPES. If array, must have
+                shape [N, 2] defining the vertices of the polygonal shape.
+            angle: Float. Angle in radians.
+            scale: Float. Scale (size) of the sprite. This is multiplied to the
+                shape vertex array when constructing the sprite, hence the
+                sprite width scales linearly with respect to scape, and sprite
+                area scales with power 2.
+            aspect_ratio: Scalar. Height/width aspect ratio.
+            c0: Scalar. First coordinate of color.
+            c1: Scalar. Second coordinate of color.
+            c2: Scalar. Third coordinate of color.
+            opacity: Integer in [0, 255]. Opacity of sprite.
+            x_vel: Float. x-velocity.
+            y_vel: Float. y-velocity.
+            angle_vel: Float. Angular velocity in radians/time.
+            mass: Float. Mass.
+            metadata: Any type. Optional metadata. If None, defaults to empty
+                dictionary.
+        &#34;&#34;&#34;
+        # The angle, scale, and aspect ratio must be converted to floats.
+        # Sometimes the state initializer distribution will feed them in as
+        # numpy scalars but this causes the updating to not work.
+        self._position = np.array([x, y])
+        self._angle = float(angle)
+        self._scale = float(scale)
+        self._aspect_ratio = float(aspect_ratio)
+        self._color = (c0, c1, c2)
+        self._opacity = opacity
+        self._velocity = np.array([x_vel, y_vel])
+        self._angle_vel = angle_vel
+        self._mass = mass
+        self.metadata = metadata
+
+        # This calls shape.setter, which does shape path setting
+        self.shape = shape
+
+        # Increment the global sprite count and set self._id, which can be used
+        # to identify sprite instances.
+        global GLOBAL_SPRITE_COUNT
+        self._id = GLOBAL_SPRITE_COUNT
+        GLOBAL_SPRITE_COUNT += 1
+
+    def _set_shape_path(self, shape_path):
+        &#34;&#34;&#34;Set shape path and moment of inertia.
+
+        The self._shape_path set by this function is centered around the shape&#39;s
+        center of mass, assuming a uniform mass distribution. Moment of inertia
+        is calculated in tandem, to avoid having to iterate through vertices
+        multiple times.
+
+        The rotational moment of intertia of a 2-dimensional body about the
+        z-axis (i.e. perpendicular to the plane and passing through the origin):
+            I = density * integral_{area}[x^2 + y^2 dx dy]
+              = I_x + I_y
+
+        This is important to have because it is needed to relate torque to
+        rotational acceleration via Newton&#39;s Law:
+            torque = I * rotational_acceleration
+        This is needed in our environment to simulate realistic physical
+        collisions when sprites are allowed to rotate.
+
+        In this function we compute I_x and I_y themselves and set
+            self._x_y_rotational_inertia = [I_x, I_y]
+        The reason to have these components is to allow them to be adjusted upon
+        changes in aspect ratio without having to re-compute them from scratch
+        by re-running this function. See self._set_path().
+
+        Also see self.moment_of_inertia for the summed moment of inertia I.
+
+        Computing I_x and I_y of a polygon can be done by breaking the polygon
+        into triangles. Then for a triangle with one vertex at the origin the
+        above integral can be solved analytically.
+        &#34;&#34;&#34;
+        # Compute centroid, intertia, and area
+        num_vertices = shape_path.shape[0]
+        inertia = np.array([0., 0.])
+        area = 0.
+        centroid = np.array([0., 0.])
+        for i in range(num_vertices):
+            vertex_0 = shape_path[i]
+            vertex_1 = shape_path[(i + 1) % num_vertices]
+
+            # x and y moments of inertia
+            cross = np.cross(vertex_0, vertex_1)
+            inertia += (1. / 12.) * cross * (
+                vertex_0 * vertex_0 + vertex_1 * vertex_1 + vertex_0 * vertex_1)
+
+            # area and centroid
+            triangle_area = cross / 2.
+            triangle_centroid = (vertex_0 + vertex_1) / 3.
+            area += triangle_area
+            centroid += triangle_centroid * triangle_area
+        centroid /= area
+
+        if area &lt; 0:
+            # Path was defined clockwise, which will mess up collisions, so we
+            # reverse the path and correct for the negative area and inertia.
+            # The centroid is fine, because was divided by the area.
+            shape_path = shape_path[::-1]
+            inertia *= -1.
+            area *= -1.
+
+        # Set shape path with center of mass at origin
+        center_translate = mpl_transforms.Affine2D().translate(*(-1 * centroid))
+        # Make shape path be a full loop + 1 (i.e. last point in the array is
+        # the first point). This makes calculating sprite overlaps easier,
+        # because mpl_path.Path.intersects_path requires the full loop + 1.
+        shape_path = np.concatenate((shape_path, [shape_path[0]]))
+        self._shape_path = center_translate.transform_path(
+            mpl_path.Path(shape_path))
+
+        # Use parallel axis theorem to compute moment of inertia around center
+        # of mass, so we don&#39;t have to iterate through the points again
+        inertia -= area * np.square(centroid)
+        self._x_y_rotational_inertia = inertia / area
+
+        # We must call self._set_path() before updating self.position, becuase
+        # the position setter uses self._path, which is set in self._set_path()
+        self._set_path()
+        self.position = self._position + centroid
+
+        # Make sure self._just_set_shape is True
+        self._just_set_shape = True
+
+    def _set_path(self):
+        &#34;&#34;&#34;Rotate and scale self._shape path.&#34;&#34;&#34;
+        x_y_scale = np.array([self._scale, self._scale * self._aspect_ratio])
+        transform = (
+            mpl_transforms.Affine2D().scale(*x_y_scale) +
+            mpl_transforms.Affine2D().rotate(self._angle) +
+            mpl_transforms.Affine2D().translate(*self._position))
+        self._path = transform.transform_path(self._shape_path)
+        self._max_radius = np.max(
+            np.linalg.norm(self.vertices - self._position, axis=1))
+
+        # Adjust rotational inertia to accomodate the change in aspect ratio and
+        # scale
+        self._x_y_rotational_inertia *= np.square(x_y_scale)
+
+    def update_pos_from_vel(self, delta_t):
+        &#34;&#34;&#34;Update position based on velocity.&#34;&#34;&#34;
+        self.position = self.position + delta_t * self.velocity
+        if self._angle_vel:
+            self.angle = self.angle + delta_t * self._angle_vel
+
+    def contains_point(self, point):
+        &#34;&#34;&#34;Check if the point is contained in the Sprite.&#34;&#34;&#34;
+        if self.is_symmetric_circle:
+            contains_point = (
+                np.linalg.norm(point - self.position) &lt; self.max_radius)
+        else:
+            contains_point = self.path.contains_point(point)
+
+        return contains_point
+
+    def contains_points(self, points):
+        &#34;&#34;&#34;Check if the points are contained in the Sprite.
+
+        Args:
+            points: Numpy array of size (N, 2) containing coordinates of N
+                points.
+
+        Returns:
+            contains_points: Boolean numpy array of size (N,), indicating for
+                each point whether it is in this sprite.
+        &#34;&#34;&#34;
+        if self.is_symmetric_circle:
+            contains_points = (
+                np.linalg.norm(points - self.position, axis=1) &lt;=
+                self.max_radius)
+        else:
+            contains_points = self._path.contains_points(points)
+
+        return contains_points
+
+    def overlaps_sprite(self, sprite):
+        &#34;&#34;&#34;Check if this and the argument sprite overlap.&#34;&#34;&#34;
+        center_dist = np.linalg.norm(self.position - sprite.position)
+        if center_dist &gt; self.max_radius + sprite.max_radius:
+            return False
+
+        # WARNING: You might think that the case of two circles depends only on
+        # their radius, but using this shortcut causes instability in
+        # collisions, since there is currently no special treatment for circles
+        # in collisions (collisions depend on the vertices themselves). So we
+        # give no special treatment to circles here.
+
+        # Note: mpl_path.Path.intersects_path() treats its input paths as
+        # paths with endpoints. Namely, an input array of N vertices
+        # corresponds to a path with N - 1 edges. Thus to apply it to detect
+        # intersection of sprites, we must feed it an array of length
+        # len(self.vertices) + 1. In fact self._path is an array of length
+        # len(self.vertices) + 1, by construction (see self._set_path()).
+        # Profiling note: Using mpl_path.Path.intersects_path() is slightly
+        # faster than `len(sprite_edge_crossings(self, sprite)[1] &gt; 0)`.
+        overlap = mpl_path.Path.intersects_path(
+            self.path, sprite.path, filled=True)
+        return overlap
+
+    @property
+    def vertices(self):
+        &#34;&#34;&#34;Numpy array of vertices of the shape.&#34;&#34;&#34;
+        return self.path.vertices[:-1]
+
+    @property
+    def path(self):
+        &#34;&#34;&#34;Numpy array of length len(self.vertices) + 1, loop of the shape.&#34;&#34;&#34;
+        return self._path
+
+    @property
+    def max_radius(self):
+        return self._max_radius
+
+    @property
+    def is_symmetric_circle(self):
+        return self.shape == Sprite._CIRCLE_NAME and self.aspect_ratio == 1
+
+    @property
+    def x(self):
+        return self._position[0]
+
+    @property
+    def y(self):
+        return self._position[1]
+
+    @property
+    def shape(self):
+        return self._shape
+
+    @shape.setter
+    def shape(self, shape):
+        if isinstance(shape, str) and shape in shapes.SHAPES:
+            self._shape = shape
+            shape_path = shapes.SHAPES[shape]
+        else:
+            self._shape = Sprite._CUSTOM_SHAPE
+            shape_path = shape
+
+        self._set_shape_path(shape_path)
+
+    @property
+    def angle(self):
+        return self._angle
+
+    @angle.setter
+    def angle(self, a):
+        if id(a) == id(self._angle):
+            # See comment in @position.setter for why we catch this.
+            raise ValueError(
+                &#39;Cannot call in-place operations on sprite.angle.&#39;)
+        rotate = mpl_transforms.Affine2D().rotate_around(
+            self.x, self.y, a - self._angle)
+        self._path = rotate.transform_path(self._path)
+        self._angle = a
+
+    @property
+    def scale(self):
+        return self._scale
+
+    @scale.setter
+    def scale(self, s):
+        self._scale = s
+        self._set_path()
+
+    @property
+    def aspect_ratio(self):
+        return self._aspect_ratio
+
+    @aspect_ratio.setter
+    def aspect_ratio(self, a):
+        self._aspect_ratio = a
+        self._set_path()
+
+    @property
+    def c0(self):
+        return self._color[0]
+
+    @c0.setter
+    def c0(self, c0):
+        self._color = (c0, self.c1, self.c2)
+
+    @property
+    def c1(self):
+        return self._color[1]
+
+    @c1.setter
+    def c1(self, c1):
+        self._color = (self.c0, c1, self.c2)
+
+    @property
+    def c2(self):
+        return self._color[2]
+
+    @c2.setter
+    def c2(self, c2):
+        self._color = (self.c0, self.c1, c2)
+
+    @property
+    def opacity(self):
+        return self._opacity
+
+    @opacity.setter
+    def opacity(self, opacity):
+        self._opacity = opacity
+
+    @property
+    def x_vel(self):
+        return self._velocity[0]
+
+    @property
+    def y_vel(self):
+        return self._velocity[1]
+
+    @property
+    def mass(self):
+        return self._mass
+
+    @mass.setter
+    def mass(self, mass):
+        self._mass = mass
+
+    @property
+    def color(self):
+        return self._color
+
+    @property
+    def position(self):
+        return self._position
+
+    @position.setter
+    def position(self, pos):
+        if id(pos) == id(self.position):
+            # This setter references the pre-set position self._position, but
+            # with an in-place operation, the pre-set position is the same array
+            # as `pos`, the position to be set, so this setter function does not
+            # work as intended. In practice, this means that an in-place
+            # operation updates self._position but doesn&#39;t update self._path,
+            # which causes sprites to not move. Consequently, calling code must
+            # not update position in place. That can cause devious bugs if
+            # undetected, so we catch it with this ValueError.
+            raise ValueError(
+                &#39;Cannot call in-place operations on sprite.position.&#39;)
+        if not isinstance(pos, np.ndarray):
+            pos = np.array(pos)
+        translate = mpl_transforms.Affine2D().translate(*pos - self._position)
+        self._path = translate.transform_path(self._path)
+        self._position = pos
+
+    @property
+    def velocity(self):
+        return self._velocity
+
+    @velocity.setter
+    def velocity(self, vel):
+        if not isinstance(vel, np.ndarray):
+            vel = np.array(vel)
+        self._velocity = vel
+
+    @property
+    def angle_vel(self):
+        return self._angle_vel
+
+    @angle_vel.setter
+    def angle_vel(self, angle_vel):
+        self._angle_vel = angle_vel
+
+    @property
+    def just_set_shape(self):
+        &#34;&#34;&#34;This property can used and set by loggers.&#34;&#34;&#34;
+        return self._just_set_shape
+
+    @just_set_shape.setter
+    def just_set_shape(self, just_set_shape):
+        self._just_set_shape = just_set_shape
+
+    @property
+    def moment_of_inertia(self):
+        return sum(self.mass * self._x_y_rotational_inertia)
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def factors(self):
+        factors = collections.OrderedDict()
+        for factor_name in Sprite.FACTOR_NAMES:
+            factors[factor_name] = getattr(self, factor_name)
+        return factors</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="moog.sprite.Sprite.FACTOR_NAMES"><code class="name">var <span class="ident">FACTOR_NAMES</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="moog.sprite.Sprite.angle"><code class="name">var <span class="ident">angle</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def angle(self):
+    return self._angle</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.angle_vel"><code class="name">var <span class="ident">angle_vel</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def angle_vel(self):
+    return self._angle_vel</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.aspect_ratio"><code class="name">var <span class="ident">aspect_ratio</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def aspect_ratio(self):
+    return self._aspect_ratio</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.c0"><code class="name">var <span class="ident">c0</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c0(self):
+    return self._color[0]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.c1"><code class="name">var <span class="ident">c1</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c1(self):
+    return self._color[1]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.c2"><code class="name">var <span class="ident">c2</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c2(self):
+    return self._color[2]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.color"><code class="name">var <span class="ident">color</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def color(self):
+    return self._color</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.factors"><code class="name">var <span class="ident">factors</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def factors(self):
+    factors = collections.OrderedDict()
+    for factor_name in Sprite.FACTOR_NAMES:
+        factors[factor_name] = getattr(self, factor_name)
+    return factors</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.id"><code class="name">var <span class="ident">id</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def id(self):
+    return self._id</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.is_symmetric_circle"><code class="name">var <span class="ident">is_symmetric_circle</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def is_symmetric_circle(self):
+    return self.shape == Sprite._CIRCLE_NAME and self.aspect_ratio == 1</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.just_set_shape"><code class="name">var <span class="ident">just_set_shape</span></code></dt>
+<dd>
+<div class="desc"><p>This property can used and set by loggers.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def just_set_shape(self):
+    &#34;&#34;&#34;This property can used and set by loggers.&#34;&#34;&#34;
+    return self._just_set_shape</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.mass"><code class="name">var <span class="ident">mass</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def mass(self):
+    return self._mass</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.max_radius"><code class="name">var <span class="ident">max_radius</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def max_radius(self):
+    return self._max_radius</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.moment_of_inertia"><code class="name">var <span class="ident">moment_of_inertia</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def moment_of_inertia(self):
+    return sum(self.mass * self._x_y_rotational_inertia)</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.opacity"><code class="name">var <span class="ident">opacity</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def opacity(self):
+    return self._opacity</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.path"><code class="name">var <span class="ident">path</span></code></dt>
+<dd>
+<div class="desc"><p>Numpy array of length len(self.vertices) + 1, loop of the shape.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def path(self):
+    &#34;&#34;&#34;Numpy array of length len(self.vertices) + 1, loop of the shape.&#34;&#34;&#34;
+    return self._path</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.position"><code class="name">var <span class="ident">position</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def position(self):
+    return self._position</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.scale"><code class="name">var <span class="ident">scale</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def scale(self):
+    return self._scale</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.shape"><code class="name">var <span class="ident">shape</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def shape(self):
+    return self._shape</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.velocity"><code class="name">var <span class="ident">velocity</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def velocity(self):
+    return self._velocity</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.vertices"><code class="name">var <span class="ident">vertices</span></code></dt>
+<dd>
+<div class="desc"><p>Numpy array of vertices of the shape.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def vertices(self):
+    &#34;&#34;&#34;Numpy array of vertices of the shape.&#34;&#34;&#34;
+    return self.path.vertices[:-1]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.x"><code class="name">var <span class="ident">x</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def x(self):
+    return self._position[0]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.x_vel"><code class="name">var <span class="ident">x_vel</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def x_vel(self):
+    return self._velocity[0]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.y"><code class="name">var <span class="ident">y</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def y(self):
+    return self._position[1]</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.y_vel"><code class="name">var <span class="ident">y_vel</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def y_vel(self):
+    return self._velocity[1]</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="moog.sprite.Sprite.contains_point"><code class="name flex">
+<span>def <span class="ident">contains_point</span></span>(<span>self, point)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if the point is contained in the Sprite.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def contains_point(self, point):
+    &#34;&#34;&#34;Check if the point is contained in the Sprite.&#34;&#34;&#34;
+    if self.is_symmetric_circle:
+        contains_point = (
+            np.linalg.norm(point - self.position) &lt; self.max_radius)
+    else:
+        contains_point = self.path.contains_point(point)
+
+    return contains_point</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.contains_points"><code class="name flex">
+<span>def <span class="ident">contains_points</span></span>(<span>self, points)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if the points are contained in the Sprite.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>points</code></strong></dt>
+<dd>Numpy array of size (N, 2) containing coordinates of N
+points.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>contains_points</code></dt>
+<dd>Boolean numpy array of size (N,), indicating for
+each point whether it is in this sprite.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def contains_points(self, points):
+    &#34;&#34;&#34;Check if the points are contained in the Sprite.
+
+    Args:
+        points: Numpy array of size (N, 2) containing coordinates of N
+            points.
+
+    Returns:
+        contains_points: Boolean numpy array of size (N,), indicating for
+            each point whether it is in this sprite.
+    &#34;&#34;&#34;
+    if self.is_symmetric_circle:
+        contains_points = (
+            np.linalg.norm(points - self.position, axis=1) &lt;=
+            self.max_radius)
+    else:
+        contains_points = self._path.contains_points(points)
+
+    return contains_points</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.overlaps_sprite"><code class="name flex">
+<span>def <span class="ident">overlaps_sprite</span></span>(<span>self, sprite)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if this and the argument sprite overlap.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def overlaps_sprite(self, sprite):
+    &#34;&#34;&#34;Check if this and the argument sprite overlap.&#34;&#34;&#34;
+    center_dist = np.linalg.norm(self.position - sprite.position)
+    if center_dist &gt; self.max_radius + sprite.max_radius:
+        return False
+
+    # WARNING: You might think that the case of two circles depends only on
+    # their radius, but using this shortcut causes instability in
+    # collisions, since there is currently no special treatment for circles
+    # in collisions (collisions depend on the vertices themselves). So we
+    # give no special treatment to circles here.
+
+    # Note: mpl_path.Path.intersects_path() treats its input paths as
+    # paths with endpoints. Namely, an input array of N vertices
+    # corresponds to a path with N - 1 edges. Thus to apply it to detect
+    # intersection of sprites, we must feed it an array of length
+    # len(self.vertices) + 1. In fact self._path is an array of length
+    # len(self.vertices) + 1, by construction (see self._set_path()).
+    # Profiling note: Using mpl_path.Path.intersects_path() is slightly
+    # faster than `len(sprite_edge_crossings(self, sprite)[1] &gt; 0)`.
+    overlap = mpl_path.Path.intersects_path(
+        self.path, sprite.path, filled=True)
+    return overlap</code></pre>
+</details>
+</dd>
+<dt id="moog.sprite.Sprite.update_pos_from_vel"><code class="name flex">
+<span>def <span class="ident">update_pos_from_vel</span></span>(<span>self, delta_t)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Update position based on velocity.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_pos_from_vel(self, delta_t):
+    &#34;&#34;&#34;Update position based on velocity.&#34;&#34;&#34;
+    self.position = self.position + delta_t * self.velocity
+    if self._angle_vel:
+        self.angle = self.angle + delta_t * self._angle_vel</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="moog" href="index.html">moog</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="moog.sprite.segment_crossing_coefficients" href="#moog.sprite.segment_crossing_coefficients">segment_crossing_coefficients</a></code></li>
+<li><code><a title="moog.sprite.segment_crossings" href="#moog.sprite.segment_crossings">segment_crossings</a></code></li>
+<li><code><a title="moog.sprite.sprite_edge_crossings" href="#moog.sprite.sprite_edge_crossings">sprite_edge_crossings</a></code></li>
+<li><code><a title="moog.sprite.update_sprite" href="#moog.sprite.update_sprite">update_sprite</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="moog.sprite.Sprite" href="#moog.sprite.Sprite">Sprite</a></code></h4>
+<ul class="two-column">
+<li><code><a title="moog.sprite.Sprite.FACTOR_NAMES" href="#moog.sprite.Sprite.FACTOR_NAMES">FACTOR_NAMES</a></code></li>
+<li><code><a title="moog.sprite.Sprite.angle" href="#moog.sprite.Sprite.angle">angle</a></code></li>
+<li><code><a title="moog.sprite.Sprite.angle_vel" href="#moog.sprite.Sprite.angle_vel">angle_vel</a></code></li>
+<li><code><a title="moog.sprite.Sprite.aspect_ratio" href="#moog.sprite.Sprite.aspect_ratio">aspect_ratio</a></code></li>
+<li><code><a title="moog.sprite.Sprite.c0" href="#moog.sprite.Sprite.c0">c0</a></code></li>
+<li><code><a title="moog.sprite.Sprite.c1" href="#moog.sprite.Sprite.c1">c1</a></code></li>
+<li><code><a title="moog.sprite.Sprite.c2" href="#moog.sprite.Sprite.c2">c2</a></code></li>
+<li><code><a title="moog.sprite.Sprite.color" href="#moog.sprite.Sprite.color">color</a></code></li>
+<li><code><a title="moog.sprite.Sprite.contains_point" href="#moog.sprite.Sprite.contains_point">contains_point</a></code></li>
+<li><code><a title="moog.sprite.Sprite.contains_points" href="#moog.sprite.Sprite.contains_points">contains_points</a></code></li>
+<li><code><a title="moog.sprite.Sprite.factors" href="#moog.sprite.Sprite.factors">factors</a></code></li>
+<li><code><a title="moog.sprite.Sprite.id" href="#moog.sprite.Sprite.id">id</a></code></li>
+<li><code><a title="moog.sprite.Sprite.is_symmetric_circle" href="#moog.sprite.Sprite.is_symmetric_circle">is_symmetric_circle</a></code></li>
+<li><code><a title="moog.sprite.Sprite.just_set_shape" href="#moog.sprite.Sprite.just_set_shape">just_set_shape</a></code></li>
+<li><code><a title="moog.sprite.Sprite.mass" href="#moog.sprite.Sprite.mass">mass</a></code></li>
+<li><code><a title="moog.sprite.Sprite.max_radius" href="#moog.sprite.Sprite.max_radius">max_radius</a></code></li>
+<li><code><a title="moog.sprite.Sprite.moment_of_inertia" href="#moog.sprite.Sprite.moment_of_inertia">moment_of_inertia</a></code></li>
+<li><code><a title="moog.sprite.Sprite.opacity" href="#moog.sprite.Sprite.opacity">opacity</a></code></li>
+<li><code><a title="moog.sprite.Sprite.overlaps_sprite" href="#moog.sprite.Sprite.overlaps_sprite">overlaps_sprite</a></code></li>
+<li><code><a title="moog.sprite.Sprite.path" href="#moog.sprite.Sprite.path">path</a></code></li>
+<li><code><a title="moog.sprite.Sprite.position" href="#moog.sprite.Sprite.position">position</a></code></li>
+<li><code><a title="moog.sprite.Sprite.scale" href="#moog.sprite.Sprite.scale">scale</a></code></li>
+<li><code><a title="moog.sprite.Sprite.shape" href="#moog.sprite.Sprite.shape">shape</a></code></li>
+<li><code><a title="moog.sprite.Sprite.update_pos_from_vel" href="#moog.sprite.Sprite.update_pos_from_vel">update_pos_from_vel</a></code></li>
+<li><code><a title="moog.sprite.Sprite.velocity" href="#moog.sprite.Sprite.velocity">velocity</a></code></li>
+<li><code><a title="moog.sprite.Sprite.vertices" href="#moog.sprite.Sprite.vertices">vertices</a></code></li>
+<li><code><a title="moog.sprite.Sprite.x" href="#moog.sprite.Sprite.x">x</a></code></li>
+<li><code><a title="moog.sprite.Sprite.x_vel" href="#moog.sprite.Sprite.x_vel">x_vel</a></code></li>
+<li><code><a title="moog.sprite.Sprite.y" href="#moog.sprite.Sprite.y">y</a></code></li>
+<li><code><a title="moog.sprite.Sprite.y_vel" href="#moog.sprite.Sprite.y_vel">y_vel</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

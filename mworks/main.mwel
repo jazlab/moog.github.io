@@ -1,0 +1,222 @@
+// This is the main entrypoint for running mworks experiments. Load this script
+// in the MWorks client to begin running.
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Choose interface to use
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+// Include one of the controller interfaces below. If playing the pong config,
+// you will want a joystick interface. If playing the pacman config, you will
+// want a grid interface.
+
+%include 'interfaces/keyboard_joystick'
+// %include 'interfaces/keyboard_grid'
+// %include 'interfaces/gamepad_joystick'
+// %include 'interfaces/gamepad_grid'
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Resources
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+// These directories are copied to the machine running MWServer
+resource ('sounds')
+
+// These files are copied to the machine running MWServer and executed when the
+// experiment loads
+python_file ('task.py')
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Stimuli
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+var image_pixel_width = 512
+var image_pixel_height = 512
+var image_size_x = 20
+var image_size_y = 20
+var image_pos_x = 0
+var image_pos_y = 0
+
+stimulus/python_image image (
+    pixel_buffer_format = 'RGB8'
+    pixel_buffer_width = image_pixel_width
+    pixel_buffer_height = image_pixel_height
+    pixel_buffer_expr = 't.step()'
+    x_size = image_size_x
+    y_size = image_size_y
+    x_position = image_pos_x
+    y_position = image_pos_y
+    )
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Sounds
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+wav_file success_sound ('sounds/success.wav')
+wav_file failure_sound ('sounds/failure.wav')
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Variables
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+var end_task = False
+var end_trial = False
+var task_error = False
+
+var reward_duration = 0
+var reward_line = false
+var inter_trial_interval_duration = 1s
+var default_iti = 1s
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Shared Task Protocol Body
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+%define run_task ()
+    report ('********    STARTING TASK    ********')
+    end_task = false
+    task_error = false
+
+    trial {
+        task {
+            state 'Begin trial' {
+                report('****  BEGINNING TRIAL  ****')
+                run_python_string ('t.reset()')
+
+                reward_duration = 0
+
+                // It's not strictly necessary to start and stop the I/O devices
+                // every trial (i.e. you could just start them once at the
+                // beginning of the protocol), but doing so ensures that the
+                // Python code receives controller events only while a trial is
+                // active.
+                start_io_device (controller)
+
+                queue_stimulus (image)
+                update_display ()
+
+                goto ('Wait for completion')
+            }
+
+            state 'Wait for completion' {
+                goto (
+                    target = 'Success'
+                    when = reward_duration > 0
+                    )
+                goto (
+                    target = 'Failure'
+                    when = reward_duration < 0
+                    )
+                goto (
+                    target = 'End trial'
+                    when = end_trial
+                    )
+                goto (
+                    target = 'End protocol'
+                    when = end_task
+                    )
+                goto (
+                    target = 'Task error'
+                    when = task_error
+                    )
+            }
+
+            state 'Success' {
+                play_sound (success_sound)
+                goto ('Reward')
+            }
+
+            state 'Reward' {
+                report ('Dispensing reward for $(reward_duration / 1000) ms')
+
+                // In a real experiment, reward_line could control a digital
+                // output on a NIDAQ or other device
+                reward_line = true
+                wait (reward_duration)
+                reward_line = false
+                reward_duration = 0
+
+                goto ('Wait for completion')
+            }
+
+            state 'Failure' {
+                play_sound (failure_sound)
+                reward_duration = 0
+                
+                goto ('Wait for completion')
+            }
+
+            state 'End trial' {
+                report('****  ENDING TRIAL  ****')
+                
+                stop_io_device (controller)
+                
+                end_trial = false
+                clear_display ()
+
+                start_timer (
+                    timer = timer
+                    duration = inter_trial_interval_duration
+                    )
+
+                goto (
+                    target = 'Begin trial'
+                    when = timer_expired(timer)
+                    )
+            }
+
+            state 'End protocol' {
+                report ('********    ENDING TASK    ********')
+                inter_trial_interval_duration = default_iti
+                yield ()
+            }
+
+            state 'Task error' {
+                report ('********    TASK ERROR    ********')
+                goto ('End protocol')
+            }
+        }
+    }
+%end
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Task Protocols
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+protocol 'Pong' {
+    run_python_string (
+        't = TaskManager(config_name="configs.pong", level=0)')
+    run_task ()
+}
+
+protocol 'PacMan' {
+    run_python_string (
+        't = TaskManager(config_name="configs.pacman", level=0)')
+    run_task ()
+}

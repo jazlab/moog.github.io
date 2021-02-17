@@ -1,0 +1,47 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Keyboard interface for up/down/left/right arrow keys
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+group 'Keyboard variables' {
+    var right_pressed = 0
+    var left_pressed = 0
+    var up_pressed = 0
+    var down_pressed = 0
+    var space_pressed = 0
+}
+
+%define keyboard_device ()
+    iodevice/usbhid_generic (
+        usage_page = 1
+        usage = 6
+        preferred_location_id = 2152726528  // macbook laptop
+        // log_all_input_values = true
+        )
+%end
+
+%define keyboard_name_to_usage = {
+    'right_arrow': 79,
+    'left_arrow': 80,
+    'down_arrow': 81,
+    'up_arrow': 82,
+    'space': 44
+}
+
+%define keyboard_channel (key, value)
+    iochannel/usbhid_generic_input_channel (
+        usage_page = 7
+        usage = keyboard_name_to_usage[key]
+        value = value
+        )
+%end
+
+keyboard_device controller {
+    keyboard_channel (key = 'right_arrow'; value = right_pressed)
+    keyboard_channel (key = 'left_arrow'; value = left_pressed)
+    keyboard_channel (key = 'up_arrow'; value = up_pressed)
+    keyboard_channel (key = 'down_arrow'; value = down_pressed)
+    keyboard_channel (key = 'space'; value = space_pressed)
+}

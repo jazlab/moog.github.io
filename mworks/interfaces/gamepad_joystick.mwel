@@ -1,0 +1,70 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// PS3 Gamepad interface
+//
+// Usage: Use the left-side rocker to control left/right/up/down motion.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+
+%define update_joystick ()
+    
+    x_force = (
+        (rocker_x > 128 + 8) * (rocker_x - 128) / 128 +
+        (rocker_x < 128 - 8) * (rocker_x - 128) / 128
+    )
+    y_force = (
+        (rocker_y < 128 - 8) * (128 - rocker_y) / 128 +
+        (rocker_y > 128 + 8) * (128 - rocker_y) / 128
+    )
+
+    /*
+    // The gamepad rocker's resting position is a little noisy. Even when not
+    // touched, it's values are not exactly 128. That is why we ignore small
+    // actions above. In the version below we do not ignore small actions, but
+    // this means that the agent never stops moving, even when you let go of the
+    // rocker.
+    
+    x_force = rocker_x / 128 - 1
+    y_force = 1 - rocker_y / 128
+    */
+%end
+
+group 'Joystick variables' {
+    var x_force = 0
+    var y_force = 0
+
+    var rocker_x = 128 {
+        update_joystick ()
+    }
+    var rocker_y = 128 {
+        update_joystick ()
+    }
+}
+
+%define joystick_device ()
+    iodevice/usbhid_generic (
+        usage_page = 1
+        usage = 5
+        // preferred_location_id = 338755584  // sony PS3 gamepad macbook laptop
+        // log_all_input_values = true
+        )
+%end
+
+%define joystick_name_to_usage = {
+    'rocker_X_channel': 48,
+    'rocker_Y_channel': 49,
+}
+
+joystick_device controller {
+    iochannel/usbhid_generic_input_channel (
+        usage_page = 1
+        usage = joystick_name_to_usage['rocker_X_channel']
+        value = rocker_x
+        )
+    iochannel/usbhid_generic_input_channel (
+        usage_page = 1
+        usage = joystick_name_to_usage['rocker_Y_channel']
+        value = rocker_y
+        )
+}

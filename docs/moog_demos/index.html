@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>moog_demos API documentation</title>
+<meta name="description" content="__init__.py …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>moog_demos</code></h1>
+</header>
+<section id="section-intro">
+<p><strong>init</strong>.py.</p>
+<h1 id="moog-demos">MOOG Demos</h1>
+<p>This directory contains example tasks and scripts to run them. The entry point
+is <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/run_demo.py"><code>run_demo.py</code></a>, which is a python script that launches a demo
+gui to play a task, given a <code>--config</code> flag pointing to a configuration file.
+See example tasks below for commands to run different example configs.</p>
+<p>The <code>run_demo.py</code> file also has a <code>--write_gif</code> flag. Set that flag to <code>True</code> to
+record your demo play as a gif to the file specified by the <code>--gif_file</code> flag.</p>
+<p>The <code>run_demo.py</code> file also has a <code>--log_data</code> flag. Set that flag to <code>True</code> to
+record your demo play as JSON-serialized strings for trials. From those logs you
+can recover the demo play. See
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/restore_logged_data.py"><code>restore_logged_data.py</code></a> for an example of restoring
+from logs and replaying a video of the demo play.</p>
+<h2 id="example-tasks">Example Tasks</h2>
+<p>Some example task configs are in <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs">example_configs</a>. Below are a
+few gifs showing what playing these tasks is like. The gifs show the image
+window of the demo display (the reward plot and controller display are cropped
+out). Positive/negative rewards are indicated by green/red borders on the image,
+purely for visualization purposes (this is done by the demo script, not the task
+itself).</p>
+<p>Note: Sometimes the gifs on this page are slow to load. If you don't want to
+wait, you can right-click and open them in a new browser tab.</p>
+<h3 id="bounce_box_contact_prediction"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/bounce_box_contact_prediction.py">bounce_box_contact_prediction</a> <br></h3>
+<p>In this task two red balls fall into a box. They bounce elastically off the
+walls of the box, ultimately disappearing off the top of the screen because
+there is no gravity. The subject's goal is to predict whether they will contact
+each other. There is an occluder covering the bottom portion of the box. The
+occluder may be translucent.</p>
+<p>To play with a translucent occluder, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.bounce_box_contact_prediction' --level=1
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/bounce_box_contact_prediction_level_1.gif"
+width="300"></p>
+<p>To play with an opaque occluder, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.bounce_box_contact_prediction' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/bounce_box_contact_prediction_level_0.gif"
+width="300"></p>
+<h3 id="chase_avoid_torus"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/chase_avoid_torus.py">chase_avoid_torus</a> <br></h3>
+<p>In this task there are predators (red circles), prey (yellow circles) and an
+agent (green square). The subject controls the agent with a joystick. The
+subject's goal is to catch the prey while avoiding being caught by the
+predators. The prey are repulsed by the agent and predators are attracted to the
+agent. Prey and predators move stochasticity and with constant speed.</p>
+<p>The environment geometry is shaped like a torus &mdash; when an object reaches one
+boundary, it reappears on the opposite boundary.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.chase_avoid_torus' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/chase_avoid_torus.gif?raw=true" width="300"></p>
+<h3 id="cleanup"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/cleanup.py">cleanup</a> <br></h3>
+<p>This is a multi-agent task. In this task there are blue fountains at the top of
+the arena and green fruit at the bottom of the arena. Each fountain can be
+poisoned (dull color) or clean (bright color) and each fruit can be spoiled
+(dull color) or ripe (bright color). If an agent contacts a poisoned fountain,
+that fountain turns clean and a spoiled fruit turns ripe. If an agent contacts a
+ripe fruit, the agent receives a reward but that fruit turns spoiled and a
+fountain becomes poisoned.</p>
+<p>So the agents have to go up to the fountains, clean them up to turn the fruit
+ripe, then go down to the fruit and collect them (receiving reward), then when
+there's no ripe fruit left they have to go back up to the fountains.</p>
+<p>Some agents can be selfish free-riders by hanging out near the fruit and eating
+them while others to clean the fountains. Other agents can be selfless by
+cleaning fountains all the time and never eating fruit.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='multi_agent_example.configs.cleanup' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/cleanup.gif?raw=true" width="300"></p>
+<h3 id="colliding_predators"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/colliding_predators.py">colliding_predators</a> <br></h3>
+<p>This task serves to showcase collisions. The predators have a variety of
+polygonal shapes and bounce off each other and off the walls with Newtonian
+collisions. The subject controls a green agent circle. The subject gets negative
+reward if contacted by a predators and positive reward periodically.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.colliding_predators' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/colliding_predators.gif?raw=true" width="300"></p>
+<h3 id="first_person_predators_prey"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/first_person_predators_prey.py">first_person_predators_prey</a> <br></h3>
+<p>In an inifite plane, predators and prey drift around and the agent is rewarded
+for catching prey and punished for being caught by predators. The field of view
+travels with the agent, keeping the agent centered at all times (first-person),
+and there is an occluding annulus around the agent.</p>
+<p>The subject receives positive reward proportional to a prey's size when a prey
+is caught, and negative reward proportional to the predator's size when the
+agent is caught by a predator.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.first_person_predators_prey' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/first_person_predators_prey.gif?raw=true" width="300"></p>
+<h3 id="functional_maze"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/functional_maze.py">functional_maze</a> <br></h3>
+<p>The predators (red circles) chase the agent. The agent receives reward for
+catching prey (yellow circles), which disappear upon capture. The boosters (blue
+triangles) temporarily increase the agent's speed. The portals (white squares)
+teleport the agent from one place to another.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.functional_maze' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/functional_maze.gif?raw=true" width="300"></p>
+<h3 id="match_to_sample"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/match_to_sample.py">match_to_sample</a> <br></h3>
+<p>In this task there are some colored circles (targets) on a ring, and an agent
+avatar in the center of the ring. After an initial stimulus period where the
+colored targets are visible, they all turn grey and begin rotating together.
+After some time they stop and a colored cue appears on the agent avatar. The
+subject must identify the target that had the same color as the cue and respond
+by navigating towards that target.</p>
+<p>This task requires workimg memory of multiple objects with features (colors).</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.match_to_sample' --level=3
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/match_to_sample_level_3.gif?raw=true" width="300"></p>
+<p>The <code>--level</code> flag controls the number of objects in the task.</p>
+<h3 id="multi_tracking_with_feature"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/multi_tracking_with_feature.py">multi_tracking_with_feature</a> <br></h3>
+<p>In this task, the subject controls the position of a small cross. Typically,
+this would be controlled by an eye-tracker to follow the subject's gaze. There
+are a number of circles with oriented bars (each initially randomly vertical or
+horizontal). Those circles with bars drift around an arena, bouncing off the
+walls. At a random time, one of the bars rotates 90 degrees. The subject's goal
+is to identify and fixate on that target.</p>
+<p>After a brief initial period in which they are all visible, an occluder appears
+occluding peripheral vision. This forces the subject to mentally keep track of
+the targets' locations and orientations.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.multi_tracking_with_feature' --level=3
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/multi_tracking_with_feature_level_3.gif"
+width="300"></p>
+<p>The <code>--level</code> flag controls the number of objects in the task.</p>
+<h3 id="pacman"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/pacman.py">pacman</a> <br></h3>
+<p>In this task all objects move in a maze with the same speed. The maze is
+randomized every trial. The subject controls a green agent. Red ghost agents
+wander the maze randomly without backtracking. The subject's goal is to collect
+all yellow pellets in the maze. Ghosts only begin moving once agent moves.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.pacman' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/pacman_level_0.gif?raw=true" width="300"></p>
+<h3 id="parallelogram_catch"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/parallelogram_catch.py">parallelogram_catch</a> <br></h3>
+<p>In this task the subject controls a green circlular agent with a joystick. The
+motion is first-person, so the agent is fixed at the center of the screen while
+everything else moves. There are four yellow prey sprites. These prey sprites
+are identical parallelograms, and they are spatially arranged in a parallelogram
+with the same aspect ratio. There is an annulus occluding all peripheral vision,
+i.e. never are two prey visible simultaneously.</p>
+<p>The entire prey configuration may be drifting and rotating, depending on the
+level.</p>
+<p>This forces the subject to make a hierarchical inference task. After seeing the
+first prey, there are four possible arrangements of the other prey. After
+finding the second prey, there are two possible arrangements of the remaining
+prey. After finding the third prey, the fourth prey's position is deterministic.</p>
+<p>To play with static parallelograms, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.parallelogram_catch' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/parallelogram_catch_level_0.gif?raw=true" width="300"></p>
+<p>Different levels have different velocities of the parallelgram shapes' coherent
+motion. For example, to play with moving parallelograms, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.parallelogram_catch' --level=2
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/parallelogram_catch_level_2.gif?raw=true" width="300"></p>
+<h3 id="pong"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/pong.py">pong</a> <br></h3>
+<p>In this task the subject controls a paddle at the bottom of the screen with a
+joystick. The paddle is constrained to only move left-right. Each trial one ball
+falls from the top of the screen, starting at a random position and moving with
+a random angle. The ball bounces off of vertical walls on either side of the
+screen as it falls. The subject's goal is the intercept the ball with the
+paddle.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.pong' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/pong.gif?raw=true" width="300"></p>
+<h3 id="predators_arena"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/predators_arena.py">predators_arena</a> <br></h3>
+<p>The predators (red circles) chase the agent. The predators bouce off the arena
+boundaries, while the agent cannot exit but does not bounce (i.e. it has
+inelastic collisions with the boundaries). Trials only terminate when the agent
+is caught by a predator. The subject controls the agent with a joystick.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.predators_arena' --level=3
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/predators_arena_level_3.gif?raw=true" width="300"></p>
+<p>The <code>--level</code> flag controls how many predators there are.</p>
+<h3 id="red_green"><a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/red_green.py">red_green</a> <br></h3>
+<p>In this task, there is a blue ball that bounces in an enclosed rectangular
+arena. The arena may have gray rectangular obstacles that the blue ball bounces
+off. The arena has one green box and one red box. The subject's goal is to
+predict which of the green/red boxes the blue ball will contact first.</p>
+<p>In this particular implementation, the subject moves a token at the bottom of
+the screen left or right to indicate its choice.</p>
+<p>To play without obstacles, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.red_green' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/red_green_level_0.gif?raw=true" width="300"></p>
+<p>The <code>--level</code> flag controls how many predators there are. For example, to play
+with 2 obstacles, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.red_green' --level=2
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/red_green_level_2.gif?raw=true" width="300"></p>
+<h3 id="unstable-physics-with-falling_balls">Unstable Physics with <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/example_configs/falling_balls.py">falling_balls</a> <br></h3>
+<p>This task is not really a task, but instead used to demonstrate errors in
+collision physics.</p>
+<p>In this task some circles fall from the top of the screen, acted on by gravity.
+The collide with each other, settling onto a wall at the bottom of the screen.
+There is a divider in the bottom wall to add more collisions. The balls collide
+with some elasticity with the walls and each other.</p>
+<p>The collision dynamics for this task often do not look realistic. This is
+because the collision force can be unrealistic under two conditions (both of
+which are present in this task): * When an object collides while also
+accelerating due to some force at a distance. * When an object undergoes
+multiple collisions simultaneously.</p>
+<p>The issues arise most often with sprites that have many vertices, such as the
+circles in this task.</p>
+<p>Consider this task a word of caution when using collisions with many moving
+objects and non-collision forces.</p>
+<p>To play, run</p>
+<pre><code class="language-bash">$ python3 -m moog_demos.run_demo --config='example_configs.falling_balls' --level=0
+</code></pre>
+<p>which will look like this:</p>
+<p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog_demos/../readme_visuals/falling_balls.gif?raw=true" width="300"></p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;__init__.py.
+
+.. include:: README.md
+&#34;&#34;&#34;</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="moog_demos.example_configs" href="example_configs/index.html">moog_demos.example_configs</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="moog_demos.gif_writer" href="gif_writer.html">moog_demos.gif_writer</a></code></dt>
+<dd>
+<div class="desc"><p>Gif writer to record a video while playing the demo …</p></div>
+</dd>
+<dt><code class="name"><a title="moog_demos.gui_frames" href="gui_frames.html">moog_demos.gui_frames</a></code></dt>
+<dd>
+<div class="desc"><p>This file contains GUI frames for human_agent.py …</p></div>
+</dd>
+<dt><code class="name"><a title="moog_demos.human_agent" href="human_agent.html">moog_demos.human_agent</a></code></dt>
+<dd>
+<div class="desc"><p>Human gui to demo tasks …</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#moog-demos">MOOG Demos</a><ul>
+<li><a href="#example-tasks">Example Tasks</a><ul>
+<li><a href="#bounce_box_contact_prediction">bounce_box_contact_prediction </a></li>
+<li><a href="#chase_avoid_torus">chase_avoid_torus </a></li>
+<li><a href="#cleanup">cleanup </a></li>
+<li><a href="#colliding_predators">colliding_predators </a></li>
+<li><a href="#first_person_predators_prey">first_person_predators_prey </a></li>
+<li><a href="#functional_maze">functional_maze </a></li>
+<li><a href="#match_to_sample">match_to_sample </a></li>
+<li><a href="#multi_tracking_with_feature">multi_tracking_with_feature </a></li>
+<li><a href="#pacman">pacman </a></li>
+<li><a href="#parallelogram_catch">parallelogram_catch </a></li>
+<li><a href="#pong">pong </a></li>
+<li><a href="#predators_arena">predators_arena </a></li>
+<li><a href="#red_green">red_green </a></li>
+<li><a href="#unstable-physics-with-falling_balls">Unstable Physics with falling_balls </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Homepage" href="../index.html">Homepage</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="moog_demos.example_configs" href="example_configs/index.html">moog_demos.example_configs</a></code></li>
+<li><code><a title="moog_demos.gif_writer" href="gif_writer.html">moog_demos.gif_writer</a></code></li>
+<li><code><a title="moog_demos.gui_frames" href="gui_frames.html">moog_demos.gui_frames</a></code></li>
+<li><code><a title="moog_demos.human_agent" href="human_agent.html">moog_demos.human_agent</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
