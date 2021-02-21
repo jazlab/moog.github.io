@@ -10,17 +10,17 @@ be a short "recipe" for the task, containing as little substantive code as
 possible, and should define a set of components to pass to the MOOG environment.
 See [configs](../moog_demos/example_configs) for example configuration files.
 
-A MOOG environment has the following components. It receives these (or callables
-returning these) from the configuration file:
+A MOOG [environment](./environment.py) has the following components. It receives
+these (or callables returning these) from the configuration file:
 
-* **State**. The state is a collection of sprites. Sprites are polygonal shapes
-  with color and physical attributes (position, velocity, angular velocity, and
-  mass). Sprites are 2-dimensional, and the state is 2.5-dimensional with
-  z-ordering for occlusion. The initial state can be procedurally generated from
-  a custom distribution at the beginning of each episode. The state is
-  structured in terms of layers, which helps hierarchical organization. See
-  [state_initialization](./state_initialization) for procedural generation
-  tools.
+* **State**. The state is a collection of [sprites](./sprite.py). Sprites are
+  polygonal shapes with color and physical attributes (position, velocity,
+  angular velocity, and mass). Sprites are 2-dimensional, and the state is
+  2.5-dimensional with z-ordering for occlusion. The initial state can be
+  procedurally generated from a custom distribution at the beginning of each
+  episode. The state is structured in terms of layers, which helps hierarchical
+  organization. See [state_initialization](./state_initialization) for
+  procedural generation tools.
 * **Physics**. The physics is a collection of forces that operate on the
   sprites. There are a variety of forces built into MOOG (collisions, friction,
   gravity, rigid tethers, ...) and it is easy to implement your own custom
@@ -64,3 +64,29 @@ for videos of example configs and the
 example config files. The simplest config is
 [`predators_arena`](../moog_demos/example_configs/predators_arena.py), so that
 is a good place to start.
+
+## Environment
+
+The [environment.py](./environment.py) file contains the `Environment` class.
+All MOOG environments are instances of this class. See the [website
+documentation](https://jazlab.github.io/moog.github.io/moog/environment.html)
+for details about all methods.
+
+Environment functionality can be modified or augmented with wrappers. The
+[`env_wrappers`](./env_wrappers) directory contains some example, including
+wrappers for multi-agent play, logging, OpenAI Gym interface, and a wrapper for
+model-based RL with ground truth simulation. See the [env_wrappers
+documentation](https://jazlab.github.io/moog.github.io/moog/env_wrappers/index.html)
+for details.
+
+## Sprite
+
+The [sprite.py](./sprite.py) file contains the `Sprite` class. The state of a
+MOOG environment is an OrderedDict of iterables of Sprite instances. A sprite
+has factors [`x`, `y`, `shape`, `angle`, `scale`, `aspect_ratio`, `c0`, `c1`,
+`c2`, `opacity`, `x_vel`, `y_vel`, `angle_vel`, `mass`, `metadata`]. The
+sprite's constructor takes these (or some subset of them) as keyword arguments.
+These factors may be modified by various components, such as physics and game
+rules, and can always be accessed as attributes of the sprite. See the [sprite
+documentation](https://jazlab.github.io/moog.github.io/moog/sprite.html#moog.sprite.Sprite)
+for details.

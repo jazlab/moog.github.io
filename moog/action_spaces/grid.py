@@ -8,7 +8,7 @@ import numpy as np
 class Grid(abstract_action_space.AbstractActionSpace):
     """Discrete grid action space.
     
-    This action space has 4 actions {left, right, up, down, do-nothing}. These
+    This action space has 5 actions {left, right, up, down, do-nothing}. These
     actions control either the force or the velocity of the agent(s).
     """
 

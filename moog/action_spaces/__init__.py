@@ -1,4 +1,4 @@
-"""__init__.py."""
+""".. include:: README.md"""
 
 from .abstract_action_space import AbstractActionSpace
 from .composite import Composite

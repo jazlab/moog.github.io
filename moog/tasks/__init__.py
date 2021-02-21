@@ -1,4 +1,4 @@
-"""__init__.py."""
+""".. include:: README.md"""
 
 from .abstract_task import AbstractTask
 from .composite_task import CompositeTask

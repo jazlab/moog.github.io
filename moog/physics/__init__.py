@@ -1,4 +1,4 @@
-"""__init__.py"""
+""".. include:: README.md"""
 
 from .abstract_force import AbstractForce
 from .abstract_force import AbstractNewtonianForce

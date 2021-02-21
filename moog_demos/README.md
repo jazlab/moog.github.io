@@ -36,7 +36,7 @@ occluder may be translucent.
 
 To play with a translucent occluder, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.bounce_box_contact_prediction' --level=1
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.bounce_box_contact_prediction' --level=1
 ```
 which will look like this:
 
@@ -45,7 +45,7 @@ width="300">
 
 To play with an opaque occluder, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.bounce_box_contact_prediction' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.bounce_box_contact_prediction' --level=0
 ```
 which will look like this:
 
@@ -66,7 +66,7 @@ boundary, it reappears on the opposite boundary.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.chase_avoid_torus' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.chase_avoid_torus' --level=0
 ```
 which will look like this:
 
@@ -108,7 +108,7 @@ reward if contacted by a predators and positive reward periodically.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.colliding_predators' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.colliding_predators' --level=0
 ```
 which will look like this:
 
@@ -128,7 +128,7 @@ agent is caught by a predator.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.first_person_predators_prey' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.first_person_predators_prey' --level=0
 ```
 which will look like this:
 
@@ -143,7 +143,7 @@ teleport the agent from one place to another.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.functional_maze' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.functional_maze' --level=0
 ```
 which will look like this:
 
@@ -162,7 +162,7 @@ This task requires workimg memory of multiple objects with features (colors).
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.match_to_sample' --level=3
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.match_to_sample' --level=3
 ```
 which will look like this:
 
@@ -185,7 +185,7 @@ the targets' locations and orientations.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.multi_tracking_with_feature' --level=3
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.multi_tracking_with_feature' --level=3
 ```
 which will look like this:
 
@@ -203,7 +203,7 @@ all yellow pellets in the maze. Ghosts only begin moving once agent moves.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.pacman' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.pacman' --level=0
 ```
 which will look like this:
 
@@ -228,7 +228,7 @@ prey. After finding the third prey, the fourth prey's position is deterministic.
 
 To play with static parallelograms, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.parallelogram_catch' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.parallelogram_catch' --level=0
 ```
 which will look like this:
 
@@ -237,7 +237,7 @@ which will look like this:
 Different levels have different velocities of the parallelgram shapes' coherent
 motion. For example, to play with moving parallelograms, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.parallelogram_catch' --level=2
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.parallelogram_catch' --level=2
 ```
 which will look like this:
 
@@ -254,7 +254,7 @@ paddle.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.pong' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.pong' --level=0
 ```
 which will look like this:
 
@@ -267,9 +267,15 @@ boundaries, while the agent cannot exit but does not bounce (i.e. it has
 inelastic collisions with the boundaries). Trials only terminate when the agent
 is caught by a predator. The subject controls the agent with a joystick.
 
+This task also contains an auto-curriculum: When the subject does well (evades
+the predators for a long time before being caught), the predators' masses are
+decreased, thereby increasing the predators' speeds. Conversely, when the
+subject does poorly (gets caught quickly), the predators' masses are increased,
+thereby decreasing the predators' speeds.
+
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.predators_arena' --level=3
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.predators_arena' --level=3
 ```
 which will look like this:
 
@@ -289,7 +295,7 @@ the screen left or right to indicate its choice.
 
 To play without obstacles, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.red_green' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.red_green' --level=0
 ```
 which will look like this:
 
@@ -298,7 +304,7 @@ which will look like this:
 The `--level` flag controls how many predators there are. For example, to play
 with 2 obstacles, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.red_green' --level=2
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.red_green' --level=2
 ```
 which will look like this:
 
@@ -328,7 +334,7 @@ objects and non-collision forces.
 
 To play, run
 ```bash
-$ python3 -m moog_demos.run_demo --config='example_configs.falling_balls' --level=0
+$ python3 -m moog_demos.run_demo --config='moog_demos.example_configs.falling_balls' --level=0
 ```
 which will look like this:
 

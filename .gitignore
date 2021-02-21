@@ -6,6 +6,6 @@
 **.pyc
 **logs/
 **.pytest_cache
-moog.egg-info**
+moog_games.egg-info**
 build**
-dist**
+dist/**

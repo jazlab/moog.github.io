@@ -32,9 +32,9 @@ See [`moog_demos`](moog_demos) for a variety of example tasks.
 MOOG may be useful for the following kinds of researchers:
 
 * Machine learning researchers studying reinforcement learning in
-  2.5-dimensional physical environments who want to quickly implement tasks
-  without having to wrangle with more complicated game engines that aren't
-  designed for RL.
+  2.5-dimensional (2-dimensional with occlusion) physical environments who want
+  to quickly implement tasks without having to wrangle with more complicated
+  game engines that aren't designed for RL.
 * Psychology researchers who want more flexibility than existing psychology
   platforms afford.
 * Neurophysiology researchers who want to study interactive games yet still need

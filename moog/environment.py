@@ -52,7 +52,13 @@ class Environment(dm_env.Environment):
                 * reset(state)
             observers: Dict. Each value must be an instance of
                 observers.AbstractObserver, hence callable taking in state and
-                returning observation.
+                returning observation. The keys are the keys of an observation.
+                For example, if you would like the environments' observations
+                (returned in the timestep of each step) to contain multiple
+                kinds of observations (e.g. a rendered image and a state
+                description), you can let this observers argument be a
+                dictionary {key_0: observer_0, key_1: observer_1} and the
+                observation will be a dictionary {key_0: obs_0, key_1: obs_1}.
             game_rules: Iterable of instances of
                 game_rules.AbstractRule. Each element is called on the state
                 and meta_state every environment step and can modify them
@@ -74,6 +80,7 @@ class Environment(dm_env.Environment):
             self._meta_state_initializer = meta_state_initializer
 
     def reset(self):
+        """Reset (start a new episode)."""
         self._reset_next_step = False
         self.step_count = 0
         
@@ -119,10 +126,12 @@ class Environment(dm_env.Environment):
             return dm_env.transition(reward=reward, observation=observation)
 
     def observation(self):
+        """Returns a dictionary of observations."""
         return {k: observer(self._state)
                 for k, observer in self.observers.items()}
 
     def observation_spec(self):
+        """Returns a dictionary of dm_env specs for the observations."""
         observation_specs = {
             name: observer.observation_spec()
             for name, observer in self.observers.items()
@@ -130,16 +139,20 @@ class Environment(dm_env.Environment):
         return observation_specs
 
     def action_spec(self):
+        """Returns the action space's .action_spec()."""
         return self.action_space.action_spec()
 
     @property
     def state(self):
+        """State of environment."""
         return self._state
     
     @property
     def meta_state(self):
+        """Meta-state of environment."""
         return self._meta_state
 
     @property
     def reset_next_step(self):
+        """Whether to reset (start a new episode) on the next step."""
         return self._reset_next_step

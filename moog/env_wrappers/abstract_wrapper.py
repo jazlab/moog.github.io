@@ -1,18 +1,7 @@
 """Abstract wrapper.
 
-This file contains AbstractEnvironmentWrapper, and abstract base class for
+This file contains AbstractEnvironmentWrapper, an abstract base class for
 environment wrappers that mimics the interface of the underlying environment.
-
-One might ask why not make the environment wrappers inherit from
-../environment.Environment instead of wrapping and exposing all methods and
-properties. The reason is because users may want to use multiple environment
-wrappers in arbitrary combinations. If we had used inheritance we would not have
-been able to accomodate these combinations of wrappers.
-
-One might also ask why not use mixins. The reason is again to support using
-multiple wrappers. Some of the wrappers override the same functions (e.g.
-.__init__(), .step()), so disentangling them to operate as multiple mixins would
-not be possible without sacrificing code cleanness/simplicity.
 """
 
 import abc

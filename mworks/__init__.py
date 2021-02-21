@@ -1,4 +1,1 @@
-"""__init__.py.
-
-.. include:: README.md
-"""
+""".. include:: README.md"""

@@ -38,12 +38,12 @@ in the fields of artificial intelligence, cognitive science, psychology, and
 neuroscience. In artificial intelligence, interactive physical games are now a
 common testbed for reinforcement learning [@sutton2018reinforcement;
 @mnih2013playing] and object representations are of particular interest for
-sample efficient and generalizable AI [@greff2020binding; @van2019perspective;
-@lake2017building]. In cognitive science and psychology, object-based games are
-used to study a variety of cognitive capacities, such as planning, intuitive
-physics, and intuitive psychology [@ullman2017mind]. Developmental psychologists
-also use object-based visual stimuli to probe questions about object-oriented
-reasoning in infants and young animals [@spelke2007core; @wood2020reverse]. In
+sample efficient and generalizable AI [@greff2020binding; @van2019perspective].
+In cognitive science and psychology, object-based games are used to study a
+variety of cognitive capacities, such as planning, intuitive physics, and
+intuitive psychology [@ullman2017mind]. Developmental psychologists also use
+object-based visual stimuli to probe questions about object-oriented reasoning
+in infants and young animals [@spelke2007core; @wood2020reverse]. In
 neuroscience, object-based computer games have recently been used to study
 decision-making and physical reasoning in both human and non-human primates
 [@fischer2016functional; @mcdonald2019bayesian; @yoo2020neural;
@@ -52,9 +52,9 @@ decision-making and physical reasoning in both human and non-human primates
 Furthermore, a growing number of researchers are studying tasks using a
 combination of approaches from these fields. Comparing artificial agents with
 humans or animals performing the same tasks can help constrain models of
-human/animal behavior, generate hypotheses for neural mechanisms,
-and may ultimately facilitate building more intelligence artificial agents
-[@willke2019comparison; @hassabis2017neuroscience].
+human/animal behavior, generate hypotheses for neural mechanisms, and may
+ultimately facilitate building more intelligent artificial agents
+[@lake2017building; hassabis2017neuroscience; @willke2019comparison].
 
 However, building a task that can be played by AI agents, humans, and animals is
 a time-consuming undertaking because existing platforms are typically designed
@@ -93,8 +93,8 @@ the following criteria:
 MOOG was designed for use by the following kinds of researchers:
 
 * Machine learning researchers studying reinforcement learning in
-  2.5-dimensional physical environments who want to quickly implement tasks in
-  Python.
+  2.5-dimensional (2-dimensional with occlusion) physical environments who want
+  to quickly implement tasks in Python.
 * Psychology researchers who want more flexibility than existing psychology
   platforms afford.
 * Neurophysiology researchers who want to study interactive games yet still need

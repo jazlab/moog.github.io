@@ -1,4 +1,4 @@
-"""__init__.py."""
+""".. include:: README.md"""
 
 from .abstract_wrapper import AbstractEnvironmentWrapper
 from .logger import LoggingEnvironment

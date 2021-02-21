@@ -1,4 +1,4 @@
-"""__init__.py."""
+""".. include:: README.md"""
 
 from .abstract_observer import AbstractObserver
 from .pil_renderer import PILRenderer

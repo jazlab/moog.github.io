@@ -1,4 +1,4 @@
-"""__init__.py."""
+""".. include:: README.md"""
 
 from .abstract_rule import AbstractRule
 from .change_layer import ChangeLayer
