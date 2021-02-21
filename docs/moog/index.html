@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
 <title>moog API documentation</title>
-<meta name="description" content="__init__.py …" />
+<meta name="description" content="Modular Object-Oriented Games …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -22,7 +22,6 @@
 <h1 class="title">Module <code>moog</code></h1>
 </header>
 <section id="section-intro">
-<p><strong>init</strong>.py.</p>
 <h1 id="modular-object-oriented-games">Modular Object-Oriented Games</h1>
 <p><img src="https://github.com/jazlab/moog.github.io/blob/master/./moog/../readme_visuals/moog_header.gif?raw=true" width="900"></p>
 <h2 id="description">Description</h2>
@@ -31,17 +30,17 @@ be implemented with a single configuration file. This configuration file should
 be a short "recipe" for the task, containing as little substantive code as
 possible, and should define a set of components to pass to the MOOG environment.
 See <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/example_configs">configs</a> for example configuration files.</p>
-<p>A MOOG environment has the following components. It receives these (or callables
-returning these) from the configuration file:</p>
+<p>A MOOG <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./environment.py">environment</a> has the following components. It receives
+these (or callables returning these) from the configuration file:</p>
 <ul>
-<li><strong>State</strong>. The state is a collection of sprites. Sprites are polygonal shapes
-with color and physical attributes (position, velocity, angular velocity, and
-mass). Sprites are 2-dimensional, and the state is 2.5-dimensional with
-z-ordering for occlusion. The initial state can be procedurally generated from
-a custom distribution at the beginning of each episode. The state is
-structured in terms of layers, which helps hierarchical organization. See
-<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./state_initialization">state_initialization</a> for procedural generation
-tools.</li>
+<li><strong>State</strong>. The state is a collection of <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./sprite.py">sprites</a>. Sprites are
+polygonal shapes with color and physical attributes (position, velocity,
+angular velocity, and mass). Sprites are 2-dimensional, and the state is
+2.5-dimensional with z-ordering for occlusion. The initial state can be
+procedurally generated from a custom distribution at the beginning of each
+episode. The state is structured in terms of layers, which helps hierarchical
+organization. See <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./state_initialization">state_initialization</a> for
+procedural generation tools.</li>
 <li><strong>Physics</strong>. The physics is a collection of forces that operate on the
 sprites. There are a variety of forces built into MOOG (collisions, friction,
 gravity, rigid tethers, &hellip;) and it is easy to implement your own custom
@@ -84,14 +83,32 @@ for videos of example configs and the
 example config files. The simplest config is
 <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/../moog_demos/example_configs/predators_arena.py"><code>predators_arena</code></a>, so that
 is a good place to start.</p>
+<h2 id="environment">Environment</h2>
+<p>The <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./environment.py">environment.py</a> file contains the <code>Environment</code> class.
+All MOOG environments are instances of this class. See the <a href="https://jazlab.github.io/moog.github.io/moog/environment.html">website
+documentation</a>
+for details about all methods.</p>
+<p>Environment functionality can be modified or augmented with wrappers. The
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./env_wrappers"><code>env_wrappers</code></a> directory contains some example, including
+wrappers for multi-agent play, logging, OpenAI Gym interface, and a wrapper for
+model-based RL with ground truth simulation. See the <a href="https://jazlab.github.io/moog.github.io/moog/env_wrappers/index.html">env_wrappers
+documentation</a>
+for details.</p>
+<h2 id="sprite">Sprite</h2>
+<p>The <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/./sprite.py">sprite.py</a> file contains the <code>Sprite</code> class. The state of a
+MOOG environment is an OrderedDict of iterables of Sprite instances. A sprite
+has factors [<code>x</code>, <code>y</code>, <code>shape</code>, <code>angle</code>, <code>scale</code>, <code>aspect_ratio</code>, <code>c0</code>, <code>c1</code>,
+<code>c2</code>, <code>opacity</code>, <code>x_vel</code>, <code>y_vel</code>, <code>angle_vel</code>, <code>mass</code>, <code>metadata</code>]. The
+sprite's constructor takes these (or some subset of them) as keyword arguments.
+These factors may be modified by various components, such as physics and game
+rules, and can always be accessed as attributes of the sprite. See the <a href="https://jazlab.github.io/moog.github.io/moog/sprite.html#moog.sprite.Sprite">sprite
+documentation</a>
+for details.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;__init__.py.
-
-.. include:: README.md
-&#34;&#34;&#34;</code></pre>
+<pre><code class="python">&#34;&#34;&#34;.. include:: README.md&#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
@@ -99,11 +116,11 @@ is a good place to start.</p>
 <dl>
 <dt><code class="name"><a title="moog.action_spaces" href="action_spaces/index.html">moog.action_spaces</a></code></dt>
 <dd>
-<div class="desc"><p><strong>init</strong>.py.</p></div>
+<div class="desc"><p>Action Spaces …</p></div>
 </dd>
 <dt><code class="name"><a title="moog.env_wrappers" href="env_wrappers/index.html">moog.env_wrappers</a></code></dt>
 <dd>
-<div class="desc"><p><strong>init</strong>.py.</p></div>
+<div class="desc"><p>Environment wrappers …</p></div>
 </dd>
 <dt><code class="name"><a title="moog.environment" href="environment.html">moog.environment</a></code></dt>
 <dd>
@@ -111,7 +128,7 @@ is a good place to start.</p>
 </dd>
 <dt><code class="name"><a title="moog.game_rules" href="game_rules/index.html">moog.game_rules</a></code></dt>
 <dd>
-<div class="desc"><p><strong>init</strong>.py.</p></div>
+<div class="desc"><p>Game Rules …</p></div>
 </dd>
 <dt><code class="name"><a title="moog.maze_lib" href="maze_lib/index.html">moog.maze_lib</a></code></dt>
 <dd>
@@ -119,11 +136,11 @@ is a good place to start.</p>
 </dd>
 <dt><code class="name"><a title="moog.observers" href="observers/index.html">moog.observers</a></code></dt>
 <dd>
-<div class="desc"><p><strong>init</strong>.py.</p></div>
+<div class="desc"><p>Observers …</p></div>
 </dd>
 <dt><code class="name"><a title="moog.physics" href="physics/index.html">moog.physics</a></code></dt>
 <dd>
-<div class="desc"><p><strong>init</strong>.py</p></div>
+<div class="desc"><p>Physics …</p></div>
 </dd>
 <dt><code class="name"><a title="moog.shapes" href="shapes.html">moog.shapes</a></code></dt>
 <dd>
@@ -135,11 +152,11 @@ is a good place to start.</p>
 </dd>
 <dt><code class="name"><a title="moog.state_initialization" href="state_initialization/index.html">moog.state_initialization</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>State initialization …</p></div>
 </dd>
 <dt><code class="name"><a title="moog.tasks" href="tasks/index.html">moog.tasks</a></code></dt>
 <dd>
-<div class="desc"><p><strong>init</strong>.py.</p></div>
+<div class="desc"><p>Tasks …</p></div>
 </dd>
 </dl>
 </section>
@@ -157,6 +174,8 @@ is a good place to start.</p>
 <li><a href="#modular-object-oriented-games">Modular Object-Oriented Games</a><ul>
 <li><a href="#description">Description</a></li>
 <li><a href="#examples">Examples</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#sprite">Sprite</a></li>
 </ul>
 </li>
 </ul>

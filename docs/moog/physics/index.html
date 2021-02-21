@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
 <title>moog.physics API documentation</title>
-<meta name="description" content="__init__.py" />
+<meta name="description" content="Physics …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -22,12 +22,29 @@
 <h1 class="title">Module <code>moog.physics</code></h1>
 </header>
 <section id="section-intro">
-<p><strong>init</strong>.py</p>
+<h1 id="physics">Physics</h1>
+<p>The <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/physics/../environment.py">MOOG Environment class</a> takes a <code><a title="moog.physics.physics" href="physics.html">moog.physics.physics</a></code> keyword
+argument that satisfies the API defined in
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/physics/./abstract_physics.py"><code>AbstractPhysics</code></a> and implements forces on and
+continuous motion of sprites.</p>
+<p>In this directory, the <a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/physics/./physics.py"><code>physics.py</code></a> file contains a <code>Physics</code>
+class that composes forces, allows multiple updates per environment step, and is
+suitable for most tasks. </p>
+<p>However, for maze-based environments please use the <code>MazePhysics</code> class in
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/physics/./maze_physics.py"><code>maze_physics.py</code></a>, which constrains sprite motion to a
+gridworld maze. See the
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/physics/../../moog_demos/example_configs/pacman.py"><code>pacman.py</code></a> for an example.</p>
+<p>In this directory are also a variety of forces. These can be configured and
+combined to simulate many sprite dynamics, though, as with all MOOG components,
+your are welcome to implment custom forces if those provided are insufficient
+for your task. If you do so, be sure to inherit from <code>AbstractNewtonianForce</code> if
+your force is Newtonian or <code>AbstractForce</code> otherwise, both of which are in the
+<a href="https://github.com/jazlab/moog.github.io/blob/master/./moog/physics/./abstract_force.py"><code>abstract_force.py</code></a> file.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;__init__.py&#34;&#34;&#34;
+<pre><code class="python">&#34;&#34;&#34;.. include:: README.md&#34;&#34;&#34;
 
 from .abstract_force import AbstractForce
 from .abstract_force import AbstractNewtonianForce
@@ -113,7 +130,9 @@ from .tether_physics import TetherZippedLayers</code></pre>
 <nav id="sidebar">
 <h1>Index</h1>
 <div class="toc">
-<ul></ul>
+<ul>
+<li><a href="#physics">Physics</a></li>
+</ul>
 </div>
 <ul id="index">
 <li><h3>Super-module</h3>

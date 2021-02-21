@@ -84,7 +84,13 @@ class Environment(dm_env.Environment):
                 * reset(state)
             observers: Dict. Each value must be an instance of
                 observers.AbstractObserver, hence callable taking in state and
-                returning observation.
+                returning observation. The keys are the keys of an observation.
+                For example, if you would like the environments&#39; observations
+                (returned in the timestep of each step) to contain multiple
+                kinds of observations (e.g. a rendered image and a state
+                description), you can let this observers argument be a
+                dictionary {key_0: observer_0, key_1: observer_1} and the
+                observation will be a dictionary {key_0: obs_0, key_1: obs_1}.
             game_rules: Iterable of instances of
                 game_rules.AbstractRule. Each element is called on the state
                 and meta_state every environment step and can modify them
@@ -106,6 +112,7 @@ class Environment(dm_env.Environment):
             self._meta_state_initializer = meta_state_initializer
 
     def reset(self):
+        &#34;&#34;&#34;Reset (start a new episode).&#34;&#34;&#34;
         self._reset_next_step = False
         self.step_count = 0
         
@@ -151,10 +158,12 @@ class Environment(dm_env.Environment):
             return dm_env.transition(reward=reward, observation=observation)
 
     def observation(self):
+        &#34;&#34;&#34;Returns a dictionary of observations.&#34;&#34;&#34;
         return {k: observer(self._state)
                 for k, observer in self.observers.items()}
 
     def observation_spec(self):
+        &#34;&#34;&#34;Returns a dictionary of dm_env specs for the observations.&#34;&#34;&#34;
         observation_specs = {
             name: observer.observation_spec()
             for name, observer in self.observers.items()
@@ -162,18 +171,22 @@ class Environment(dm_env.Environment):
         return observation_specs
 
     def action_spec(self):
+        &#34;&#34;&#34;Returns the action space&#39;s .action_spec().&#34;&#34;&#34;
         return self.action_space.action_spec()
 
     @property
     def state(self):
+        &#34;&#34;&#34;State of environment.&#34;&#34;&#34;
         return self._state
     
     @property
     def meta_state(self):
+        &#34;&#34;&#34;Meta-state of environment.&#34;&#34;&#34;
         return self._meta_state
 
     @property
     def reset_next_step(self):
+        &#34;&#34;&#34;Whether to reset (start a new episode) on the next step.&#34;&#34;&#34;
         return self._reset_next_step</code></pre>
 </details>
 </section>
@@ -227,7 +240,13 @@ have methods:
 <dt><strong><code>observers</code></strong></dt>
 <dd>Dict. Each value must be an instance of
 observers.AbstractObserver, hence callable taking in state and
-returning observation.</dd>
+returning observation. The keys are the keys of an observation.
+For example, if you would like the environments' observations
+(returned in the timestep of each step) to contain multiple
+kinds of observations (e.g. a rendered image and a state
+description), you can let this observers argument be a
+dictionary {key_0: observer_0, key_1: observer_1} and the
+observation will be a dictionary {key_0: obs_0, key_1: obs_1}.</dd>
 <dt><strong><code>game_rules</code></strong></dt>
 <dd>Iterable of instances of
 game_rules.AbstractRule. Each element is called on the state
@@ -286,7 +305,13 @@ Environment meta_state is only used by task and game rules.</dd>
                 * reset(state)
             observers: Dict. Each value must be an instance of
                 observers.AbstractObserver, hence callable taking in state and
-                returning observation.
+                returning observation. The keys are the keys of an observation.
+                For example, if you would like the environments&#39; observations
+                (returned in the timestep of each step) to contain multiple
+                kinds of observations (e.g. a rendered image and a state
+                description), you can let this observers argument be a
+                dictionary {key_0: observer_0, key_1: observer_1} and the
+                observation will be a dictionary {key_0: obs_0, key_1: obs_1}.
             game_rules: Iterable of instances of
                 game_rules.AbstractRule. Each element is called on the state
                 and meta_state every environment step and can modify them
@@ -308,6 +333,7 @@ Environment meta_state is only used by task and game rules.</dd>
             self._meta_state_initializer = meta_state_initializer
 
     def reset(self):
+        &#34;&#34;&#34;Reset (start a new episode).&#34;&#34;&#34;
         self._reset_next_step = False
         self.step_count = 0
         
@@ -353,10 +379,12 @@ Environment meta_state is only used by task and game rules.</dd>
             return dm_env.transition(reward=reward, observation=observation)
 
     def observation(self):
+        &#34;&#34;&#34;Returns a dictionary of observations.&#34;&#34;&#34;
         return {k: observer(self._state)
                 for k, observer in self.observers.items()}
 
     def observation_spec(self):
+        &#34;&#34;&#34;Returns a dictionary of dm_env specs for the observations.&#34;&#34;&#34;
         observation_specs = {
             name: observer.observation_spec()
             for name, observer in self.observers.items()
@@ -364,18 +392,22 @@ Environment meta_state is only used by task and game rules.</dd>
         return observation_specs
 
     def action_spec(self):
+        &#34;&#34;&#34;Returns the action space&#39;s .action_spec().&#34;&#34;&#34;
         return self.action_space.action_spec()
 
     @property
     def state(self):
+        &#34;&#34;&#34;State of environment.&#34;&#34;&#34;
         return self._state
     
     @property
     def meta_state(self):
+        &#34;&#34;&#34;Meta-state of environment.&#34;&#34;&#34;
         return self._meta_state
 
     @property
     def reset_next_step(self):
+        &#34;&#34;&#34;Whether to reset (start a new episode) on the next step.&#34;&#34;&#34;
         return self._reset_next_step</code></pre>
 </details>
 <h3>Ancestors</h3>
@@ -386,37 +418,40 @@ Environment meta_state is only used by task and game rules.</dd>
 <dl>
 <dt id="moog.environment.Environment.meta_state"><code class="name">var <span class="ident">meta_state</span></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Meta-state of environment.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
 def meta_state(self):
+    &#34;&#34;&#34;Meta-state of environment.&#34;&#34;&#34;
     return self._meta_state</code></pre>
 </details>
 </dd>
 <dt id="moog.environment.Environment.reset_next_step"><code class="name">var <span class="ident">reset_next_step</span></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Whether to reset (start a new episode) on the next step.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
 def reset_next_step(self):
+    &#34;&#34;&#34;Whether to reset (start a new episode) on the next step.&#34;&#34;&#34;
     return self._reset_next_step</code></pre>
 </details>
 </dd>
 <dt id="moog.environment.Environment.state"><code class="name">var <span class="ident">state</span></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>State of environment.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@property
 def state(self):
+    &#34;&#34;&#34;State of environment.&#34;&#34;&#34;
     return self._state</code></pre>
 </details>
 </dd>
@@ -427,16 +462,13 @@ def state(self):
 <span>def <span class="ident">action_spec</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Defines the actions that should be provided to <code>step</code>.</p>
-<p>May use a subclass of <code>specs.Array</code> that specifies additional properties
-such as min and max bounds on the values.</p>
-<h2 id="returns">Returns</h2>
-<p>An <code>Array</code> spec, or a nested dict, list or tuple of <code>Array</code> specs.</p></div>
+<div class="desc"><p>Returns the action space's .action_spec().</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def action_spec(self):
+    &#34;&#34;&#34;Returns the action space&#39;s .action_spec().&#34;&#34;&#34;
     return self.action_space.action_spec()</code></pre>
 </details>
 </dd>
@@ -444,12 +476,13 @@ such as min and max bounds on the values.</p>
 <span>def <span class="ident">observation</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Returns a dictionary of observations.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def observation(self):
+    &#34;&#34;&#34;Returns a dictionary of observations.&#34;&#34;&#34;
     return {k: observer(self._state)
             for k, observer in self.observers.items()}</code></pre>
 </details>
@@ -458,16 +491,13 @@ such as min and max bounds on the values.</p>
 <span>def <span class="ident">observation_spec</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Defines the observations provided by the environment.</p>
-<p>May use a subclass of <code>specs.Array</code> that specifies additional properties
-such as min and max bounds on the values.</p>
-<h2 id="returns">Returns</h2>
-<p>An <code>Array</code> spec, or a nested dict, list or tuple of <code>Array</code> specs.</p></div>
+<div class="desc"><p>Returns a dictionary of dm_env specs for the observations.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def observation_spec(self):
+    &#34;&#34;&#34;Returns a dictionary of dm_env specs for the observations.&#34;&#34;&#34;
     observation_specs = {
         name: observer.observation_spec()
         for name, observer in self.observers.items()
@@ -479,25 +509,13 @@ such as min and max bounds on the values.</p>
 <span>def <span class="ident">reset</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Starts a new sequence and returns the first <code>TimeStep</code> of this sequence.</p>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt>A <code>TimeStep</code> namedtuple containing:</dt>
-<dt><code>
-step_type</code></dt>
-<dd>A <code>StepType</code> of <code>FIRST</code>.
-reward: <code>None</code>, indicating the reward is undefined.
-discount: <code>None</code>, indicating the discount is undefined.
-observation: A NumPy array, or a nested dict, list or tuple of arrays.
-Scalar values that can be cast to NumPy arrays (e.g. Python floats)
-are also valid in place of a scalar array. Must conform to the
-specification returned by <code>observation_spec()</code>.</dd>
-</dl></div>
+<div class="desc"><p>Reset (start a new episode).</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def reset(self):
+    &#34;&#34;&#34;Reset (start a new episode).&#34;&#34;&#34;
     self._reset_next_step = False
     self.step_count = 0
     

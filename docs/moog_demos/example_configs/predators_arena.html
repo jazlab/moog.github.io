@@ -27,6 +27,11 @@
 boundaries, while the agent cannot exit but does not bounce (i.e. it has
 inelastic collisions with the boundaries). Trials only terminate when the agent
 is caught by a predator. The subject controls the agent with a joystick.</p>
+<p>This task also contains an auto-curriculum: When the subject does well (evades
+the predators for a long time before being caught), the predators' masses are
+decreased, thereby increasing the predators' speeds. Conversely, when the
+subject does poorly (gets caught quickly), the predators' masses are increased,
+thereby decreasing the predators' speeds.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -37,6 +42,12 @@ The predators (red circles) chase the agent. The predators bouce off the arena
 boundaries, while the agent cannot exit but does not bounce (i.e. it has
 inelastic collisions with the boundaries). Trials only terminate when the agent
 is caught by a predator. The subject controls the agent with a joystick.
+
+This task also contains an auto-curriculum: When the subject does well (evades
+the predators for a long time before being caught), the predators&#39; masses are
+decreased, thereby increasing the predators&#39; speeds. Conversely, when the
+subject does poorly (gets caught quickly), the predators&#39; masses are increased,
+thereby decreasing the predators&#39; speeds.
 &#34;&#34;&#34;
 
 import collections
@@ -44,12 +55,94 @@ import numpy as np
 import os
 
 from moog import action_spaces
+from moog import game_rules
 from moog import observers
 from moog import physics as physics_lib
 from moog import shapes
 from moog import tasks
 from moog.state_initialization import distributions as distribs
 from moog.state_initialization import sprite_generators
+
+
+class StateInitialization():
+    &#34;&#34;&#34;State initialization class to dynamically adapt predator mass.
+    
+    This is essentially an auto-curriculum: When the subject does well (evades
+    the predators for a long time before being caught), the predators&#39; masses
+    are decreased, thereby increasing the predators&#39; speeds. Conversely, when
+    the subject does poorly (gets caught quickly), the predators&#39; masses are
+    increased, thereby decreasing the predators&#39; speeds.
+    &#34;&#34;&#34;
+
+    def __init__(self, num_predators, step_scaling_factor, threshold_trial_len):
+        &#34;&#34;&#34;Constructor.
+
+        This class uses the meta-state to keep track of the number of steps
+        before the agent is caught. See the game rules section near the bottom
+        of this file for the counter incrementer.
+
+        Args:
+            step_scaling_factor: Float. Fractional decrease of predator mass
+                after a trial longer than threshold_trial_len. Also used as
+                fractional increase of predator mass after a trial shorter than
+                threshold_trial_len. Should be small and positive.
+            threshold_trial_len: Length of a trial above which the predator
+                mass is decreased and below which the predator mass is
+                increased.
+        &#34;&#34;&#34;
+        self._mass = 1.
+        self._step_scaling_factor = step_scaling_factor
+        self._threshold_trial_len = threshold_trial_len
+
+        # Agent
+        agent_factors = distribs.Product(
+            [distribs.Continuous(&#39;x&#39;, 0., 1.),
+            distribs.Continuous(&#39;y&#39;, 0., 1.)],
+            shape=&#39;circle&#39;, scale=0.1, c0=0.33, c1=1., c2=0.66,
+        )
+        self._agent_generator = sprite_generators.generate_sprites(
+            agent_factors, num_sprites=1)
+
+        # Predators
+        predator_factors = distribs.Product(
+            [distribs.Continuous(&#39;x&#39;, 0., 1.),
+            distribs.Continuous(&#39;y&#39;, 0., 1.)],
+            shape=&#39;circle&#39;, scale=0.1, c0=0., c1=1., c2=0.8,
+        )
+        self._predator_generator = sprite_generators.generate_sprites(
+            predator_factors, num_sprites=num_predators)
+
+        # Walls
+        self._walls = shapes.border_walls(
+            visible_thickness=0., c0=0., c1=0., c2=0.5)
+
+        self._meta_state = None
+
+    def state_initializer(self):
+        &#34;&#34;&#34;State initializer method to be fed to environment.&#34;&#34;&#34;
+        agent = self._agent_generator(without_overlapping=self._walls)
+        predators = self._predator_generator(
+            without_overlapping=self._walls + agent)
+
+        if self._meta_state is not None:
+            if self._meta_state[&#39;step_count&#39;] &gt; self._threshold_trial_len:
+                self._mass -= self._mass * self._step_scaling_factor
+            else:
+                self._mass += self._mass * self._step_scaling_factor
+        for s in predators:
+            s.mass = self._mass
+        
+        state = collections.OrderedDict([
+            (&#39;walls&#39;, self._walls),
+            (&#39;agent&#39;, agent),
+            (&#39;predators&#39;, predators),
+        ])
+        return state
+
+    def meta_state_initializer(self):
+        &#34;&#34;&#34;Meta-state initializer method to be fed to environment.&#34;&#34;&#34;
+        self._meta_state = {&#39;step_count&#39;: 0}
+        return self._meta_state
 
 
 def get_config(num_predators):
@@ -63,38 +156,11 @@ def get_config(num_predators):
     # Sprite initialization
     ############################################################################
 
-    # Agent
-    agent_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0., 1.),
-         distribs.Continuous(&#39;y&#39;, 0., 1.)],
-         shape=&#39;circle&#39;, scale=0.1, c0=0.33, c1=1., c2=0.66,
+    state_initialization = StateInitialization(
+        num_predators=num_predators,
+        step_scaling_factor=0.1,
+        threshold_trial_len=200,
     )
-
-    # Predators
-    predator_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0., 1.),
-         distribs.Continuous(&#39;y&#39;, 0., 1.)],
-        shape=&#39;circle&#39;, scale=0.1, c0=0., c1=1., c2=0.8,
-    )
-
-    # Walls
-    walls = shapes.border_walls(visible_thickness=0., c0=0., c1=0., c2=0.5)
-
-    # Create callable initializer returning entire state
-    agent_generator = sprite_generators.generate_sprites(
-        agent_factors, num_sprites=1)
-    predator_generator = sprite_generators.generate_sprites(
-        predator_factors, num_sprites=num_predators)
-
-    def state_initializer():
-        agent = agent_generator(without_overlapping=walls)
-        predators = predator_generator(without_overlapping=walls)
-        state = collections.OrderedDict([
-            (&#39;walls&#39;, walls),
-            (&#39;agent&#39;, agent),
-            (&#39;predators&#39;, predators),
-        ])
-        return state
 
     ############################################################################
     # Physics
@@ -143,15 +209,24 @@ def get_config(num_predators):
         image_size=(64, 64), anti_aliasing=1, color_to_rgb=&#39;hsv_to_rgb&#39;)
 
     ############################################################################
+    # Game rules
+    ############################################################################
+
+    def _increment_count(meta_state):
+        meta_state[&#39;count&#39;] += 1
+    rules = game_rules.ModifyMetaState(_increment_count)
+
+    ############################################################################
     # Final config
     ############################################################################
 
     config = {
-        &#39;state_initializer&#39;: state_initializer,
+        &#39;state_initializer&#39;: state_initialization.state_initializer,
         &#39;physics&#39;: physics,
         &#39;task&#39;: task,
         &#39;action_space&#39;: action_space,
         &#39;observers&#39;: {&#39;image&#39;: observer},
+        &#39;meta_state_initializer&#39;: state_initialization.meta_state_initializer,
     }
     return config</code></pre>
 </details>
@@ -188,38 +263,11 @@ def get_config(num_predators):
     # Sprite initialization
     ############################################################################
 
-    # Agent
-    agent_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0., 1.),
-         distribs.Continuous(&#39;y&#39;, 0., 1.)],
-         shape=&#39;circle&#39;, scale=0.1, c0=0.33, c1=1., c2=0.66,
+    state_initialization = StateInitialization(
+        num_predators=num_predators,
+        step_scaling_factor=0.1,
+        threshold_trial_len=200,
     )
-
-    # Predators
-    predator_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0., 1.),
-         distribs.Continuous(&#39;y&#39;, 0., 1.)],
-        shape=&#39;circle&#39;, scale=0.1, c0=0., c1=1., c2=0.8,
-    )
-
-    # Walls
-    walls = shapes.border_walls(visible_thickness=0., c0=0., c1=0., c2=0.5)
-
-    # Create callable initializer returning entire state
-    agent_generator = sprite_generators.generate_sprites(
-        agent_factors, num_sprites=1)
-    predator_generator = sprite_generators.generate_sprites(
-        predator_factors, num_sprites=num_predators)
-
-    def state_initializer():
-        agent = agent_generator(without_overlapping=walls)
-        predators = predator_generator(without_overlapping=walls)
-        state = collections.OrderedDict([
-            (&#39;walls&#39;, walls),
-            (&#39;agent&#39;, agent),
-            (&#39;predators&#39;, predators),
-        ])
-        return state
 
     ############################################################################
     # Physics
@@ -268,15 +316,24 @@ def get_config(num_predators):
         image_size=(64, 64), anti_aliasing=1, color_to_rgb=&#39;hsv_to_rgb&#39;)
 
     ############################################################################
+    # Game rules
+    ############################################################################
+
+    def _increment_count(meta_state):
+        meta_state[&#39;count&#39;] += 1
+    rules = game_rules.ModifyMetaState(_increment_count)
+
+    ############################################################################
     # Final config
     ############################################################################
 
     config = {
-        &#39;state_initializer&#39;: state_initializer,
+        &#39;state_initializer&#39;: state_initialization.state_initializer,
         &#39;physics&#39;: physics,
         &#39;task&#39;: task,
         &#39;action_space&#39;: action_space,
         &#39;observers&#39;: {&#39;image&#39;: observer},
+        &#39;meta_state_initializer&#39;: state_initialization.meta_state_initializer,
     }
     return config</code></pre>
 </details>
@@ -284,6 +341,170 @@ def get_config(num_predators):
 </dl>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="moog_demos.example_configs.predators_arena.StateInitialization"><code class="flex name class">
+<span>class <span class="ident">StateInitialization</span></span>
+<span>(</span><span>num_predators, step_scaling_factor, threshold_trial_len)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>State initialization class to dynamically adapt predator mass.</p>
+<p>This is essentially an auto-curriculum: When the subject does well (evades
+the predators for a long time before being caught), the predators' masses
+are decreased, thereby increasing the predators' speeds. Conversely, when
+the subject does poorly (gets caught quickly), the predators' masses are
+increased, thereby decreasing the predators' speeds.</p>
+<p>Constructor.</p>
+<p>This class uses the meta-state to keep track of the number of steps
+before the agent is caught. See the game rules section near the bottom
+of this file for the counter incrementer.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>step_scaling_factor</code></strong></dt>
+<dd>Float. Fractional decrease of predator mass
+after a trial longer than threshold_trial_len. Also used as
+fractional increase of predator mass after a trial shorter than
+threshold_trial_len. Should be small and positive.</dd>
+<dt><strong><code>threshold_trial_len</code></strong></dt>
+<dd>Length of a trial above which the predator
+mass is decreased and below which the predator mass is
+increased.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StateInitialization():
+    &#34;&#34;&#34;State initialization class to dynamically adapt predator mass.
+    
+    This is essentially an auto-curriculum: When the subject does well (evades
+    the predators for a long time before being caught), the predators&#39; masses
+    are decreased, thereby increasing the predators&#39; speeds. Conversely, when
+    the subject does poorly (gets caught quickly), the predators&#39; masses are
+    increased, thereby decreasing the predators&#39; speeds.
+    &#34;&#34;&#34;
+
+    def __init__(self, num_predators, step_scaling_factor, threshold_trial_len):
+        &#34;&#34;&#34;Constructor.
+
+        This class uses the meta-state to keep track of the number of steps
+        before the agent is caught. See the game rules section near the bottom
+        of this file for the counter incrementer.
+
+        Args:
+            step_scaling_factor: Float. Fractional decrease of predator mass
+                after a trial longer than threshold_trial_len. Also used as
+                fractional increase of predator mass after a trial shorter than
+                threshold_trial_len. Should be small and positive.
+            threshold_trial_len: Length of a trial above which the predator
+                mass is decreased and below which the predator mass is
+                increased.
+        &#34;&#34;&#34;
+        self._mass = 1.
+        self._step_scaling_factor = step_scaling_factor
+        self._threshold_trial_len = threshold_trial_len
+
+        # Agent
+        agent_factors = distribs.Product(
+            [distribs.Continuous(&#39;x&#39;, 0., 1.),
+            distribs.Continuous(&#39;y&#39;, 0., 1.)],
+            shape=&#39;circle&#39;, scale=0.1, c0=0.33, c1=1., c2=0.66,
+        )
+        self._agent_generator = sprite_generators.generate_sprites(
+            agent_factors, num_sprites=1)
+
+        # Predators
+        predator_factors = distribs.Product(
+            [distribs.Continuous(&#39;x&#39;, 0., 1.),
+            distribs.Continuous(&#39;y&#39;, 0., 1.)],
+            shape=&#39;circle&#39;, scale=0.1, c0=0., c1=1., c2=0.8,
+        )
+        self._predator_generator = sprite_generators.generate_sprites(
+            predator_factors, num_sprites=num_predators)
+
+        # Walls
+        self._walls = shapes.border_walls(
+            visible_thickness=0., c0=0., c1=0., c2=0.5)
+
+        self._meta_state = None
+
+    def state_initializer(self):
+        &#34;&#34;&#34;State initializer method to be fed to environment.&#34;&#34;&#34;
+        agent = self._agent_generator(without_overlapping=self._walls)
+        predators = self._predator_generator(
+            without_overlapping=self._walls + agent)
+
+        if self._meta_state is not None:
+            if self._meta_state[&#39;step_count&#39;] &gt; self._threshold_trial_len:
+                self._mass -= self._mass * self._step_scaling_factor
+            else:
+                self._mass += self._mass * self._step_scaling_factor
+        for s in predators:
+            s.mass = self._mass
+        
+        state = collections.OrderedDict([
+            (&#39;walls&#39;, self._walls),
+            (&#39;agent&#39;, agent),
+            (&#39;predators&#39;, predators),
+        ])
+        return state
+
+    def meta_state_initializer(self):
+        &#34;&#34;&#34;Meta-state initializer method to be fed to environment.&#34;&#34;&#34;
+        self._meta_state = {&#39;step_count&#39;: 0}
+        return self._meta_state</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="moog_demos.example_configs.predators_arena.StateInitialization.meta_state_initializer"><code class="name flex">
+<span>def <span class="ident">meta_state_initializer</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Meta-state initializer method to be fed to environment.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def meta_state_initializer(self):
+    &#34;&#34;&#34;Meta-state initializer method to be fed to environment.&#34;&#34;&#34;
+    self._meta_state = {&#39;step_count&#39;: 0}
+    return self._meta_state</code></pre>
+</details>
+</dd>
+<dt id="moog_demos.example_configs.predators_arena.StateInitialization.state_initializer"><code class="name flex">
+<span>def <span class="ident">state_initializer</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>State initializer method to be fed to environment.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def state_initializer(self):
+    &#34;&#34;&#34;State initializer method to be fed to environment.&#34;&#34;&#34;
+    agent = self._agent_generator(without_overlapping=self._walls)
+    predators = self._predator_generator(
+        without_overlapping=self._walls + agent)
+
+    if self._meta_state is not None:
+        if self._meta_state[&#39;step_count&#39;] &gt; self._threshold_trial_len:
+            self._mass -= self._mass * self._step_scaling_factor
+        else:
+            self._mass += self._mass * self._step_scaling_factor
+    for s in predators:
+        s.mass = self._mass
+    
+    state = collections.OrderedDict([
+        (&#39;walls&#39;, self._walls),
+        (&#39;agent&#39;, agent),
+        (&#39;predators&#39;, predators),
+    ])
+    return state</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -300,6 +521,17 @@ def get_config(num_predators):
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="moog_demos.example_configs.predators_arena.get_config" href="#moog_demos.example_configs.predators_arena.get_config">get_config</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="moog_demos.example_configs.predators_arena.StateInitialization" href="#moog_demos.example_configs.predators_arena.StateInitialization">StateInitialization</a></code></h4>
+<ul class="">
+<li><code><a title="moog_demos.example_configs.predators_arena.StateInitialization.meta_state_initializer" href="#moog_demos.example_configs.predators_arena.StateInitialization.meta_state_initializer">meta_state_initializer</a></code></li>
+<li><code><a title="moog_demos.example_configs.predators_arena.StateInitialization.state_initializer" href="#moog_demos.example_configs.predators_arena.StateInitialization.state_initializer">state_initializer</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

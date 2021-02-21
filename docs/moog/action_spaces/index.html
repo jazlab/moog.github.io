@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.2" />
 <title>moog.action_spaces API documentation</title>
-<meta name="description" content="__init__.py." />
+<meta name="description" content="Action Spaces …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -22,12 +22,37 @@
 <h1 class="title">Module <code>moog.action_spaces</code></h1>
 </header>
 <section id="section-intro">
-<p><strong>init</strong>.py.</p>
+<h1 id="action-spaces">Action Spaces</h1>
+<p>Every MOOG Environment has an action space. This action space is given to the
+<a href="https://jazlab.github.io/moog.github.io/moog/environment.html#moog.environment.Environment">environment's
+constructor</a>,
+and must satisfy the API of
+<a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/abstract_action_space.html"><code>AbstractActionSpace</code></a>.</p>
+<p>In this directory are a few example action spaces for common interfaces. In
+particular, it contains:
+* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/grid.html"><code>Grid</code></a>.
+This is an [up, down, left, right, donothing] action space commonly used for
+grid-world environments.
+* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/joystick.html"><code>Joystick</code></a>.
+This is a continuous 2-dimensional ([0, 1] x [0, 1]) joystick action space,
+commonly used to impart a continuous force (or velocity) to move an agent.
+* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/set_position.html"><code>SetPosition</code></a>.
+This is a continuous 2-dimensional ([0, 1] x [0, 1]) action space that sets
+the position of a sprite. It can be used to simulate a touch-screen interface
+(e.g. by controlling the position of a perhaps transparent sprite that serves
+as a finger).
+* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/composite.html"><code>Composite</code></a>.
+This provides a way to compose action spaces for multiple interfaces or
+multiple agents. For example, if your experiment involves joystick motion and
+eye-tracking, you could have a composite action space with a <code>Joystick</code> and a
+<code>SetPosition</code> component, where the <code>SetPosition</code> controls a transparent sprite
+that serves as a marker of eye position and the <code>Joystick</code> controls an agent
+avatar.</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">&#34;&#34;&#34;__init__.py.&#34;&#34;&#34;
+<pre><code class="python">&#34;&#34;&#34;.. include:: README.md&#34;&#34;&#34;
 
 from .abstract_action_space import AbstractActionSpace
 from .composite import Composite
@@ -71,7 +96,9 @@ from .set_position import SetPosition</code></pre>
 <nav id="sidebar">
 <h1>Index</h1>
 <div class="toc">
-<ul></ul>
+<ul>
+<li><a href="#action-spaces">Action Spaces</a></li>
+</ul>
 </div>
 <ul id="index">
 <li><h3>Super-module</h3>
