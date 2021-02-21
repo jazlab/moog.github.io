@@ -37,11 +37,12 @@ In recent years, trends towards studying object-based games have gained momentum
 in the fields of artificial intelligence, cognitive science, psychology, and
 neuroscience. In artificial intelligence, interactive physical games are now a
 common testbed for reinforcement learning [@sutton2018reinforcement;
-@mnih2013playing] and object representations are of particular interest for
-sample efficient and generalizable AI [@greff2020binding; @van2019perspective].
-In cognitive science and psychology, object-based games are used to study a
-variety of cognitive capacities, such as planning, intuitive physics, and
-intuitive psychology [@ullman2017mind]. Developmental psychologists also use
+@mnih2013playing; @leike2017ai; @Francois_Lavet_2018] and object representations
+are of particular interest for sample efficient and generalizable AI
+[@battaglia2018relational; @van2019perspective; @greff2020binding]. In cognitive
+science and psychology, object-based games are used to study a variety of
+cognitive capacities, such as planning, intuitive physics, and intuitive
+psychology [@ullman2017mind; Chabris2017]. Developmental psychologists also use
 object-based visual stimuli to probe questions about object-oriented reasoning
 in infants and young animals [@spelke2007core; @wood2020reverse]. In
 neuroscience, object-based computer games have recently been used to study
