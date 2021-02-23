@@ -24,7 +24,7 @@ To run this example, follow these steps:
    nightly build of MWorks, which you can install by downloading the "Nighly
    Build" on the [MWorks downloads page](https://mworks.github.io/downloads/). 
 2. Create a virtual environment with python version 3.8. If you are using conda,
-   this can be done with `conda create -n your_env_name python=3.7`
+   this can be done with `conda create -n your_env_name python=3.8`
 3. Activate your newly created virtual environment and install MOOG. See
    "Getting Started" in the [main README](../README.md).
 4. Copy this directory onto your computer. You can use `git clone` and remove

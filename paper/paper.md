@@ -36,8 +36,7 @@ bibliography: paper.bib
 In recent years, trends towards studying object-based games have gained momentum
 in the fields of artificial intelligence, cognitive science, psychology, and
 neuroscience. In artificial intelligence, interactive physical games are now a
-common testbed for reinforcement learning [@sutton2018reinforcement;
-@mnih2013playing; @leike2017ai; @Francois_Lavet_2018] and object representations
+common testbed for reinforcement learning [@mnih2013playing; @sutton2018reinforcement; @leike2017ai; @Francois_Lavet_2018] and object representations
 are of particular interest for sample efficient and generalizable AI
 [@battaglia2018relational; @van2019perspective; @greff2020binding]. In cognitive
 science and psychology, object-based games are used to study a variety of
@@ -128,18 +127,18 @@ them) from the configuration file:
   z-ordering for occlusion. The initial state can be procedurally generated from
   a custom distribution at the beginning of each episode. The state is
   structured in terms of layers, which helps hierarchical organization. See
-  [state_initialization](https://github.com/jazlab/moog.github.io/tree/master/moog/state_initialization)
+  [state_initialization](https://jazlab.github.io/moog.github.io/moog/state_initialization/index.html)
   for procedural generation tools.
 * **Physics**. The physics component is a collection of forces that operate on
   the sprites. There are a variety of forces built into MOOG (collisions,
   friction, gravity, rigid tethers, ...) and additional custom forces can also
   be used. Forces perturb the velocity and angular velocity of sprites, and the
   sprite positions and angles are updated with Newton's method. See
-  [physics](https://github.com/jazlab/moog.github.io/tree/master/moog/physics)
-  for more.
+  [physics](https://jazlab.github.io/moog.github.io/moog/physics/index.html) for
+  more.
 * **Task**. The task defines the rewards and specifies when to terminate a
   trial. See
-  [tasks](https://github.com/jazlab/moog.github.io/tree/master/moog/tasks) for
+  [tasks](https://jazlab.github.io/moog.github.io/moog/tasks/index.html) for
   more.
 * **Action Space**. The action space allows the subject to control the
   environment. Every environment step calls for an action from the subject.
@@ -148,27 +147,79 @@ them) from the configuration file:
   touch-screen), or be customized. The action space may also be a composite of
   constituent action spaces, allowing for multi-agent tasks and multi-controller
   games. See
-  [action_spaces](https://github.com/jazlab/moog.github.io/tree/master/moog/action_spaces)
+  [action_spaces](https://jazlab.github.io/moog.github.io/moog/action_spaces/index.html)
   for more.
 * **Observers**. Observers transform the environment state into a observation
   for the subject/agent playing the task. Typically, the observer includes a
   renderer producing an image. However, it is possible to implement a custom
   observer that exposes any function of the environment state. The environment
   can also have multiple observers. See
-  [observers](https://github.com/jazlab/moog.github.io/tree/master/moog/observers)
+  [observers](https://jazlab.github.io/moog.github.io/moog/observers/index.html)
   for more.
 * **Game Rules** (optional). If provided, the game rules define dynamics or
-  transitions not captured by the physics. A variety of game rules are provided,
+  transitions not captured by the physics. A variety of game rules are included,
   including rules to modify sprites when they come in contact, conditionally
   create new sprites, and control phase structure of trials (e.g. fixation phase
   to stimulus phase to response phase). See
-  [game_rules](https://github.com/jazlab/moog.github.io/tree/master/moog/game_rules)
+  [game_rules](https://jazlab.github.io/moog.github.io/moog/game_rules/index.html)
   for more.
 
-Importantly, all of these components can be fully customized. If a user would
-like a physics force, action space, or game rule not provided by MOOG, they can
-implement a custom one, inheriting from the abstract base class for that
-component. This can typically be done with only a few lines of code.
+The MOOG codebase contains libraries of options for each of these components, so
+implementing a task involves only combining the desired ingredients and feeding
+them to the environment. For an example, the following code fully implements a
+navigate-to-goal task, where the subject must move an agent via a joystick
+action space to a goal location.
+
+```python
+"""Navigate-to-goal task."""
+
+import collections
+from moog import action_spaces, environment, observers, physics, sprite, tasks
+
+# Initial state is a green agent in the center and red goal in the corner
+def state_initializer():
+    # Goal is a red square with side-length 0.1 at position (0.1, 0.1)
+    # Color channels are [c0, c1, c2] arguments
+    goal = sprite.Sprite(x=0.1, y=0.1, shape='square', scale=0.1, c0=255)
+    # Agent is a green circle at position (0.5, 0.5)
+    agent = sprite.Sprite(x=0.5, y=0.5, shape='circle', scale=0.1, c1=255)
+    state = collections.OrderedDict([
+        ('goal', [goal]),
+        ('agent', [agent]),
+    ])
+    return state
+
+# Physics is a drag force on the agent to limit velocity
+phys = physics.Physics((physics.Drag(coeff_friction=0.25), 'agent'))
+
+# Task gives a reward 1 when the agent reaches the goal, and a new trial begins
+# 5 timesteps later.
+task = tasks.ContactReward(1., 'agent', 'goal', reset_steps_after_contact=5)
+
+# Action space is a joystick with maximum force 0.01 arena widths per timestep^2
+action_space = action_spaces.Joystick(0.01, 'agent')
+
+# Observer is an image renderer
+obs = observers.PILRenderer(image_size=(256, 256))
+
+# Create the environment, ready to play!
+env = environment.Environment(
+    state_initializer=state_initializer,
+    physics=phys,
+    task=task,
+    action_space=action_space,
+    observers={'image': obs},
+}
+```
+
+This is an extremely simple task, but by complexifying the state initializer and
+adding additional forces and game rules, a wide range of complex tasks can be
+implemented with few lines of code.
+
+Importantly, all of the environment components can be fully customized. If a
+user would like a physics force, action space, or game rule not provided by
+MOOG, they can implement a custom one, inheriting from the abstract base class
+for that component. This can typically be done with only a few lines of code.
 
 The modularity of MOOG facilitates code re-use across experimental paradigms.
 For example, if a user would like to both collect behavior data from humans
