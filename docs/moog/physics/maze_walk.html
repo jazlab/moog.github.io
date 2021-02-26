@@ -122,7 +122,7 @@ class AbstractMazeWalk(physics.AbstractForce, metaclass=abc.ABCMeta):
                 point to position.
         &#34;&#34;&#34;
         nearest_inds = np.round(position / self._maze.grid_side - 0.5)
-        return nearest_inds.astype(np.int)
+        return nearest_inds.astype(int)
 
 
 class RandomMazeWalk(AbstractMazeWalk):
@@ -380,7 +380,7 @@ maze wall sprites.</dd>
                 point to position.
         &#34;&#34;&#34;
         nearest_inds = np.round(position / self._maze.grid_side - 0.5)
-        return nearest_inds.astype(np.int)</code></pre>
+        return nearest_inds.astype(int)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">

@@ -181,6 +181,19 @@ Please email Nick Watters at nwatters@mit.edu with questions and feedback.
 
 ## Reference
 
+If you use this library in your work, please cite it as follows:
+
+```
+@misc{moog2021,
+author = {Nicholas Watters and Joshua Tenenabum and Mehrdad Jazayeri},
+title = {Modular Object-Oriented Games: A Task Framework for Reinforcement Learning, Psychology, and Neuroscience},
+url = {https://arxiv.org/abs/2102.12616},
+eprint = {2102.12616},
+journal = {arXiv preprint arXiv:2102.12616},
+year = {2021}
+}
+```
+
 Some parts of this codebase are derived from
 [Spriteworld](https://github.com/deepmind/spriteworld/). See the Spriteworld
 license in [LICENSE-spriteworld](LICENSE-spriteworld).

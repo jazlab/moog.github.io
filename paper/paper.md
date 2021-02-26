@@ -72,11 +72,11 @@ designed to support tasks that can be played by AI agents, humans, and animals.
 
 The [``Modular Object-Oriented Games``
 (``MOOG``)](https://github.com/jazlab/moog.github.io) library is a
-general-purpose python-based platform for interactive games. It aims to satisfy
+general-purpose Python-based platform for interactive games. It aims to satisfy
 the following criteria:
 
-* Usable for both reinforment learning and psychology, with [DeepMind
-  dm_env](https://github.com/deepmind/dm_env) and [OpenAI
+* Usable for reinforcement learning, psychology, and neurophysiology. MOOG
+  supports [DeepMind dm_env](https://github.com/deepmind/dm_env) and [OpenAI
   Gym](https://gym.openai.com/) [@openai_gym] interfaces for RL agents and an
   [MWorks](https://mworks.github.io/) interface for psychology and
   neurophysiology.
@@ -227,15 +227,16 @@ using a continuous joystick and train RL agents with discrete action spaces on
 the same task, they can re-use all other components in the task configuration,
 only changing the action space.
 
-For users interested in doing psychology or neurophysiology, we include an
-example of how to run MOOG through [MWorks](https://mworks.github.io/), a
-platform with precise timing control and interfaces for eye trackers, HID
-devices, electrophysiology software, and more.
+For users interested in doing psychology or neurophysiology, we include
+an[example](https://github.com/jazlab/moog.github.io/tree/master/mworks) of how
+to run MOOG through [MWorks](https://mworks.github.io/), a platform with precise
+timing control and interfaces for eye trackers, HID devices, electrophysiology
+software, and more.
 
 
 # Example Tasks
 
-![Timelapse images of four example tasks. Left-to-right: (i) Pong - The subject
+![Time-lapse images of four example tasks. Left-to-right: (i) Pong - The subject
 aims to catch the yellow ball with the green paddle, (ii) Red-Green - The
 subject tries to predict whether the blue ball with contact the red square or
 the green square, (iii) Pac-Man - The subject moves the green agent to catch
@@ -243,11 +244,11 @@ yellow pellets while avoiding the red ghosts, (iv) Collisions - the green agent
 avoids touching the bouncing polygons.](example_tasks.png)
 
 See the [example
-configs](https://github.com/jazlab/moog.github.io/tree/master/oog_demos/example_configs)
+configs](https://github.com/jazlab/moog.github.io/tree/master/moog_demos/example_configs)
 for a variety of task config files. Four of those are shown in Figure 2. See the
 [demo
-documentation](https://github.com/jazlab/moog.github.io/tree/master/oog_demos)
-for videos of them all and instructions for how to run them with a python gui.
+documentation](https://github.com/jazlab/moog.github.io/tree/master/moog_demos)
+for videos of them all and instructions for how to run them with a Python gui.
 
 
 # Limitations
@@ -279,8 +280,8 @@ platforms (e.g. [DeepMind Lab](https://arxiv.org/abs/1612.03801) [@dm_lab],
 learning field for task implementation. While MOOG has some limitations compared
 to these (see above), it does also offer some advantages:
 
-* **Python**. MOOG tasks are written purely in python, so users who are most
-  comfortable with python will find MOOG easy to use.
+* **Python**. MOOG tasks are written purely in Python, so users who are most
+  comfortable with Python will find MOOG easy to use.
 * **Procedural Generation**. MOOG facilitates procedural generation, with a
   [library of compositional
   distributions](https://github.com/jazlab/moog.github.io/tree/master/moog/state_initialization/distributions.py)
@@ -292,7 +293,7 @@ to these (see above), it does also offer some advantages:
 * **Psychophysics**. MOOG can be run with MWorks, a psychophysics platform.
 * **Speed**. MOOG is fast on CPU. While the speed depends on the task and
   rendering resolution, MOOG typically runs at ~200fps with 512x512 resolution
-  on a CPU, which is much faster than one would get with DeepMind Lab or Mujoco
+  on a CPU, much faster than DeepMind Lab and Mujoco
   and at least as fast as Unity and Unreal.
 
 Python-based physics simulators, such as
@@ -306,7 +307,7 @@ the following advantages:
 * **Psychophysics, Procedural Generation, and Online Simulation**, as described
   above.
 * **RL Interface**. A task implemented in MOOG can be used out-of-the-box to
-  train RL agents, since MOOG is python-based and has DeepMind dm_env and OpenAI
+  train RL agents, since MOOG is Python-based and has DeepMind dm_env and OpenAI
   Gym interfaces.
 
 Psychology and neurophysiology researchers often use platforms such as

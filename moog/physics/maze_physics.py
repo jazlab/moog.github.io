@@ -72,7 +72,7 @@ class MazePhysics(physics_lib.AbstractPhysics):
         half_grid_side = self._maze.half_grid_side
 
         # Figure out which axes are on grid lines, and snap position to grid
-        nearest_inds = (np.round(position / grid_side - 0.5)).astype(np.int)
+        nearest_inds = (np.round(position / grid_side - 0.5)).astype(int)
         rounded_position = half_grid_side + nearest_inds * grid_side
         on_grid = np.abs(rounded_position - position) < _EPSILON
         new_position = np.copy(position)
@@ -80,7 +80,7 @@ class MazePhysics(physics_lib.AbstractPhysics):
 
         # Get the affordances
         affordances = np.zeros((2, 2))
-        inds = ((position - half_grid_side) // grid_side).astype(np.int)
+        inds = ((position - half_grid_side) // grid_side).astype(int)
         inds[on_grid] = nearest_inds[on_grid]
         if not any(on_grid):  # This should never happen
             raise ValueError(

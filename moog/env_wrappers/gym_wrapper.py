@@ -81,7 +81,7 @@ class GymWrapper(object):
         """Convert and processes observations."""
         for k, v in obs.items():
             obs[k] = np.asarray(v)
-            if obs[k].dtype == np.bool:
+            if obs[k].dtype == bool:
                 # Convert boolean 'success' into an float32 to predict it.
                 obs[k] = obs[k].astype(np.float32)
             if k == 'image':

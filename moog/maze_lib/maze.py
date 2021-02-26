@@ -75,12 +75,12 @@ class Maze():
         flat_grid_centers = np.reshape(grid_centers, (maze_size * maze_size, 2))
 
         # Now check which grid square centerpoints are inside walls
-        maze = np.zeros(maze_size * maze_size, dtype=np.bool)
+        maze = np.zeros(maze_size * maze_size, dtype=bool)
         for s in state[maze_layer]:
             contained = s.contains_points(flat_grid_centers)
             maze = np.logical_or(maze, contained)
 
-        maze = np.reshape(maze, (maze_size, maze_size)).astype(np.int)
+        maze = np.reshape(maze, (maze_size, maze_size)).astype(int)
         return cls(maze)
 
     def to_sprites(self, **color):

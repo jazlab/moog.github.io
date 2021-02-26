@@ -113,7 +113,7 @@ class GymWrapper(object):
         &#34;&#34;&#34;Convert and processes observations.&#34;&#34;&#34;
         for k, v in obs.items():
             obs[k] = np.asarray(v)
-            if obs[k].dtype == np.bool:
+            if obs[k].dtype == bool:
                 # Convert boolean &#39;success&#39; into an float32 to predict it.
                 obs[k] = obs[k].astype(np.float32)
             if k == &#39;image&#39;:
@@ -230,7 +230,7 @@ Rendering is always performed, so calling render() is a no-op.</p></div>
         &#34;&#34;&#34;Convert and processes observations.&#34;&#34;&#34;
         for k, v in obs.items():
             obs[k] = np.asarray(v)
-            if obs[k].dtype == np.bool:
+            if obs[k].dtype == bool:
                 # Convert boolean &#39;success&#39; into an float32 to predict it.
                 obs[k] = obs[k].astype(np.float32)
             if k == &#39;image&#39;:
