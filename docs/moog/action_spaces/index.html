@@ -29,25 +29,27 @@ constructor</a>,
 and must satisfy the API of
 <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/abstract_action_space.html"><code>AbstractActionSpace</code></a>.</p>
 <p>In this directory are a few example action spaces for common interfaces. In
-particular, it contains:
-* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/grid.html"><code>Grid</code></a>.
+particular, it contains:</p>
+<ul>
+<li><a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/grid.html"><code>Grid</code></a>.
 This is an [up, down, left, right, donothing] action space commonly used for
-grid-world environments.
-* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/joystick.html"><code>Joystick</code></a>.
+grid-world environments.</li>
+<li><a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/joystick.html"><code>Joystick</code></a>.
 This is a continuous 2-dimensional ([0, 1] x [0, 1]) joystick action space,
-commonly used to impart a continuous force (or velocity) to move an agent.
-* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/set_position.html"><code>SetPosition</code></a>.
+commonly used to impart a continuous force (or velocity) to move an agent.</li>
+<li><a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/set_position.html"><code>SetPosition</code></a>.
 This is a continuous 2-dimensional ([0, 1] x [0, 1]) action space that sets
 the position of a sprite. It can be used to simulate a touch-screen interface
 (e.g. by controlling the position of a perhaps transparent sprite that serves
-as a finger).
-* <a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/composite.html"><code>Composite</code></a>.
+as a finger).</li>
+<li><a href="https://jazlab.github.io/moog.github.io/moog/action_spaces/composite.html"><code>Composite</code></a>.
 This provides a way to compose action spaces for multiple interfaces or
 multiple agents. For example, if your experiment involves joystick motion and
 eye-tracking, you could have a composite action space with a <code>Joystick</code> and a
 <code>SetPosition</code> component, where the <code>SetPosition</code> controls a transparent sprite
 that serves as a marker of eye position and the <code>Joystick</code> controls an agent
-avatar.</p>
+avatar.</li>
+</ul>
 <details class="source">
 <summary>
 <span>Expand source code</span>

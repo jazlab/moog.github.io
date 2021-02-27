@@ -6,6 +6,7 @@ generated using [pdoc3](https://pdoc3.github.io/generate_docs/), and should be
 re-generated upon any changes to the codebase.
 
 To re-generate the documentation, follow these steps:
+
 1. If you do have `pdoc3` installed, then install it with `$ pip install pdoc3`.
 2. Navigate to this directory and run `$ bash generate_docs.sh`]. If any errors
    arise, please do not git commit --- instead, please do due diligence

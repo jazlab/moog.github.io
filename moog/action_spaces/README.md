@@ -8,6 +8,7 @@ and must satisfy the API of
 
 In this directory are a few example action spaces for common interfaces. In
 particular, it contains:
+
 * [`Grid`](https://jazlab.github.io/moog.github.io/moog/action_spaces/grid.html).
   This is an [up, down, left, right, donothing] action space commonly used for
   grid-world environments.
