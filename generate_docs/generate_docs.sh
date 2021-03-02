@@ -32,7 +32,7 @@ find . -name 'README.md' | while read filename; do
 
     # Images
     sed -i '' "s/<img src=\"/<img src=\"$sed_dirname/g" $filename
-    sed -i '' "s/\" width=\"/?raw=true\" width=\"/g" $filename
+    sed -i '' "s/\.gif\"/\.gif?raw=true\"/g" $filename
 done
 
 # Run the pdoc3 command
@@ -66,7 +66,7 @@ find . -name 'README.md' | while read filename; do
 
     # Images
     sed -i '' "s/<img src=\"$sed_dirname/<img src=\"/g" $filename
-    sed -i '' "s/?raw=true\" width=\"/\" width=\"/g" $filename
+    sed -i '' "s/\.gif?raw=true\"/\.gif\"/g" $filename
 done
 
 # Remove __init__.py file
