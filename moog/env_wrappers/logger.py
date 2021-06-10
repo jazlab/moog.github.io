@@ -61,7 +61,7 @@ def _serialize(x):
     elif isinstance(x, list):
         return [_serialize(a) for a in x]
     elif isinstance(x, tuple):
-        return (_serialize(a) for a in x)
+        return tuple([_serialize(a) for a in x])
     elif isinstance(x, dict):
         return {k: _serialize(v) for k, v in x.items()}
     else:
