@@ -40,7 +40,7 @@ flags.DEFINE_integer('level', 0, 'Level of task config to run.')
 flags.DEFINE_integer('render_size', 512,
                      'Height and width of the output image.')
 flags.DEFINE_integer('anti_aliasing', 1, 'Renderer anti-aliasing factor.')
-flags.DEFINE_integer('fps', 100,
+flags.DEFINE_integer('fps', 10,
                      'Upper bound on frames per second. Note: this is not an '
                      'accurate fps for the demo, since matplotlib and tkinter '
                      'introduce additional lag.')

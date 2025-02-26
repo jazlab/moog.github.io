@@ -10,7 +10,7 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='moog-games',
-    version='1.5',
+    version='1.6',
     description=(
         'Modular object oriented games utils is a python-based game engine.'),
     author='Nicholas Watters',
