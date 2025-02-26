@@ -10,8 +10,8 @@ original_dirname=${PWD##*/}
 # was 'moog', in which case pdoc won't work because there's a sub-directory
 # called 'moog'
 cd ..
-rm -r __moog_tmp
-mkdir __moog_tmp
+rm -r __moog_tmp__
+mkdir __moog_tmp__
 cp -r $original_dirname/* __moog_tmp__/.
 cd __moog_tmp__
 
