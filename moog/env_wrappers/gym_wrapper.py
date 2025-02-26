@@ -66,8 +66,12 @@ class GymWrapper(object):
         if self._observation_space is None:
             components = {}
             for key, value in self._env.observation_spec().items():
-                components[key] = spaces.Box(
-                    -np.inf, np.inf, value.shape, dtype=value.dtype)
+                if value.dtype == np.uint8:
+                    components[key] = spaces.Box(
+                        0, 255, value.shape, dtype=value.dtype)
+                else:
+                    components[key] = spaces.Box(
+                        -np.inf, np.inf, value.shape, dtype=value.dtype)
             self._observation_space = spaces.Dict(components)
         return self._observation_space
 

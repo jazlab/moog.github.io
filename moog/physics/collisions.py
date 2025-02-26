@@ -46,6 +46,19 @@ from moog import sprite as sprite_lib
 _EPSILON = 1e-2
 
 
+def _cross_2d(x, y):
+    """2-dimensional cross product.
+    
+    Args:
+        x: Numpy array of shape [..., 2]. First vector.
+        y: Numpy array of shape [..., 2]. Second vector.
+        
+    Returns:
+        cross: Numpy array of shape [...]. Cross product of x and y.
+    """
+    return x[..., 0] * y[..., 1] - x[..., 1] * y[..., 0]
+
+
 def _relative_motion_trajectory(path, path_sprite, anchor_sprite, delta_t):
     """Find trajectory of a path in the coordinate frame of an anchor sprite.
 
@@ -416,8 +429,8 @@ def _collide_with_update_angle_vel(sprite_0,
     c_point_1 = collision_point - sprite_1.position
     r_0 = np.linalg.norm(c_point_0)
     r_1 = np.linalg.norm(c_point_1)
-    sin_theta_0 = np.cross(c_point_0, collision_normal) / r_0
-    sin_theta_1 = np.cross(c_point_1, collision_normal) / r_1
+    sin_theta_0 = _cross_2d(c_point_0, collision_normal) / r_0
+    sin_theta_1 = _cross_2d(c_point_1, collision_normal) / r_1
 
     # Apply the collision equations. See docstring for a derivation sketch.
     s_0 = r_0 * sin_theta_0

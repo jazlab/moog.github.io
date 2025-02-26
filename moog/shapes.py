@@ -1,26 +1,26 @@
 """Shapes and shape-fetching functions for common use across tasks."""
 
 import numpy as np
+from moog import polygons
 from moog import sprite
-from spriteworld import shapes
 
 # A selection of simple shapes. Elements in SHAPES can be looked up from their
 # string keys in sprite.Sprite, i.e. you can give a string key as the `shape`
 # argument to sprite.Sprite and it will fetch the vertices if that key is in
 # this dictionary.
 SHAPES = {
-    'triangle': shapes.polygon(num_sides=3, theta_0=np.pi/2),
-    'square': shapes.polygon(num_sides=4, theta_0=np.pi/4),
-    'pentagon': shapes.polygon(num_sides=5, theta_0=np.pi/2),
-    'hexagon': shapes.polygon(num_sides=6),
-    'octagon': shapes.polygon(num_sides=8),
-    'circle': shapes.polygon(num_sides=30),
-    'star_4': shapes.star(num_sides=4, theta_0=np.pi/4),
-    'star_5': shapes.star(num_sides=5, theta_0=np.pi + np.pi/10),
-    'star_6': shapes.star(num_sides=6),
-    'spoke_4': shapes.spokes(num_sides=4, theta_0=np.pi/4),
-    'spoke_5': shapes.spokes(num_sides=5, theta_0=np.pi + np.pi/10),
-    'spoke_6': shapes.spokes(num_sides=6),
+    'triangle': polygons.polygon(num_sides=3, theta_0=np.pi/2),
+    'square': polygons.polygon(num_sides=4, theta_0=np.pi/4),
+    'pentagon': polygons.polygon(num_sides=5, theta_0=np.pi/2),
+    'hexagon': polygons.polygon(num_sides=6),
+    'octagon': polygons.polygon(num_sides=8),
+    'circle': polygons.polygon(num_sides=30),
+    'star_4': polygons.star(num_sides=4, theta_0=np.pi/4),
+    'star_5': polygons.star(num_sides=5, theta_0=np.pi + np.pi/10),
+    'star_6': polygons.star(num_sides=6),
+    'spoke_4': polygons.spokes(num_sides=4, theta_0=np.pi/4),
+    'spoke_5': polygons.spokes(num_sides=5, theta_0=np.pi + np.pi/10),
+    'spoke_6': polygons.spokes(num_sides=6),
 }
 
 

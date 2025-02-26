@@ -35,6 +35,19 @@ GLOBAL_SPRITE_COUNT = 0
 _EPSILON_INTERPOLATION = 1e-8
 
 
+def _cross_2d(x, y):
+    """2-dimensional cross product.
+    
+    Args:
+        x: Numpy array of shape [..., 2]. First vector.
+        y: Numpy array of shape [..., 2]. Second vector.
+        
+    Returns:
+        cross: Numpy array of shape [...]. Cross product of x and y.
+    """
+    return x[..., 0] * y[..., 1] - x[..., 1] * y[..., 0]
+
+
 def update_sprite(sprite, **factors):
     """Update sprite in place given an entirely new set of factors.
 
@@ -141,11 +154,11 @@ def segment_crossing_coefficients(start_0, end_0, start_1, end_1):
     ds_1 = ds_1[np.newaxis]
 
     # Need to add small epsilon for stability, else may divide by zero below
-    ds_0_cross_ds_1 = np.cross(ds_0, ds_1) + _EPSILON_INTERPOLATION
+    ds_0_cross_ds_1 = _cross_2d(ds_0, ds_1) + _EPSILON_INTERPOLATION
     s_1_minus_s_0 = s_1 - s_0
 
-    A = np.cross(s_1_minus_s_0, ds_1) / ds_0_cross_ds_1
-    B = np.cross(s_1_minus_s_0, ds_0) / ds_0_cross_ds_1
+    A = _cross_2d(s_1_minus_s_0, ds_1) / ds_0_cross_ds_1
+    B = _cross_2d(s_1_minus_s_0, ds_0) / ds_0_cross_ds_1
 
     return A, B
 
@@ -354,7 +367,7 @@ class Sprite(object):
             vertex_1 = shape_path[(i + 1) % num_vertices]
 
             # x and y moments of inertia
-            cross = np.cross(vertex_0, vertex_1)
+            cross = _cross_2d(vertex_0, vertex_1)
             inertia += (1. / 12.) * cross * (
                 vertex_0 * vertex_0 + vertex_1 * vertex_1 + vertex_0 * vertex_1)
 

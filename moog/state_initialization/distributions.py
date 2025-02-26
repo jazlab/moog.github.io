@@ -96,7 +96,7 @@ class Continuous(AbstractDistribution):
         """Sample value in [self.minval, self.maxval) and return dict."""
         rng = self._get_rng(rng)
         out = rng.uniform(low=self.minval, high=self.maxval)
-        out = np.cast[self.dtype](out)
+        out = np.asarray(out, dtype=self.dtype)
         return {self.key: out}
 
     def contains(self, spec):

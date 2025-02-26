@@ -109,8 +109,7 @@ class PILRenderer(abstract_observer.AbstractObserver):
                     color = self.color_to_rgb(color)
                     color = tuple(list(color) + [opacity])
                     self._draw.polygon([tuple(v) for v in vertices], fill=color)
-        image = self._canvas.resize(
-            self._image_size, resample=Image.LANCZOS)
+        image = self._canvas.resize(self._image_size, resample=Image.LANCZOS)
 
         # PIL uses a coordinate system with the origin (0, 0) at the upper-left,
         # but our environment uses an origin at the bottom-left (i.e.

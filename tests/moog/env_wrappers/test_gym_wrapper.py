@@ -70,8 +70,7 @@ class TestGymWrapper():
         assert (
             gym_env.observation_space ==
             spaces.Dict({
-                'image': spaces.Box(
-                    -np.inf, np.inf, shape=(64, 64, 3), dtype=np.uint8)
+                'image': spaces.Box(0, 255, shape=(64, 64, 3), dtype=np.uint8)
             })
         )
         assert (
@@ -112,8 +111,7 @@ class TestGymWrapper():
         assert (
             gym_env.observation_space ==
             spaces.Dict({
-                'image': spaces.Box(
-                    -np.inf, np.inf, shape=(64, 64, 3), dtype=np.uint8)
+                'image': spaces.Box(0, 255, shape=(64, 64, 3), dtype=np.uint8)
             })
         )
         assert (gym_env.action_space == spaces.Discrete(5))
