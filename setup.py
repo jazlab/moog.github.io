@@ -36,14 +36,17 @@ setup(
         ['moog.' + x for x in find_packages('moog')]
     ),
     install_requires=[
-        'spriteworld',
-        'imageio',
-        'mss',
+        'numpy==2.2.3',
+        'matplotlib==3.10.0',
+        'imageio==2.37.0',
+        'mss==10.0.0',
+        'tqdm==4.67.1',
+        'dm_env==1.6',
+        'gym==0.26.2',
     ],
     tests_require=[
-        'nose',
-        'tqdm',
-        'gym',
+        'nose==1.3.7',
+        'pytest==8.3.4',
     ],
     test_suite='nose.collector',
     classifiers=[

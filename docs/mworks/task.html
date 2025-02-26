@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
 <title>mworks.task API documentation</title>
-<meta name="description" content="Python task script for interfacing with MWorks …" />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="Python task script for interfacing with MWorks …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
 </head>
 <body>
 <main>
@@ -25,211 +39,6 @@
 <p>Python task script for interfacing with MWorks.</p>
 <p>The main class in this file is TaskManager, which is a task to be run by
 main.mwel.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;Python task script for interfacing with MWorks.
-
-The main class in this file is TaskManager, which is a task to be run by
-main.mwel.
-&#34;&#34;&#34;
-
-################################################################################
-####  Update sys.path
-################################################################################
-
-# MWorks clones python dependencies into some mworks-specific directory, so we
-# need to manually set the sys.path here in order for imports to work. You will
-# need to change the pwd and python site-packages here to point to the current
-# directory and your computer&#39;s python site-packages (or that of a virtual
-# environment).
-
-_PWD = &#39;/Users/nicholaswatters/Desktop/grad_school/research/mehrdad/moog/mworks&#39;
-_PYTHON_SITE_PACKAGES = (
-    &#39;/Users/nicholaswatters/miniconda3/envs/mworks_moog/lib/python3.8/&#39;
-    &#39;site-packages&#39;
-)
-
-import sys
-
-if &#39;&#39; not in sys.path:
-    sys.path.insert(0, &#39;&#39;)
-if _PYTHON_SITE_PACKAGES not in sys.path:
-    sys.path.append(_PYTHON_SITE_PACKAGES)
-if _PWD not in sys.path:
-    sys.path.append(_PWD)
-
-################################################################################
-####  Imports
-################################################################################
-
-from datetime import datetime
-import importlib
-import numpy as np
-import os
-import threading
-
-from moog import action_spaces
-from moog import environment
-from moog import env_wrappers
-from moog import observers
-
-
-class TaskManager():
-    &#34;&#34;&#34;MOOG task manager.
-    
-    This loads a MOOG environment and handles the interface for MWorks. It
-    should only be used by main.mwel.
-    &#34;&#34;&#34;
-
-    def __init__(self, config_name=&#39;configs.pong&#39;, level=&#39;&#39;):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            config_name: String. Name of config file in configs/ to run.
-            level: Argument for config_name.get_config().
-        &#34;&#34;&#34;
-        self.lock = threading.Lock()
-
-        config = importlib.import_module(config_name)
-        # Force MWorks server to reload the config, so changes to the config
-        # will be propagated to MWorks without restarting the server.
-        importlib.reload(config)
-        config = config.get_config(level)
-        image_size = (getvar(&#39;image_pixel_width&#39;), getvar(&#39;image_pixel_height&#39;))
-        renderer = observers.PILRenderer(
-            image_size=image_size,
-            anti_aliasing=1,
-            color_to_rgb=config[&#39;observers&#39;][&#39;image&#39;].color_to_rgb,
-        )
-        config[&#39;observers&#39;] = {&#39;image&#39;: renderer}
-        log_dir = os.path.join(
-            _PWD, &#39;logs/&#39; + datetime.now().strftime(&#39;%Y_%m_%d&#39;),
-            &#39;/&#39;.join(config_name.split(&#39;.&#39;)), &#39;level_&#39; + str(level))
-        self.env = env_wrappers.LoggingEnvironment(
-            environment=environment.Environment(**config),
-            log_dir=log_dir,
-        )
-
-        if isinstance(self.env.action_space, action_spaces.Joystick):
-            self._using_joystick = True
-        elif isinstance(self.env.action_space, action_spaces.Grid):
-            self._using_joystick = False
-        else:
-            raise ValueError(
-                &#39;Unrecognized action space {}&#39;.format(config[&#39;action_space&#39;]))
-
-    def reset(self):
-        &#34;&#34;&#34;Reset environment.
-
-        This should be called at the beginning of every trial.
-        &#34;&#34;&#34;
-        self.env.reset()
-
-        unregister_event_callbacks()
-        self.events = {}
-        
-        if self._using_joystick:
-            controller_varnames = (&#39;x_force&#39;, &#39;y_force&#39;)
-        else:
-            controller_varnames = (
-                &#39;up_pressed&#39;, &#39;down_pressed&#39;, &#39;left_pressed&#39;, &#39;right_pressed&#39;)
-        
-        for varname in controller_varnames:
-            self._register_event_callback(varname)
-
-        self.complete = False
-
-    def _register_event_callback(self, varname):
-        self.events[varname] = []
-        def cb(evt):
-            with self.lock:
-                self.events[varname].append(evt.data)
-        register_event_callback(varname, cb)
-
-    def _get_action_joystick(self):
-        &#34;&#34;&#34;Get joystick action.&#34;&#34;&#34;
-        if self.env.step_count == 0:
-            # Don&#39;t move on the first step
-            # We set x_force and y_force to zero because some joysticks
-            # initially give a non-zero action, which persists unless we
-            # explicitly terminate zero it out.
-            setvar(&#39;x_force&#39;, 0.)
-            setvar(&#39;y_force&#39;, 0.)
-            return np.zeros(2)
-        else:
-            return np.array([getvar(&#39;x_force&#39;), getvar(&#39;y_force&#39;)])
-    
-    def _get_action_grid(self):
-        &#34;&#34;&#34;Get grid action.&#34;&#34;&#34;
-        if self.env.step_count == 0:
-            # Don&#39;t move on the first step
-            # We set x_force and y_force to zero because some joysticks
-            # initially give a non-zero action, which persists unless we
-            # explicitly terminate zero it out.
-            setvar(&#39;left_pressed&#39;, 0)
-            setvar(&#39;right_pressed&#39;, 0)
-            setvar(&#39;down_pressed&#39;, 0)
-            setvar(&#39;up_pressed&#39;, 0)
-            return 4
-        else:
-            keys_pressed = np.array([
-                getvar(&#39;left_pressed&#39;),
-                getvar(&#39;right_pressed&#39;),
-                getvar(&#39;down_pressed&#39;),
-                getvar(&#39;up_pressed&#39;),
-            ])
-            if sum(keys_pressed) &gt; 1:
-                keys_pressed[self._keys_pressed] = 0
-            
-            if sum(keys_pressed) &gt; 1:
-                random_ind = np.random.choice(np.argwhere(keys_pressed)[:, 0])
-                keys_pressed = np.zeros(4, dtype=int)
-                keys_pressed[random_ind] = 1
-            
-            self._keys_pressed = keys_pressed
-
-            if sum(keys_pressed):
-                key_ind = np.argwhere(keys_pressed)[0, 0]
-            else:
-                key_ind = 4
-            
-            return key_ind
-
-    def step(self):
-        &#34;&#34;&#34;Step environment.&#34;&#34;&#34;
-
-        if self.complete:
-            # Don&#39;t step if the task is already complete.  Returning None tells
-            # MWorks that the image texture doesn&#39;t need to be updated.
-            return
-
-        if isinstance(self.env.action_space, action_spaces.Joystick):
-            action = self._get_action_joystick()
-        elif isinstance(self.env.action_space, action_spaces.Grid):
-            action = self._get_action_grid()
-        else:
-            raise ValueError(
-                &#39;Unrecognized action space {}&#39;.format(config[&#39;action_space&#39;]))
-
-        timestep = self.env.step(action)
-        reward = timestep.reward
-        img = timestep.observation[&#39;image&#39;]
-
-        if reward:
-            setvar(&#39;reward_duration&#39;, reward * 1000)  # ms to us
-
-        if timestep.last():
-            setvar(&#39;end_trial&#39;, True)
-            self.complete = True
-
-        # MWorks&#39; Python image stimulus requires a contiguous buffer, so we use
-        # ascontiguousarray to provide one.
-        to_return = np.ascontiguousarray(img)
-
-        return to_return</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -245,17 +54,6 @@ class TaskManager():
 <span>(</span><span>config_name='configs.pong', level='')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>MOOG task manager.</p>
-<p>This loads a MOOG environment and handles the interface for MWorks. It
-should only be used by main.mwel.</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>config_name</code></strong></dt>
-<dd>String. Name of config file in configs/ to run.</dd>
-<dt><strong><code>level</code></strong></dt>
-<dd>Argument for config_name.get_config().</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -414,14 +212,23 @@ should only be used by main.mwel.</p>
 
         return to_return</code></pre>
 </details>
+<div class="desc"><p>MOOG task manager.</p>
+<p>This loads a MOOG environment and handles the interface for MWorks. It
+should only be used by main.mwel.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>config_name</code></strong></dt>
+<dd>String. Name of config file in configs/ to run.</dd>
+<dt><strong><code>level</code></strong></dt>
+<dd>Argument for config_name.get_config().</dd>
+</dl></div>
 <h3>Methods</h3>
 <dl>
 <dt id="mworks.task.TaskManager.reset"><code class="name flex">
 <span>def <span class="ident">reset</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Reset environment.</p>
-<p>This should be called at the beginning of every trial.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -447,12 +254,13 @@ should only be used by main.mwel.</p>
 
     self.complete = False</code></pre>
 </details>
+<div class="desc"><p>Reset environment.</p>
+<p>This should be called at the beginning of every trial.</p></div>
 </dd>
 <dt id="mworks.task.TaskManager.step"><code class="name flex">
 <span>def <span class="ident">step</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Step environment.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -490,6 +298,7 @@ should only be used by main.mwel.</p>
 
     return to_return</code></pre>
 </details>
+<div class="desc"><p>Step environment.</p></div>
 </dd>
 </dl>
 </dd>
@@ -497,7 +306,6 @@ should only be used by main.mwel.</p>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -522,7 +330,7 @@ should only be used by main.mwel.</p>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
 </footer>
 </body>
 </html>

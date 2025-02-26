@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
 <title>moog_demos.gui_frames API documentation</title>
-<meta name="description" content="This file contains GUI frames for human_agent.py …" />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="This file contains GUI frames for human_agent.py …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
 </head>
 <body>
 <main>
@@ -33,443 +47,6 @@ a key. You can resolve this by (i) changing your computer's keyboard settings to
 not do this behavior when you hold down a key, or (ii) modify the class in this
 file that you're using to do whatever behavior you want when a key is held down
 (this will involve a bit of debugging for you).</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;This file contains GUI frames for human_agent.py.
-
-The classes in this file are interfaces for playing the demo with different
-action spaces. If you are using an action space that doesn&#39;t fall into one of
-these categories, you must create your own gui for it.
-
-Note: on some computers, the keyboard interfaces don&#39;t work properly, and
-holding letter or arrow keys repeatedly takes actions. This is an issue with
-your computer&#39;s keyboard sending rapid press/release signals when you hold down
-a key. You can resolve this by (i) changing your computer&#39;s keyboard settings to
-not do this behavior when you hold down a key, or (ii) modify the class in this
-file that you&#39;re using to do whatever behavior you want when a key is held down
-(this will involve a bit of debugging for you).
-&#34;&#34;&#34;
-
-import numpy as np
-import tkinter as tk
-
-
-class JoystickFrame(tk.Frame):
-    &#34;&#34;&#34;Joystick Tkinter frame.
-
-    This creates the frame for an interactive joystick. The joystick consists of
-    three objects:
-        (i) A large gray &#34;motion zone&#34; circle in the background. This is the
-            area in which the joystick can be moved.
-        (ii) A small black &#34;center point&#34; circle fixed in the middle ground.
-            This indicates the joystick position that give zero action.
-        (iii) A green &#34;joystick&#34; circle in the foreground that can be moved. The
-            center of this circle is the action readout.
-
-    If the mouse is not clicked, then position of the joystick centerpoint is 0
-    (in the center of the motion zone). If the mouse is currently pressed, then
-    the position of the joystick is the closest point in the motion zone to the
-    mouse position. Namely, if the mouse is in the motion zone then the joystick
-    is directly under the mouse, and if the mouse is not in the motion zone then
-    the joystick is at the edge of the motion zone closest to the mouse.
-
-    Thus the joystick can be moved by clicking the mouse anywhere (in which case
-    the joystick jumps to that position) and dragging the pressed mouse around
-    (in which case the joystick moves underneath the mouse).
-    &#34;&#34;&#34;
-
-    def __init__(self, root, canvas_half_width=100, motion_zone_radius=90,
-                 joystick_radius=10, center_point_radius=3):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            root: Instance of tk.Frame. Root frame in which the joystick lives.
-            canvas_half_width: Int. Half of the width of the canvas on which the
-                joystick is rendered.
-            motion_zone_radius: Int. Radius of the motion zone.
-            joystick_radius: Int. Radius of the joystick.
-            center_point_radius: Int. Radius of the center point.
-        &#34;&#34;&#34;
-        super(JoystickFrame, self).__init__(root)
-
-        self._joystick_radius = joystick_radius
-        self._canvas_half_width = canvas_half_width
-        self._motion_zone_radius = motion_zone_radius
-        self._center_point_radius = center_point_radius
-
-        # Create a canvas
-        self.canvas = tk.Canvas(
-            width=2 * canvas_half_width,
-            height=2 * canvas_half_width)
-
-        # Create motion zone, center point, and joystick
-        self._create_items()
-
-        # Add bindings for clicking, dragging and releasing the joystick
-        self.canvas.bind(&#39;&lt;ButtonPress-1&gt;&#39;, self._mouse_press)
-        self.canvas.bind(&#39;&lt;ButtonRelease-1&gt;&#39;, self._mouse_release)
-        self.canvas.bind(&#39;&lt;B1-Motion&gt;&#39;, self._mouse_move)
-
-        self._mouse_is_pressed = False
-
-    def _create_items(self):
-        # Create motion zone
-        self.canvas.create_oval(
-            self._canvas_half_width - self._motion_zone_radius,
-            self._canvas_half_width - self._motion_zone_radius,
-            self._canvas_half_width + self._motion_zone_radius,
-            self._canvas_half_width + self._motion_zone_radius,
-            fill=&#39;gray80&#39;,
-        )
-
-        # Create center point
-        self.canvas.create_oval(
-            self._canvas_half_width - self._center_point_radius,
-            self._canvas_half_width - self._center_point_radius,
-            self._canvas_half_width + self._center_point_radius,
-            self._canvas_half_width + self._center_point_radius,
-            fill=&#39;black&#39;,
-        )
-
-        # Create joystick
-        self.joystick = self.canvas.create_oval(
-            self._canvas_half_width - self._joystick_radius,
-            self._canvas_half_width - self._joystick_radius,
-            self._canvas_half_width + self._joystick_radius,
-            self._canvas_half_width + self._joystick_radius,
-            fill=&#39;green&#39;,
-        )
-
-    def _recenter_joystick(self):
-        &#34;&#34;&#34;Move the joystick to the center.&#34;&#34;&#34;
-        new_coords = [
-            self._canvas_half_width - self._joystick_radius,
-            self._canvas_half_width - self._joystick_radius,
-            self._canvas_half_width + self._joystick_radius,
-            self._canvas_half_width + self._joystick_radius,
-        ]
-        self.canvas.coords(self.joystick, new_coords)
-
-    def _place_joystick(self, event):
-        &#34;&#34;&#34;Place the joystick near the (x, y) coordinates of a mouse event.
-
-        If the event (x, y) is inside the motion zone, the joystick is placed
-        directly at that position. If it is outside the motion zone, the
-        joystick is placed on the edge of the motion zone nearest to that point.
-        &#34;&#34;&#34;
-        centered_event_coords = (
-            np.array([event.x, event.y], dtype=float) - self._canvas_half_width)
-        event_dist = np.linalg.norm(centered_event_coords)
-        rescale_factor = min(1, self._motion_zone_radius / event_dist)
-        centered_event_coords *= rescale_factor
-        event_coords = centered_event_coords + self._canvas_half_width
-        event_coords = event_coords.astype(int)
-
-        new_coords = [
-            event_coords[0] - self._joystick_radius,
-            event_coords[1] - self._joystick_radius,
-            event_coords[0] + self._joystick_radius,
-            event_coords[1] + self._joystick_radius,
-        ]
-        self.canvas.coords(self.joystick, new_coords)
-
-    def _mouse_press(self, event):
-        self._place_joystick(event)
-        self._mouse_is_pressed = True
-
-    def _mouse_release(self, event):
-        self._mouse_is_pressed = False
-        self._recenter_joystick()
-
-    def _mouse_move(self, event):
-        if self._mouse_is_pressed:
-            self._place_joystick(event)
-
-    @property
-    def action(self):
-        &#34;&#34;&#34;Return the joystick&#39;s position as an action in [-1, 1] x [-1, 1].&#34;&#34;&#34;
-        joystick_coords = self.canvas.coords(self.joystick)
-        joystick_center = np.array([
-            joystick_coords[0] + self._joystick_radius,
-            joystick_coords[1] + self._joystick_radius
-        ])
-        joystick_center -= self._canvas_half_width
-        action = joystick_center.astype(float) / self._motion_zone_radius
-        return np.array([action[0], -1 * action[1]])
-
-
-class GridActions(tk.Frame):
-    &#34;&#34;&#34;Grid actions Tkinter frame.
-
-    This creates an empty Tkinter frame where the joystick would be. It also
-    registers bindings responding to arrow key presses and releases, and turns
-    them into discrete actions for a Grid action space.
-    &#34;&#34;&#34;
-
-    def __init__(self, root, canvas_half_width=100):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            root: Instance of tk.Frame. Root frame in which the gui frame lives.
-            canvas_half_width: Int. Half of the width of the canvas to create.
-        &#34;&#34;&#34;
-        super(GridActions, self).__init__(root)
-        self._current_key = 4  # Do-nothing action
-
-        # Create a canvas
-        self.canvas = tk.Canvas(
-            width=2 * canvas_half_width,
-            height=2 * canvas_half_width)
-
-        # Add bindings for key presses and releases
-        root.bind(&#39;&lt;KeyPress&gt;&#39;, self._key_press)
-        root.bind(&#39;&lt;KeyRelease&gt;&#39;, self._key_release)
-
-    def _get_action_from_event(self, event):
-        if event.keysym == &#39;Left&#39;:
-            return 0
-        elif event.keysym == &#39;Right&#39;:
-            return 1
-        elif event.keysym == &#39;Down&#39;:
-            return 2
-        elif event.keysym == &#39;Up&#39;:
-            return 3
-        else:
-            return None
-
-    def _key_press(self, event):
-        self._current_key = self._get_action_from_event(event)
-
-    def _key_release(self, event):
-        if self._get_action_from_event(event) == self._current_key:
-            self._current_key = None
-
-    @property
-    def action(self):
-        if self._current_key is not None:
-            return self._current_key
-        else:
-            return 4  # Do-nothing action
-
-
-class SetPositionFrame():
-    &#34;&#34;&#34;SetPosition Tkinter frame.
-
-    This creates position_setting functionality for a canvas. Typically this is
-    done to the HumanAgent._env_canvas.
-    &#34;&#34;&#34;
-    def __init__(self, canvas, canvas_half_width):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            canvas: Canvas object to add position-setting functionality to.
-            canvas_half_width: Int. Half-width of the canvas.
-        &#34;&#34;&#34;
-        # Add bindings for clicking, dragging and releasing the joystick
-        canvas.bind(&#39;&lt;ButtonPress-1&gt;&#39;, self._mouse_press)
-        canvas.bind(&#39;&lt;ButtonRelease-1&gt;&#39;, self._mouse_release)
-        canvas.bind(&#39;&lt;B1-Motion&gt;&#39;, self._mouse_move)
-
-        self._canvas_half_width = canvas_half_width
-        self._mouse_is_pressed = False
-        self._mouse_coords = np.array([0.5, 0.5])
-
-    def _mouse_press(self, event):
-        self._place_mouse(event)
-        self._mouse_is_pressed = True
-
-    def _mouse_release(self, event):
-        self._mouse_is_pressed = False
-
-    def _mouse_move(self, event):
-        if self._mouse_is_pressed:
-            self._place_mouse(event)
-
-    def _place_mouse(self, event):
-        &#34;&#34;&#34;Place the self._mouse_coords (x, y) coordinates of a mouse event.&#34;&#34;&#34;
-        centered_event_coords = (
-            np.array([event.x, event.y], dtype=float) - self._canvas_half_width)
-        centered_event_coords = np.clip(
-            centered_event_coords,
-            -self._canvas_half_width,
-            self._canvas_half_width,
-        )
-        self._mouse_coords = 0.5 * (
-            1 + centered_event_coords.astype(float) / self._canvas_half_width)
-
-    @property
-    def action(self):
-        &#34;&#34;&#34;Return the mouse&#39;s position as an action in [0, 1] x [0, 1].&#34;&#34;&#34;
-        return np.array([self._mouse_coords[0], 1. - self._mouse_coords[1]])
-
-
-class TwoPlayerGridActions(tk.Frame):
-    &#34;&#34;&#34;2-player grid actions Tkinter frame.
-
-    This creates an empty Tkinter frame where the joystick would be. It also
-    registers bindings responding to arrow key presses and releases, and turns
-    them into discrete actions for a two-player Grid action space.
-
-    One player uses the [Left, Right, Down, Up] arrow keys and the other player
-    uses the [a, d, s, w] keys.
-    &#34;&#34;&#34;
-
-    def __init__(self, root, canvas_half_width=100, player_0=&#39;&#39;, player_1=&#39;&#39;):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            root: Instance of tk.Frame. Root frame in which the gui frame lives.
-            canvas_half_width: Int. Half of the width of the canvas to create.
-            player_0: String. Name of player_0. This will be the key in the
-                action dictionary for player_0&#39;s action.
-            player_1: String. Name of player_1. This will be the key in the
-                action dictionary for player_1&#39;s action.
-        &#34;&#34;&#34;
-        super(TwoPlayerGridActions, self).__init__(root)
-        self._player_0 = player_0
-        self._player_1 = player_1
-        self._current_keys = {player_0: 4, player_1: 4}  # Do-nothing action
-
-        # Create a canvas
-        self.canvas = tk.Canvas(
-            width=2 * canvas_half_width,
-            height=2 * canvas_half_width)
-
-        # Add bindings for key presses and releases
-        root.bind(&#39;&lt;KeyPress&gt;&#39;, self._key_press)
-        root.bind(&#39;&lt;KeyRelease&gt;&#39;, self._key_release)
-
-    def _get_action_from_event(self, event):
-        if event.keysym == &#39;Left&#39;:
-            return 0
-        elif event.keysym == &#39;Right&#39;:
-            return 1
-        elif event.keysym == &#39;Down&#39;:
-            return 2
-        elif event.keysym == &#39;Up&#39;:
-            return 3
-        elif event.keysym == &#39;a&#39;:
-            return 4
-        elif event.keysym == &#39;d&#39;:
-            return 5
-        elif event.keysym == &#39;s&#39;:
-            return 6
-        elif event.keysym == &#39;w&#39;:
-            return 7
-        else:
-            return None
-
-    def _key_press(self, event):
-        current_key = self._get_action_from_event(event)
-        if current_key is None:
-            pass
-        elif current_key &lt; 4:
-            self._current_keys[self._player_0] = current_key
-        else:
-            self._current_keys[self._player_1] = current_key - 4
-
-    def _key_release(self, event):
-        if (self._get_action_from_event(event) ==
-                self._current_keys[self._player_0]):
-            self._current_keys[self._player_0] = 4
-        elif (self._get_action_from_event(event) ==
-                self._current_keys[self._player_1] + 4):
-            self._current_keys[self._player_1] = 4
-
-    @property
-    def action(self):
-        return self._current_keys
-
-
-class TwoPlayerJoystick(tk.Frame):
-    &#34;&#34;&#34;2-player joystick actions Tkinter frame.
-
-    This creates an empty Tkinter frame where the joystick would be. It also
-    registers bindings responding to arrow key presses and releases, and turns
-    them into joystick actions for a two-player Joystick action space.
-
-    One player uses the [Left, Right, Down, Up] arrow keys and the other player
-    uses the [a, d, s, w] keys.
-    &#34;&#34;&#34;
-
-    def __init__(self, root, canvas_half_width=100, player_0=&#39;&#39;, player_1=&#39;&#39;):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            root: Instance of tk.Frame. Root frame in which the gui frame lives.
-            canvas_half_width: Int. Half of the width of the canvas to create.
-            player_0: String. Name of player_0. This will be the key in the
-                action dictionary for player_0&#39;s action.
-            player_1: String. Name of player_1. This will be the key in the
-                action dictionary for player_1&#39;s action.
-        &#34;&#34;&#34;
-        super(TwoPlayerJoystick, self).__init__(root)
-        self._player_0 = player_0
-        self._player_1 = player_1
-        self._current_action = {
-            player_0: np.array([0.,0.]),
-            player_1: np.array([0.,0.]),
-        }
-        self._current_keys = {
-            player_0: [0.,0.,0.,0.],
-            player_1: [0.,0.,0.,0.],
-        }
-
-        # Create a canvas
-        self.canvas = tk.Canvas(
-            width=2 * canvas_half_width,
-            height=2 * canvas_half_width)
-
-        # Add bindings for key presses and releases
-        root.bind(&#39;&lt;KeyPress&gt;&#39;, self._key_press)
-        root.bind(&#39;&lt;KeyRelease&gt;&#39;, self._key_release)
-
-    def _key_press(self, event):
-        if event.keysym == &#39;Left&#39;:
-            self._current_keys[self._player_0][0] = 1.
-        elif event.keysym == &#39;Right&#39;:
-            self._current_keys[self._player_0][1] = 1.
-        elif event.keysym == &#39;Down&#39;:
-            self._current_keys[self._player_0][2] = 1.
-        elif event.keysym == &#39;Up&#39;:
-            self._current_keys[self._player_0][3] = 1.
-        elif event.keysym == &#39;a&#39; or event.keysym == &#39;Meta_L&#39;:
-            self._current_keys[self._player_1][0] = 1.
-        elif event.keysym == &#39;d&#39; or event.keysym == &#39;Alt_L&#39;:
-            self._current_keys[self._player_1][1] = 1.
-        elif event.keysym == &#39;s&#39;:
-            self._current_keys[self._player_1][2] = 1.
-        elif event.keysym == &#39;w&#39;:
-            self._current_keys[self._player_1][3] = 1.
-        for k, v in self._current_keys.items():
-            self._current_action[k] = np.array([v[1]-v[0],v[3]-v[2]])
-
-    def _key_release(self, event):
-        if event.keysym == &#39;Left&#39;:
-            self._current_keys[self._player_0][0] = 0.
-        elif event.keysym == &#39;Right&#39;:
-            self._current_keys[self._player_0][1] = 0.
-        elif event.keysym == &#39;Down&#39;:
-            self._current_keys[self._player_0][2] = 0.
-        elif event.keysym == &#39;Up&#39;:
-            self._current_keys[self._player_0][3] = 0.
-        elif event.keysym == &#39;a&#39; or event.keysym == &#39;Meta_L&#39;:
-            self._current_keys[self._player_1][0] = 0.
-        elif event.keysym == &#39;d&#39; or event.keysym == &#39;Alt_L&#39;:
-            self._current_keys[self._player_1][1] = 0.
-        elif event.keysym == &#39;s&#39;:
-            self._current_keys[self._player_1][2] = 0.
-        elif event.keysym == &#39;w&#39;:
-            self._current_keys[self._player_1][3] = 0.
-        for k, v in self._current_keys.items():
-            self._current_action[k] = np.array([v[1]-v[0],v[3]-v[2]])
-
-    @property
-    def action(self):
-        return self._current_action</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -485,18 +62,6 @@ class TwoPlayerJoystick(tk.Frame):
 <span>(</span><span>root, canvas_half_width=100)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Grid actions Tkinter frame.</p>
-<p>This creates an empty Tkinter frame where the joystick would be. It also
-registers bindings responding to arrow key presses and releases, and turns
-them into discrete actions for a Grid action space.</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>root</code></strong></dt>
-<dd>Instance of tk.Frame. Root frame in which the gui frame lives.</dd>
-<dt><strong><code>canvas_half_width</code></strong></dt>
-<dd>Int. Half of the width of the canvas to create.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -554,6 +119,18 @@ them into discrete actions for a Grid action space.</p>
         else:
             return 4  # Do-nothing action</code></pre>
 </details>
+<div class="desc"><p>Grid actions Tkinter frame.</p>
+<p>This creates an empty Tkinter frame where the joystick would be. It also
+registers bindings responding to arrow key presses and releases, and turns
+them into discrete actions for a Grid action space.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>root</code></strong></dt>
+<dd>Instance of tk.Frame. Root frame in which the gui frame lives.</dd>
+<dt><strong><code>canvas_half_width</code></strong></dt>
+<dd>Int. Half of the width of the canvas to create.</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>tkinter.Frame</li>
@@ -566,9 +143,8 @@ them into discrete actions for a Grid action space.</p>
 </ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="moog_demos.gui_frames.GridActions.action"><code class="name">var <span class="ident">action</span></code></dt>
+<dt id="moog_demos.gui_frames.GridActions.action"><code class="name">prop <span class="ident">action</span></code></dt>
 <dd>
-<div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -580,47 +156,15 @@ def action(self):
     else:
         return 4  # Do-nothing action</code></pre>
 </details>
+<div class="desc"></div>
 </dd>
 </dl>
 </dd>
 <dt id="moog_demos.gui_frames.JoystickFrame"><code class="flex name class">
 <span>class <span class="ident">JoystickFrame</span></span>
-<span>(</span><span>root, canvas_half_width=100, motion_zone_radius=90, joystick_radius=10, center_point_radius=3)</span>
+<span>(</span><span>root,<br>canvas_half_width=100,<br>motion_zone_radius=90,<br>joystick_radius=10,<br>center_point_radius=3)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Joystick Tkinter frame.</p>
-<p>This creates the frame for an interactive joystick. The joystick consists of
-three objects:
-(i) A large gray "motion zone" circle in the background. This is the
-area in which the joystick can be moved.
-(ii) A small black "center point" circle fixed in the middle ground.
-This indicates the joystick position that give zero action.
-(iii) A green "joystick" circle in the foreground that can be moved. The
-center of this circle is the action readout.</p>
-<p>If the mouse is not clicked, then position of the joystick centerpoint is 0
-(in the center of the motion zone). If the mouse is currently pressed, then
-the position of the joystick is the closest point in the motion zone to the
-mouse position. Namely, if the mouse is in the motion zone then the joystick
-is directly under the mouse, and if the mouse is not in the motion zone then
-the joystick is at the edge of the motion zone closest to the mouse.</p>
-<p>Thus the joystick can be moved by clicking the mouse anywhere (in which case
-the joystick jumps to that position) and dragging the pressed mouse around
-(in which case the joystick moves underneath the mouse).</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>root</code></strong></dt>
-<dd>Instance of tk.Frame. Root frame in which the joystick lives.</dd>
-<dt><strong><code>canvas_half_width</code></strong></dt>
-<dd>Int. Half of the width of the canvas on which the
-joystick is rendered.</dd>
-<dt><strong><code>motion_zone_radius</code></strong></dt>
-<dd>Int. Radius of the motion zone.</dd>
-<dt><strong><code>joystick_radius</code></strong></dt>
-<dd>Int. Radius of the joystick.</dd>
-<dt><strong><code>center_point_radius</code></strong></dt>
-<dd>Int. Radius of the center point.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -768,6 +312,39 @@ joystick is rendered.</dd>
         action = joystick_center.astype(float) / self._motion_zone_radius
         return np.array([action[0], -1 * action[1]])</code></pre>
 </details>
+<div class="desc"><p>Joystick Tkinter frame.</p>
+<p>This creates the frame for an interactive joystick. The joystick consists of
+three objects:
+(i) A large gray "motion zone" circle in the background. This is the
+area in which the joystick can be moved.
+(ii) A small black "center point" circle fixed in the middle ground.
+This indicates the joystick position that give zero action.
+(iii) A green "joystick" circle in the foreground that can be moved. The
+center of this circle is the action readout.</p>
+<p>If the mouse is not clicked, then position of the joystick centerpoint is 0
+(in the center of the motion zone). If the mouse is currently pressed, then
+the position of the joystick is the closest point in the motion zone to the
+mouse position. Namely, if the mouse is in the motion zone then the joystick
+is directly under the mouse, and if the mouse is not in the motion zone then
+the joystick is at the edge of the motion zone closest to the mouse.</p>
+<p>Thus the joystick can be moved by clicking the mouse anywhere (in which case
+the joystick jumps to that position) and dragging the pressed mouse around
+(in which case the joystick moves underneath the mouse).</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>root</code></strong></dt>
+<dd>Instance of tk.Frame. Root frame in which the joystick lives.</dd>
+<dt><strong><code>canvas_half_width</code></strong></dt>
+<dd>Int. Half of the width of the canvas on which the
+joystick is rendered.</dd>
+<dt><strong><code>motion_zone_radius</code></strong></dt>
+<dd>Int. Radius of the motion zone.</dd>
+<dt><strong><code>joystick_radius</code></strong></dt>
+<dd>Int. Radius of the joystick.</dd>
+<dt><strong><code>center_point_radius</code></strong></dt>
+<dd>Int. Radius of the center point.</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>tkinter.Frame</li>
@@ -780,9 +357,8 @@ joystick is rendered.</dd>
 </ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="moog_demos.gui_frames.JoystickFrame.action"><code class="name">var <span class="ident">action</span></code></dt>
+<dt id="moog_demos.gui_frames.JoystickFrame.action"><code class="name">prop <span class="ident">action</span></code></dt>
 <dd>
-<div class="desc"><p>Return the joystick's position as an action in [-1, 1] x [-1, 1].</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -799,6 +375,7 @@ def action(self):
     action = joystick_center.astype(float) / self._motion_zone_radius
     return np.array([action[0], -1 * action[1]])</code></pre>
 </details>
+<div class="desc"><p>Return the joystick's position as an action in [-1, 1] x [-1, 1].</p></div>
 </dd>
 </dl>
 </dd>
@@ -807,17 +384,6 @@ def action(self):
 <span>(</span><span>canvas, canvas_half_width)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>SetPosition Tkinter frame.</p>
-<p>This creates position_setting functionality for a canvas. Typically this is
-done to the HumanAgent._env_canvas.</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>canvas</code></strong></dt>
-<dd>Canvas object to add position-setting functionality to.</dd>
-<dt><strong><code>canvas_half_width</code></strong></dt>
-<dd>Int. Half-width of the canvas.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -872,11 +438,21 @@ done to the HumanAgent._env_canvas.</p>
         &#34;&#34;&#34;Return the mouse&#39;s position as an action in [0, 1] x [0, 1].&#34;&#34;&#34;
         return np.array([self._mouse_coords[0], 1. - self._mouse_coords[1]])</code></pre>
 </details>
+<div class="desc"><p>SetPosition Tkinter frame.</p>
+<p>This creates position_setting functionality for a canvas. Typically this is
+done to the HumanAgent._env_canvas.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>canvas</code></strong></dt>
+<dd>Canvas object to add position-setting functionality to.</dd>
+<dt><strong><code>canvas_half_width</code></strong></dt>
+<dd>Int. Half-width of the canvas.</dd>
+</dl></div>
 <h3>Instance variables</h3>
 <dl>
-<dt id="moog_demos.gui_frames.SetPositionFrame.action"><code class="name">var <span class="ident">action</span></code></dt>
+<dt id="moog_demos.gui_frames.SetPositionFrame.action"><code class="name">prop <span class="ident">action</span></code></dt>
 <dd>
-<div class="desc"><p>Return the mouse's position as an action in [0, 1] x [0, 1].</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -886,6 +462,7 @@ def action(self):
     &#34;&#34;&#34;Return the mouse&#39;s position as an action in [0, 1] x [0, 1].&#34;&#34;&#34;
     return np.array([self._mouse_coords[0], 1. - self._mouse_coords[1]])</code></pre>
 </details>
+<div class="desc"><p>Return the mouse's position as an action in [0, 1] x [0, 1].</p></div>
 </dd>
 </dl>
 </dd>
@@ -894,26 +471,6 @@ def action(self):
 <span>(</span><span>root, canvas_half_width=100, player_0='', player_1='')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>2-player grid actions Tkinter frame.</p>
-<p>This creates an empty Tkinter frame where the joystick would be. It also
-registers bindings responding to arrow key presses and releases, and turns
-them into discrete actions for a two-player Grid action space.</p>
-<p>One player uses the [Left, Right, Down, Up] arrow keys and the other player
-uses the [a, d, s, w] keys.</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>root</code></strong></dt>
-<dd>Instance of tk.Frame. Root frame in which the gui frame lives.</dd>
-<dt><strong><code>canvas_half_width</code></strong></dt>
-<dd>Int. Half of the width of the canvas to create.</dd>
-<dt><strong><code>player_0</code></strong></dt>
-<dd>String. Name of player_0. This will be the key in the
-action dictionary for player_0's action.</dd>
-<dt><strong><code>player_1</code></strong></dt>
-<dd>String. Name of player_1. This will be the key in the
-action dictionary for player_1's action.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -995,41 +552,10 @@ action dictionary for player_1's action.</dd>
     def action(self):
         return self._current_keys</code></pre>
 </details>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li>tkinter.Frame</li>
-<li>tkinter.Widget</li>
-<li>tkinter.BaseWidget</li>
-<li>tkinter.Misc</li>
-<li>tkinter.Pack</li>
-<li>tkinter.Place</li>
-<li>tkinter.Grid</li>
-</ul>
-<h3>Instance variables</h3>
-<dl>
-<dt id="moog_demos.gui_frames.TwoPlayerGridActions.action"><code class="name">var <span class="ident">action</span></code></dt>
-<dd>
-<div class="desc"></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@property
-def action(self):
-    return self._current_keys</code></pre>
-</details>
-</dd>
-</dl>
-</dd>
-<dt id="moog_demos.gui_frames.TwoPlayerJoystick"><code class="flex name class">
-<span>class <span class="ident">TwoPlayerJoystick</span></span>
-<span>(</span><span>root, canvas_half_width=100, player_0='', player_1='')</span>
-</code></dt>
-<dd>
-<div class="desc"><p>2-player joystick actions Tkinter frame.</p>
+<div class="desc"><p>2-player grid actions Tkinter frame.</p>
 <p>This creates an empty Tkinter frame where the joystick would be. It also
 registers bindings responding to arrow key presses and releases, and turns
-them into joystick actions for a two-player Joystick action space.</p>
+them into discrete actions for a two-player Grid action space.</p>
 <p>One player uses the [Left, Right, Down, Up] arrow keys and the other player
 uses the [a, d, s, w] keys.</p>
 <p>Constructor.</p>
@@ -1046,6 +572,37 @@ action dictionary for player_0's action.</dd>
 <dd>String. Name of player_1. This will be the key in the
 action dictionary for player_1's action.</dd>
 </dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>tkinter.Frame</li>
+<li>tkinter.Widget</li>
+<li>tkinter.BaseWidget</li>
+<li>tkinter.Misc</li>
+<li>tkinter.Pack</li>
+<li>tkinter.Place</li>
+<li>tkinter.Grid</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="moog_demos.gui_frames.TwoPlayerGridActions.action"><code class="name">prop <span class="ident">action</span></code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def action(self):
+    return self._current_keys</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="moog_demos.gui_frames.TwoPlayerJoystick"><code class="flex name class">
+<span>class <span class="ident">TwoPlayerJoystick</span></span>
+<span>(</span><span>root, canvas_half_width=100, player_0='', player_1='')</span>
+</code></dt>
+<dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1137,6 +694,26 @@ action dictionary for player_1's action.</dd>
     def action(self):
         return self._current_action</code></pre>
 </details>
+<div class="desc"><p>2-player joystick actions Tkinter frame.</p>
+<p>This creates an empty Tkinter frame where the joystick would be. It also
+registers bindings responding to arrow key presses and releases, and turns
+them into joystick actions for a two-player Joystick action space.</p>
+<p>One player uses the [Left, Right, Down, Up] arrow keys and the other player
+uses the [a, d, s, w] keys.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>root</code></strong></dt>
+<dd>Instance of tk.Frame. Root frame in which the gui frame lives.</dd>
+<dt><strong><code>canvas_half_width</code></strong></dt>
+<dd>Int. Half of the width of the canvas to create.</dd>
+<dt><strong><code>player_0</code></strong></dt>
+<dd>String. Name of player_0. This will be the key in the
+action dictionary for player_0's action.</dd>
+<dt><strong><code>player_1</code></strong></dt>
+<dd>String. Name of player_1. This will be the key in the
+action dictionary for player_1's action.</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>tkinter.Frame</li>
@@ -1149,9 +726,8 @@ action dictionary for player_1's action.</dd>
 </ul>
 <h3>Instance variables</h3>
 <dl>
-<dt id="moog_demos.gui_frames.TwoPlayerJoystick.action"><code class="name">var <span class="ident">action</span></code></dt>
+<dt id="moog_demos.gui_frames.TwoPlayerJoystick.action"><code class="name">prop <span class="ident">action</span></code></dt>
 <dd>
-<div class="desc"></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1160,6 +736,7 @@ action dictionary for player_1's action.</dd>
 def action(self):
     return self._current_action</code></pre>
 </details>
+<div class="desc"></div>
 </dd>
 </dl>
 </dd>
@@ -1167,7 +744,6 @@ def action(self):
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -1215,7 +791,7 @@ def action(self):
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
 </footer>
 </body>
 </html>

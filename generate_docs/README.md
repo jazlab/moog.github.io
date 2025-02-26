@@ -7,7 +7,8 @@ re-generated upon any changes to the codebase.
 
 To re-generate the documentation, follow these steps:
 
-1. If you do have `pdoc3` installed, then install it with `$ pip install pdoc3`.
+1. If you do have `pdoc3` installed, then install it with
+   `$ pip install pdoc3==0.11.5`.
 2. Navigate to this directory and run `$ bash generate_docs.sh`. If any errors
    arise, please do not git commit --- instead, please do due diligence
    understanding the [`generate_docs.sh`](../generate_docs.sh) and making sure

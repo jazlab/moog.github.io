@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.5">
-<title>moog.game_rules.fixation API documentation</title>
-<meta name="description" content="Rule that can be used to monitor fixation …">
+<title>moog.polygons API documentation</title>
+<meta name="description" content="Polygon generator functions.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
@@ -33,109 +33,188 @@ el.replaceWith(d);
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>moog.game_rules.fixation</code></h1>
+<h1 class="title">Module <code>moog.polygons</code></h1>
 </header>
 <section id="section-intro">
-<p>Rule that can be used to monitor fixation.</p>
-<p>This rule is used to keep track of how long the subject has been fixating on a
-sprite (e.g. a fixation cross). The fixation duration is stored in the
-environment meta_state, and at each step either incremented if subject is
-fixating or reset to 0 otherwise.</p>
-<p>A config that uses this rule should have a conditional rule checking whether the
-fixation duration in the environment meta_state has reached a threshold, in
-order to proceed with the task.</p>
+<p>Polygon generator functions.</p>
 </section>
 <section>
 </section>
 <section>
 </section>
 <section>
-</section>
-<section>
-<h2 class="section-title" id="header-classes">Classes</h2>
+<h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
-<dt id="moog.game_rules.fixation.Fixation"><code class="flex name class">
-<span>class <span class="ident">Fixation</span></span>
-<span>(</span><span>agent_layer,<br>fixation_layer,<br>fixation_threshold=0.1,<br>meta_state_fixation_key='fixation_duration')</span>
+<dt id="moog.polygons.polygon"><code class="name flex">
+<span>def <span class="ident">polygon</span></span>(<span>num_sides, theta_0=0.0)</span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Fixation(abstract_rule.AbstractRule):
-    &#34;&#34;&#34;Fixation rule.&#34;&#34;&#34;
+<pre><code class="python">def polygon(num_sides, theta_0=0.):
+  &#34;&#34;&#34;Generate the vertices of a regular polygon.
 
-    def __init__(self,
-                 agent_layer,
-                 fixation_layer,
-                 fixation_threshold=0.1,
-                 meta_state_fixation_key=&#39;fixation_duration&#39;):
-        &#34;&#34;&#34;Constructor.
+  Args:
+    num_sides: Int. Number of sides of the polygon.
+    theta_0: Float. Initial angle to start the vertices from.
 
-        Args:
-            agent_layer: String. Key in environment state of agent layer. Agent
-                is assumed to be the sprite at index 0 in this layer.
-            fixation_layer: String. Key in environment state of agent layer.
-                Fixation target is assumed to be the sprite at index 0 in this
-                layer.
-            fixation_threshold: Float. Distance from agent to fixation target
-                considered fixating.
-            meta_state_fixation_key: String. Key in meta_state whose value
-                contains fixation duration.
-        &#34;&#34;&#34;
-        self._agent_layer = agent_layer
-        self._fixation_layer = fixation_layer
-        self._fixation_threshold = fixation_threshold
-        self._meta_state_fixation_key = meta_state_fixation_key
-
-    def reset(self, state, meta_state):
-        del state
-        meta_state[self._meta_state_fixation_key] = 0
-
-    def step(self, state, meta_state):
-        agent = state[self._agent_layer][0]
-        target = state[self._fixation_layer][0]
-        dist = np.linalg.norm(agent.position - target.position)
-        if dist &lt; self._fixation_threshold:
-            meta_state[self._meta_state_fixation_key] += 1
-        else:
-            meta_state[self._meta_state_fixation_key] = 0</code></pre>
+  Returns:
+    path: Array of vertices of the polygon, normalized so it has area 1.
+  &#34;&#34;&#34;
+  theta = 2 * np.pi / num_sides
+  path = np.array(
+      [_polar2cartesian(1, i * theta + theta_0) for i in range(num_sides)])
+  area = num_sides * np.sin(theta / 2) * np.cos(theta / 2)
+  path = np.array(path) / np.sqrt(area)
+  return path</code></pre>
 </details>
-<div class="desc"><p>Fixation rule.</p>
-<p>Constructor.</p>
+<div class="desc"><p>Generate the vertices of a regular polygon.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>agent_layer</code></strong></dt>
-<dd>String. Key in environment state of agent layer. Agent
-is assumed to be the sprite at index 0 in this layer.</dd>
-<dt><strong><code>fixation_layer</code></strong></dt>
-<dd>String. Key in environment state of agent layer.
-Fixation target is assumed to be the sprite at index 0 in this
-layer.</dd>
-<dt><strong><code>fixation_threshold</code></strong></dt>
-<dd>Float. Distance from agent to fixation target
-considered fixating.</dd>
-<dt><strong><code>meta_state_fixation_key</code></strong></dt>
-<dd>String. Key in meta_state whose value
-contains fixation duration.</dd>
+<dt><strong><code>num_sides</code></strong></dt>
+<dd>Int. Number of sides of the polygon.</dd>
+<dt><strong><code>theta_0</code></strong></dt>
+<dd>Float. Initial angle to start the vertices from.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>path</code></dt>
+<dd>Array of vertices of the polygon, normalized so it has area 1.</dd>
 </dl></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="moog.game_rules.abstract_rule.AbstractRule" href="abstract_rule.html#moog.game_rules.abstract_rule.AbstractRule">AbstractRule</a></li>
-<li>abc.ABC</li>
-</ul>
-<h3>Inherited members</h3>
-<ul class="hlist">
-<li><code><b><a title="moog.game_rules.abstract_rule.AbstractRule" href="abstract_rule.html#moog.game_rules.abstract_rule.AbstractRule">AbstractRule</a></b></code>:
-<ul class="hlist">
-<li><code><a title="moog.game_rules.abstract_rule.AbstractRule.reset" href="abstract_rule.html#moog.game_rules.abstract_rule.AbstractRule.reset">reset</a></code></li>
-<li><code><a title="moog.game_rules.abstract_rule.AbstractRule.step" href="abstract_rule.html#moog.game_rules.abstract_rule.AbstractRule.step">step</a></code></li>
-</ul>
-</li>
-</ul>
+</dd>
+<dt id="moog.polygons.spokes"><code class="name flex">
+<span>def <span class="ident">spokes</span></span>(<span>num_sides, spoke_height=1, theta_0=0.0)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def spokes(num_sides, spoke_height=1, theta_0=0.):
+  &#34;&#34;&#34;Generate the vertices of a regular rectangular spoke shape.
+
+  This is like a star, except the points are rectangular. For example, if
+  num_sides = 4, it will look like this:
+
+                            O       O
+                          O   O   O   O
+                        O       O       O
+                          O           O
+                            O       O
+                          O           O
+                        O       O       O
+                          O   O   O   O
+                            O       O
+
+  Args:
+    num_sides: Int. Number of sides (i.e. number of points) in the star.
+    spoke_height: Scalar. Height of each spoke, relative to the radius of the
+      spoke shape&#39;s inscribed circle.
+    theta_0: Float. Initial angle to start the vertices from.
+
+  Returns:
+    path: Array of vertices of the spoke shape, normalized so the spoke shape
+      has area 1.
+  &#34;&#34;&#34;
+  theta = 2 * np.pi / num_sides
+  path = np.empty([3 * num_sides, 2])
+  spoke = _polar2cartesian(spoke_height, -0.5 * theta + theta_0)
+  for i in range(num_sides):
+    vertex = _polar2cartesian(1, i * theta + theta_0)
+    path[3 * i] = spoke + vertex
+    path[3 * i + 1] = vertex
+    spoke = _polar2cartesian(spoke_height, (i + 0.5) * theta + theta_0)
+    path[3 * i + 2] = spoke + vertex
+
+  area = num_sides * np.sin(theta / 2) * (2 + np.cos(theta / 2))
+
+  path = np.array(path) / np.sqrt(area)
+  return path</code></pre>
+</details>
+<div class="desc"><p>Generate the vertices of a regular rectangular spoke shape.</p>
+<p>This is like a star, except the points are rectangular. For example, if
+num_sides = 4, it will look like this:</p>
+<pre><code>                      O       O
+                    O   O   O   O
+                  O       O       O
+                    O           O
+                      O       O
+                    O           O
+                  O       O       O
+                    O   O   O   O
+                      O       O
+</code></pre>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num_sides</code></strong></dt>
+<dd>Int. Number of sides (i.e. number of points) in the star.</dd>
+<dt><strong><code>spoke_height</code></strong></dt>
+<dd>Scalar. Height of each spoke, relative to the radius of the
+spoke shape's inscribed circle.</dd>
+<dt><strong><code>theta_0</code></strong></dt>
+<dd>Float. Initial angle to start the vertices from.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>path</code></dt>
+<dd>Array of vertices of the spoke shape, normalized so the spoke shape
+has area 1.</dd>
+</dl></div>
+</dd>
+<dt id="moog.polygons.star"><code class="name flex">
+<span>def <span class="ident">star</span></span>(<span>num_sides, point_height=1, theta_0=0.0)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def star(num_sides, point_height=1, theta_0=0.):
+  &#34;&#34;&#34;Generate the vertices of a regular star shape.
+
+  Args:
+    num_sides: Int. Number of sides (i.e. number of points) in the star.
+    point_height: Scalar. Height of each point of the star, relative to the
+      radius of the star&#39;s inscribed circle.
+    theta_0: Float. Initial angle to start the vertices from.
+
+  Returns:
+    path: Array of vertices of the star, normalized so the star has area 1.
+  &#34;&#34;&#34;
+  point_to_center = 1 + point_height
+  theta = 2 * np.pi / num_sides
+  path = np.empty([2 * num_sides, 2])
+  for i in range(num_sides):
+    path[2 * i] = _polar2cartesian(1, i * theta + theta_0)
+    path[2 * i + 1] = _polar2cartesian(point_to_center,
+                                       (i + 0.5) * theta + theta_0)
+
+  area = point_to_center * num_sides * np.sin(theta / 2)
+  path = np.array(path) / np.sqrt(area)
+  return path</code></pre>
+</details>
+<div class="desc"><p>Generate the vertices of a regular star shape.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num_sides</code></strong></dt>
+<dd>Int. Number of sides (i.e. number of points) in the star.</dd>
+<dt><strong><code>point_height</code></strong></dt>
+<dd>Scalar. Height of each point of the star, relative to the
+radius of the star's inscribed circle.</dd>
+<dt><strong><code>theta_0</code></strong></dt>
+<dd>Float. Initial angle to start the vertices from.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>path</code></dt>
+<dd>Array of vertices of the star, normalized so the star has area 1.</dd>
+</dl></div>
 </dd>
 </dl>
+</section>
+<section>
 </section>
 </article>
 <nav id="sidebar">
@@ -145,14 +224,14 @@ contains fixation duration.</dd>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="moog.game_rules" href="index.html">moog.game_rules</a></code></li>
+<li><code><a title="moog" href="index.html">moog</a></code></li>
 </ul>
 </li>
-<li><h3><a href="#header-classes">Classes</a></h3>
-<ul>
-<li>
-<h4><code><a title="moog.game_rules.fixation.Fixation" href="#moog.game_rules.fixation.Fixation">Fixation</a></code></h4>
-</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="moog.polygons.polygon" href="#moog.polygons.polygon">polygon</a></code></li>
+<li><code><a title="moog.polygons.spokes" href="#moog.polygons.spokes">spokes</a></code></li>
+<li><code><a title="moog.polygons.star" href="#moog.polygons.star">star</a></code></li>
 </ul>
 </li>
 </ul>

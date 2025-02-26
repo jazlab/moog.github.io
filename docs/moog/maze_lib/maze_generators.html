@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
 <title>moog.maze_lib.maze_generators API documentation</title>
-<meta name="description" content="This file contains functions to randomly generate mazes …" />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="This file contains functions to randomly generate mazes …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
 </head>
 <body>
 <main>
@@ -25,257 +39,6 @@
 <p>This file contains functions to randomly generate mazes.</p>
 <p>The main function in this file is generate_random_maze_matrix(), which generates
 a maze with no dead ends and no open squares.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;This file contains functions to randomly generate mazes.
-
-The main function in this file is generate_random_maze_matrix(), which generates
-a maze with no dead ends and no open squares.
-&#34;&#34;&#34;
-
-import numpy as np
-
-# Maximum iteration through a while loop
-_MAX_ITERS = int(1e5)
-
-
-def _get_neighbors(size, point):
-    &#34;&#34;&#34;Get indices of point&#39;s neighbors in square matrix of size `size`.
-
-    Unless point (i, j) is on the boundary of the size x size square, this will
-    be a list of 4 elements.
-
-    Args:
-        size: Int.
-        point: Tuple of ints (i, j). Must satisfy 0 &lt;= i, j &lt; size.
-
-    Returns:
-        neighbors: List of tuples. Length 2 (if point is a corner), 3 (if point
-            is on an edge), or 4 (if point is in the interior).
-    &#34;&#34;&#34;
-    i, j = point
-
-    neighbors = [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]
-    _valid_neighbor = lambda neighbor: all(0 &lt;= x &lt; size for x in neighbor)
-    neighbors = list(filter(_valid_neighbor, neighbors))
-    
-    return neighbors
-
-
-def _get_containing_blocks(size, point):
-    &#34;&#34;&#34;Get 2x2 blocks containing point in open maze of size `size`.
-
-    Unless point is on the boundary of the size x size square, there will be 4
-    containing 2x2 blocks.
-
-    Args:
-        size: Int.
-        point: Tuple of ints (i, j). Must satisfy 0 &lt;= i, j &lt; size.
-
-    Returns:
-        block_inds: List of tuples. If (k, l) is in block_inds, then point
-            (i, j) is in {(k, l), (k + 1, l), (k, l + 1), (k + 1, l + 1)}.
-    &#34;&#34;&#34;
-    i, j = point
-    block_inds = []
-    if i &gt; 0:
-        if j &gt; 0:
-            block_inds.append((i - 1, j - 1))
-        if j &lt; size - 1:
-            block_inds.append((i - 1, j))
-    if i &lt; size - 1:
-        if j &gt; 0:
-            block_inds.append((i, j - 1))
-        if j &lt; size - 1:
-            block_inds.append((i, j))
-            
-    return block_inds
-
-
-def _remove_dead_ends(maze):
-    &#34;&#34;&#34;Iteratively remove the dead ends in the maze.
-
-    This is done in place, and by the time this function returs there will be no
-    open points with fewer than 2 open neighbors, i.e. no dead ends in the maze.
-
-    Args:
-        maze: N x N binary matrix.
-    &#34;&#34;&#34;
-    def _fill_maze():
-        # Fill in dead ends, return True if the maze has no dead ends, otherwise
-        # False.
-        size = maze.shape[0]
-        for i in range(size):
-            for j in range(size):
-                if maze[i, j]:  # Not an open point
-                    continue
-                num_open_neighbors = np.sum(
-                    [1 - maze[n[0], n[1]]
-                    for n in _get_neighbors(size, (i, j))])
-                if num_open_neighbors &lt; 2:
-                    maze[i, j] = 1
-                    return False
-        return True
-
-    valid_maze = False
-    while not valid_maze:
-        valid_maze = _fill_maze()
-    
-
-def generate_random_maze_matrix(size, ambient_size=None):
-    &#34;&#34;&#34;Generate a random maze matrix.
-
-    The maze matrix generated has no open points (e.g. no four open cells
-    sharing a vertex), no dead ends (e.g. each open point has at least two open
-    neighbors), and is one connected component.
-
-    The way this generator works is it starts will a single open cell (all other
-    cells are walls). Then it iteratively adds closed neighbors, as long as
-    opening them doesn&#39;t open up a block. Once there are no more such neighbors,
-    it iteratively fills in all dead ends. The result is the final maze matrix
-    (unless it is all walls, in which case the function recurses to try again).
-
-    Args:
-        size: Int. Size (height and width) of the maze.
-        ambient_size: Size of the final maze matrix. This can be larger than
-            `size` to add some visible wall border around the maze. If None, no
-            wall border around the maze is produced.
-    &#34;&#34;&#34;
-    maze = np.ones((size, size))
-
-    # Start from a random point and recursively open points
-    closed_neighbors = []  # Closed points that are neighbors of open points
-    
-    def _open_point(point):
-        # Open a point and add its neighbors to closed_neighbors
-        for p in _get_neighbors(size, point):
-            if maze[p[0], p[1]] and p not in closed_neighbors:
-                closed_neighbors.append(p)
-        maze[point[0], point[1]] = 0
-
-    def _find_and_open_new_point():
-        # Find a closed neighbor that can be opened without creating an open
-        # block, open it, and return True. If no such point exists, return
-        # False.
-        np.random.shuffle(closed_neighbors)
-        for new_point in closed_neighbors:
-            if not maze[new_point[0], new_point[1]]:
-                continue
-            will_make_open_block = any([
-                np.sum(maze[i: i + 2, j: j + 2]) &lt;= 1
-                for i, j in _get_containing_blocks(size, new_point)
-            ])
-            if not will_make_open_block:
-                _open_point(new_point)
-                return True
-        return False
-
-    # Seed the maze and iteratively open points
-    _open_point(tuple(np.random.randint(0, size, size=(2,))))
-    points_to_add = True
-    while points_to_add:
-        points_to_add = _find_and_open_new_point()
-
-    # Remove dead ends
-    _remove_dead_ends(maze)
-    
-    # If maze has no open points, recurse to generate a new one
-    if np.sum(1 - maze) == 0:
-        return generate_random_maze_matrix(size, ambient_size=ambient_size)
-
-    # Add wall border if necessary
-    if ambient_size is not None and ambient_size &gt; size:
-        maze_with_border = np.ones((ambient_size, ambient_size))
-        start_index = (ambient_size - size) // 2
-        maze_with_border[start_index: start_index + size,
-                         start_index: start_index + size] = maze
-        maze = maze_with_border
-
-    return maze
-
-
-def _generate_open_blob(maze, num_points):
-    &#34;&#34;&#34;Try to generate an open connected blob of points in the maze.
-    
-    Args:
-        maze: Instance of .maze.Maze.
-        num_points: Int. Number of connected points to have in the blob.
-
-    Returns:
-        blob_matrix: False or binary matrix of same size as maze. Ones
-            correspond to points in the connected open blob. If False, then
-            could not generate a valid blob.
-    &#34;&#34;&#34;
-    neighbor_dict = maze.get_neighbor_dict()
-
-    # Seed the blob with a starting point
-    blob = [maze.sample_open_point()]
-    
-    def _get_candidate_new_blob_point():
-        # New potential new blob point from neighbors of existing blob point
-        candidate_root = blob[np.random.randint(len(blob))]  #pylint: disable=invalid-sequence-index
-        neighbors = neighbor_dict[candidate_root]
-        candidate = neighbors[np.random.randint(len(neighbors))]
-        return candidate
-    
-    def _add_point():
-        # Add a new point to the blob, returning True/False depending on whether
-        # this was successful.
-        valid_candidate = False
-        count = 0
-        while not valid_candidate:
-            count += 1
-            candidate = _get_candidate_new_blob_point()
-            if not candidate or candidate in blob:
-                continue
-            else:
-                valid_candidate = True
-
-            if count &gt; _MAX_ITERS:
-                return False
-        blob.append(candidate)
-        return True
-
-    # Add num_points points to the blob if possible, else return False.
-    for _ in range(num_points - 1):
-        able_to_add_point = _add_point()
-        if not able_to_add_point:
-            return False
-
-    # Convert the list of blob points to a matrix
-    blob_matrix = np.zeros_like(maze.maze)
-    for (i, j) in blob:
-        blob_matrix[i, j] = 1
-
-    return blob_matrix
-
-
-def get_connected_open_blob(maze, num_points):
-    &#34;&#34;&#34;Generate an open connected blob of `num_points` points in the maze.
-    
-    Args:
-        maze: Instance of .maze.Maze.
-        num_points: Int. Number of connected points to have in the blob.
-
-    Returns:
-        blob_matrix: Binary matrix of same size as maze. Ones correspond to
-            points in the connected open blob.
-    &#34;&#34;&#34;
-    valid_blob = False
-    count = 0
-    while not valid_blob:
-        count += 1
-        if count &gt; _MAX_ITERS:
-            raise ValueError(&#39;Could not generate an open connected blob.&#39;)
-        
-        blob_matrix = _generate_open_blob(maze, num_points)
-        if not isinstance(blob_matrix, bool):
-            valid_blob = True
-    
-    return blob_matrix</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -288,24 +51,6 @@ def get_connected_open_blob(maze, num_points):
 <span>def <span class="ident">generate_random_maze_matrix</span></span>(<span>size, ambient_size=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Generate a random maze matrix.</p>
-<p>The maze matrix generated has no open points (e.g. no four open cells
-sharing a vertex), no dead ends (e.g. each open point has at least two open
-neighbors), and is one connected component.</p>
-<p>The way this generator works is it starts will a single open cell (all other
-cells are walls). Then it iteratively adds closed neighbors, as long as
-opening them doesn't open up a block. Once there are no more such neighbors,
-it iteratively fills in all dead ends. The result is the final maze matrix
-(unless it is all walls, in which case the function recurses to try again).</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>size</code></strong></dt>
-<dd>Int. Size (height and width) of the maze.</dd>
-<dt><strong><code>ambient_size</code></strong></dt>
-<dd>Size of the final maze matrix. This can be larger than
-<code>size</code> to add some visible wall border around the maze. If None, no
-wall border around the maze is produced.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -381,25 +126,29 @@ wall border around the maze is produced.</dd>
 
     return maze</code></pre>
 </details>
+<div class="desc"><p>Generate a random maze matrix.</p>
+<p>The maze matrix generated has no open points (e.g. no four open cells
+sharing a vertex), no dead ends (e.g. each open point has at least two open
+neighbors), and is one connected component.</p>
+<p>The way this generator works is it starts will a single open cell (all other
+cells are walls). Then it iteratively adds closed neighbors, as long as
+opening them doesn't open up a block. Once there are no more such neighbors,
+it iteratively fills in all dead ends. The result is the final maze matrix
+(unless it is all walls, in which case the function recurses to try again).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>size</code></strong></dt>
+<dd>Int. Size (height and width) of the maze.</dd>
+<dt><strong><code>ambient_size</code></strong></dt>
+<dd>Size of the final maze matrix. This can be larger than
+<code>size</code> to add some visible wall border around the maze. If None, no
+wall border around the maze is produced.</dd>
+</dl></div>
 </dd>
 <dt id="moog.maze_lib.maze_generators.get_connected_open_blob"><code class="name flex">
 <span>def <span class="ident">get_connected_open_blob</span></span>(<span>maze, num_points)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Generate an open connected blob of <code>num_points</code> points in the maze.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>maze</code></strong></dt>
-<dd>Instance of .maze.Maze.</dd>
-<dt><strong><code>num_points</code></strong></dt>
-<dd>Int. Number of connected points to have in the blob.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>blob_matrix</code></dt>
-<dd>Binary matrix of same size as maze. Ones correspond to
-points in the connected open blob.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -428,6 +177,20 @@ points in the connected open blob.</dd>
     
     return blob_matrix</code></pre>
 </details>
+<div class="desc"><p>Generate an open connected blob of <code>num_points</code> points in the maze.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>maze</code></strong></dt>
+<dd>Instance of .maze.Maze.</dd>
+<dt><strong><code>num_points</code></strong></dt>
+<dd>Int. Number of connected points to have in the blob.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>blob_matrix</code></dt>
+<dd>Binary matrix of same size as maze. Ones correspond to
+points in the connected open blob.</dd>
+</dl></div>
 </dd>
 </dl>
 </section>
@@ -435,7 +198,6 @@ points in the connected open blob.</dd>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -455,7 +217,7 @@ points in the connected open blob.</dd>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
 </footer>
 </body>
 </html>

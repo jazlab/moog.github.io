@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
 <title>moog_demos.example_configs.functional_maze API documentation</title>
-<meta name="description" content="Maze task with predators, prey, and boosters …" />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="Maze task with predators, prey, and boosters …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
 </head>
 <body>
 <main>
@@ -27,260 +41,6 @@
 catching prey (yellow circles), which disappear upon capture. The boosters (blue
 triangles) temporarily increase the agent's speed. The portals (white squares)
 teleport the agent from one place to another.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;Maze task with predators, prey, and boosters.
-
-The predators (red circles) chase the agent. The agent receives reward for
-catching prey (yellow circles), which disappear upon capture. The boosters (blue
-triangles) temporarily increase the agent&#39;s speed. The portals (white squares) 
-teleport the agent from one place to another.
-&#34;&#34;&#34;
-
-import collections
-import numpy as np
-
-from moog import action_spaces
-from moog import game_rules
-from moog import observers
-from moog import physics as physics_lib
-from moog import shapes
-from moog import sprite
-from moog import tasks
-from moog.state_initialization import distributions as distribs
-from moog.state_initialization import sprite_generators
-
-
-class Booster(game_rules.AbstractRule):
-    &#34;&#34;&#34;Game rule for boosters.
-
-    This rule makes the agent temporarily brigher in color and lighter in mass
-    (to move faster) upon contact with a booster sprite.
-    &#34;&#34;&#34;
-
-    def __init__(self,
-                 mass_multiplier=0.4,
-                 c2_multiplier=0.1,
-                 boost_duration=60,
-                 agent_layer=&#39;agent&#39;,
-                 booster_layer=&#39;boosters&#39;):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            mass_multiplier: Float. Mass of agent after contacting a booster.
-            c2_multiplier: Float. Brightness increase factor upon contacting a
-                booster.
-            boost_duration: Int. Number of steps before boost ends.
-            agent_layer: String. Name of the agent layer in the state.
-            booster_layer: String. Name of the booster layer in the state.
-        &#34;&#34;&#34;
-        self._mass_multiplier = mass_multiplier
-        self._c2_multiplier = c2_multiplier
-        self.boost_duration = boost_duration
-        self._agent_layer = agent_layer
-        self._booster_layer = booster_layer
-
-    def reset(self, state, meta_state):
-        del state
-        del meta_state
-        self._steps_until_expire = np.inf
-
-    def _apply_change(self, agent):
-        agent.mass *= self._mass_multiplier
-        agent.c2 = 1. - (1. - agent.c2) * self._c2_multiplier
-
-    def _revert_change(self, agent):
-        agent.mass /= self._mass_multiplier
-        agent.c2 = 1. - (1. - agent.c2) / self._c2_multiplier
-
-    def step(self, state, meta_state):
-        del meta_state
-
-        self._steps_until_expire -= 1
-        agent = state[self._agent_layer][0]
-
-        if self._steps_until_expire == np.inf:
-            boosters = state[self._booster_layer]
-            if any([agent.overlaps_sprite(s) for s in boosters]):
-                self._apply_change(agent)
-                self._steps_until_expire = self.boost_duration
-        elif self._steps_until_expire &lt;= 0:
-            self._revert_change(agent)
-            self._steps_until_expire = np.inf
-
-
-def get_config(_):
-    &#34;&#34;&#34;Get environment config.&#34;&#34;&#34;
-
-    ############################################################################
-    # Sprite initialization
-    ############################################################################
-
-    # Agent
-    agent_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0.1, 0.9),
-         distribs.Continuous(&#39;y&#39;, 0.1, 0.9)],
-        shape=&#39;circle&#39;, scale=0.1, c0=0.33, c1=1., c2=0.7,
-    )
-
-    # Predators
-    predator_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0.1, 0.9),
-         distribs.Continuous(&#39;y&#39;, 0.1, 0.9)],
-        shape=&#39;circle&#39;, scale=0.1, c0=0., c1=1., c2=0.8,
-    )
-
-    # Prey
-    prey_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0.1, 0.9),
-         distribs.Continuous(&#39;y&#39;, 0.1, 0.9)],
-        shape=&#39;circle&#39;, scale=0.1, c0=0.2, c1=1., c2=1.,
-    )
-
-    # Boosters
-    booster_factors = distribs.Product(
-        [distribs.Continuous(&#39;x&#39;, 0.1, 0.9),
-         distribs.Continuous(&#39;y&#39;, 0.1, 0.9)],
-        shape=&#39;triangle&#39;, scale=0.1, c0=0.6, c1=1., c2=1.,
-    )
-
-    # Portals
-    portal_factors = dict(shape=&#39;square&#39;, scale=0.1, c0=0., c1=0., c2=0.95)
-    portal_sprites = [
-        sprite.Sprite(x=0.125, y=0.125, **portal_factors),
-        sprite.Sprite(x=0.875, y=0.875, **portal_factors),
-    ]
-
-    # Walls
-    wall_color = dict(c0=0., c1=0., c2=0.5)
-    island_wall_shape_0 = np.array(
-        [[0.2, 0.2], [0.4, 0.2], [0.4, 0.4], [0.2, 0.4]])
-    island_wall_shapes = [
-        island_wall_shape_0,
-        island_wall_shape_0 + np.array([[0., 0.4]]),
-        island_wall_shape_0 + np.array([[0.4, 0.4]]),
-        island_wall_shape_0 + np.array([[0.4, 0.]]),
-    ]
-    island_walls = [
-        sprite.Sprite(shape=shape, x=0., y=0., **wall_color)
-        for shape in island_wall_shapes
-    ]
-    boundary_walls = shapes.border_walls(visible_thickness=0.05, **wall_color)
-    walls = boundary_walls + island_walls
-
-    # Callable sprite generators
-    agent_generator = sprite_generators.generate_sprites(
-        agent_factors, num_sprites=1)
-    predator_generator = sprite_generators.generate_sprites(
-        predator_factors, num_sprites=1)
-    prey_generator = sprite_generators.generate_sprites(
-        prey_factors, num_sprites=lambda: np.random.randint(2, 5))
-    booster_generator = sprite_generators.generate_sprites(
-        booster_factors, num_sprites=2)
-
-    # Create callable initializer returning entire state
-    def state_initializer():
-        portals = portal_sprites
-        agent = agent_generator(without_overlapping=walls)
-        predators = predator_generator(without_overlapping=walls + agent)
-        boosters = booster_generator(without_overlapping=walls + agent)
-        prey = prey_generator(without_overlapping=walls)
-        state = collections.OrderedDict([
-            (&#39;walls&#39;, walls),
-            (&#39;portals&#39;, portals),
-            (&#39;boosters&#39;, boosters),
-            (&#39;prey&#39;, prey),
-            (&#39;predators&#39;, predators),
-            (&#39;agent&#39;, agent),
-        ])
-        return state
-
-    ############################################################################
-    # Physics
-    ############################################################################
-
-    agent_friction_force = physics_lib.Drag(coeff_friction=0.25)
-    predator_friction_force = physics_lib.Drag(coeff_friction=0.05)
-    predator_random_force = physics_lib.RandomForce(max_force_magnitude=0.02)
-    prey_friction_force = physics_lib.Drag(coeff_friction=0.02)
-    prey_random_force = physics_lib.RandomForce(max_force_magnitude=0.02)
-    predator_attraction = physics_lib.DistanceForce(
-        force_fn=physics_lib.linear_force_fn(zero_intercept=-0.002, slope=0.001)
-    )
-    asymmetric_collision = physics_lib.Collision(
-        elasticity=0.25, symmetric=False, update_angle_vel=False)
-    
-    forces = (
-        (agent_friction_force, &#39;agent&#39;),
-        (predator_friction_force, &#39;predators&#39;),
-        (predator_random_force, &#39;predators&#39;),
-        (prey_friction_force, &#39;prey&#39;),
-        (prey_random_force, &#39;prey&#39;),
-        (predator_attraction, &#39;agent&#39;, &#39;predators&#39;),
-        (asymmetric_collision, [&#39;agent&#39;, &#39;predators&#39;, &#39;prey&#39;], &#39;walls&#39;),
-    )
-    
-    physics = physics_lib.Physics(*forces, updates_per_env_step=5)
-
-    ############################################################################
-    # Task
-    ############################################################################
-
-    predator_task = tasks.ContactReward(
-        -5, layers_0=&#39;agent&#39;, layers_1=&#39;predators&#39;, reset_steps_after_contact=0)
-    prey_task = tasks.ContactReward(1, layers_0=&#39;agent&#39;, layers_1=&#39;prey&#39;)
-    reset_task = tasks.Reset(
-        condition=lambda state: len(state[&#39;prey&#39;]) == 0,
-        steps_after_condition=5,
-    )
-    task = tasks.CompositeTask(
-        predator_task, prey_task, reset_task, timeout_steps=400)
-
-    ############################################################################
-    # Action space
-    ############################################################################
-
-    action_space = action_spaces.Joystick(
-        scaling_factor=0.01,
-        action_layers=&#39;agent&#39;,
-    )
-
-    ############################################################################
-    # Observer
-    ############################################################################
-
-    observer = observers.PILRenderer(
-        image_size=(64, 64),
-        anti_aliasing=1,
-        color_to_rgb=&#39;hsv_to_rgb&#39;,
-    )
-
-    ############################################################################
-    # Game rules
-    ############################################################################
-
-    disappear_rule = game_rules.VanishOnContact(
-        vanishing_layer=&#39;prey&#39;, contacting_layer=&#39;agent&#39;)
-    portal_rule = game_rules.Portal(
-        teleporting_layer=&#39;agent&#39;, portal_layer=&#39;portals&#39;)
-    rules = (disappear_rule, portal_rule, Booster())
-
-    ############################################################################
-    # Final config
-    ############################################################################
-
-    config = {
-        &#39;state_initializer&#39;: state_initializer,
-        &#39;physics&#39;: physics,
-        &#39;task&#39;: task,
-        &#39;action_space&#39;: action_space,
-        &#39;observers&#39;: {&#39;image&#39;: observer},
-        &#39;game_rules&#39;: rules,
-    }
-    return config</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -293,7 +53,6 @@ def get_config(_):
 <span>def <span class="ident">get_config</span></span>(<span>_)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get environment config.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -468,6 +227,7 @@ def get_config(_):
     }
     return config</code></pre>
 </details>
+<div class="desc"><p>Get environment config.</p></div>
 </dd>
 </dl>
 </section>
@@ -476,27 +236,9 @@ def get_config(_):
 <dl>
 <dt id="moog_demos.example_configs.functional_maze.Booster"><code class="flex name class">
 <span>class <span class="ident">Booster</span></span>
-<span>(</span><span>mass_multiplier=0.4, c2_multiplier=0.1, boost_duration=60, agent_layer='agent', booster_layer='boosters')</span>
+<span>(</span><span>mass_multiplier=0.4,<br>c2_multiplier=0.1,<br>boost_duration=60,<br>agent_layer='agent',<br>booster_layer='boosters')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Game rule for boosters.</p>
-<p>This rule makes the agent temporarily brigher in color and lighter in mass
-(to move faster) upon contact with a booster sprite.</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>mass_multiplier</code></strong></dt>
-<dd>Float. Mass of agent after contacting a booster.</dd>
-<dt><strong><code>c2_multiplier</code></strong></dt>
-<dd>Float. Brightness increase factor upon contacting a
-booster.</dd>
-<dt><strong><code>boost_duration</code></strong></dt>
-<dd>Int. Number of steps before boost ends.</dd>
-<dt><strong><code>agent_layer</code></strong></dt>
-<dd>String. Name of the agent layer in the state.</dd>
-<dt><strong><code>booster_layer</code></strong></dt>
-<dd>String. Name of the booster layer in the state.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -558,6 +300,24 @@ booster.</dd>
             self._revert_change(agent)
             self._steps_until_expire = np.inf</code></pre>
 </details>
+<div class="desc"><p>Game rule for boosters.</p>
+<p>This rule makes the agent temporarily brigher in color and lighter in mass
+(to move faster) upon contact with a booster sprite.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mass_multiplier</code></strong></dt>
+<dd>Float. Mass of agent after contacting a booster.</dd>
+<dt><strong><code>c2_multiplier</code></strong></dt>
+<dd>Float. Brightness increase factor upon contacting a
+booster.</dd>
+<dt><strong><code>boost_duration</code></strong></dt>
+<dd>Int. Number of steps before boost ends.</dd>
+<dt><strong><code>agent_layer</code></strong></dt>
+<dd>String. Name of the agent layer in the state.</dd>
+<dt><strong><code>booster_layer</code></strong></dt>
+<dd>String. Name of the booster layer in the state.</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>moog.game_rules.abstract_rule.AbstractRule</li>
@@ -569,6 +329,15 @@ booster.</dd>
 <span>def <span class="ident">reset</span></span>(<span>self, state, meta_state)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset(self, state, meta_state):
+    del state
+    del meta_state
+    self._steps_until_expire = np.inf</code></pre>
+</details>
 <div class="desc"><p>Reset rule at beginning of every trial.</p>
 <p>This method can be used to reset any attributes of the rule that serve
 as memory within trials.</p>
@@ -579,29 +348,11 @@ as memory within trials.</p>
 <dt><strong><code>meta_state</code></strong></dt>
 <dd>meta_state of environment.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def reset(self, state, meta_state):
-    del state
-    del meta_state
-    self._steps_until_expire = np.inf</code></pre>
-</details>
 </dd>
 <dt id="moog_demos.example_configs.functional_maze.Booster.step"><code class="name flex">
 <span>def <span class="ident">step</span></span>(<span>self, state, meta_state)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Apply rule to the environment state.</p>
-<p>This method can in-place modify the state however it likes.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>state</code></strong></dt>
-<dd>OrderedDict of iterables of sprites. Environment state.</dd>
-<dt><strong><code>meta_state</code></strong></dt>
-<dd>meta_state of environment.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -621,6 +372,15 @@ as memory within trials.</p>
         self._revert_change(agent)
         self._steps_until_expire = np.inf</code></pre>
 </details>
+<div class="desc"><p>Apply rule to the environment state.</p>
+<p>This method can in-place modify the state however it likes.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>state</code></strong></dt>
+<dd>OrderedDict of iterables of sprites. Environment state.</dd>
+<dt><strong><code>meta_state</code></strong></dt>
+<dd>meta_state of environment.</dd>
+</dl></div>
 </dd>
 </dl>
 </dd>
@@ -628,7 +388,6 @@ as memory within trials.</p>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -658,7 +417,7 @@ as memory within trials.</p>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
 </footer>
 </body>
 </html>

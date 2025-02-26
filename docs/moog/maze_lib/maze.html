@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
 <title>moog.maze_lib.maze API documentation</title>
-<meta name="description" content="Maze class …" />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="Maze class …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
 </head>
 <body>
 <main>
@@ -26,272 +40,6 @@
 <p>This file contains the Maze class, which is a class to mediate between a binary
 maze array and sprites, including methods to infer a maze from sprites, convert
 a maze to sprites, and sample points or connected blobs in the maze.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;Maze class.
-
-This file contains the Maze class, which is a class to mediate between a binary
-maze array and sprites, including methods to infer a maze from sprites, convert
-a maze to sprites, and sample points or connected blobs in the maze.
-&#34;&#34;&#34;
-
-import numpy as np
-from moog import sprite
-
-# Small error tolerance for checking whether wall vertex values are multiples of
-# a grid size
-_EPSILON = 1e-4
-
-# Sanity check to prevent infinite while looping. No maze should have grid size
-# larger than this
-_MAX_MAZE_SIZE = 100
-
-
-class Maze():
-    &#34;&#34;&#34;Maze class.&#34;&#34;&#34;
-
-    def __init__(self, maze):
-        &#34;&#34;&#34;Constructor.
-
-        Args:
-            maze: Square numpy array with binary values (may be a boolean array,
-                or an int/float array with 0/1 values). The 1&#39;s are the walls of
-                the maze.
-        &#34;&#34;&#34;
-        self.maze = maze
-        self.maze_size = maze.shape[0]
-        self.grid_side = 1. / self.maze_size
-        self.half_grid_side = 0.5 * self.grid_side
-        self.side_vertices = np.linspace(
-            self.half_grid_side, 1. - self.half_grid_side, self.maze_size)
-
-    @classmethod
-    def from_state(cls, state, maze_layer=&#39;walls&#39;):
-        &#34;&#34;&#34;Get a maze object from environment state.
-
-        This method works by first inferring the maze size by looking for the
-        smallest integer N such that 1/N divides the vertex values of the
-        sprites in the maze values. Then it checks whether each of the
-        centerpoints of an NxN grid are contained in a maze wall sprite to
-        compute the maze matrix.
-        
-        Args:
-            state: OrderedDict of sprites. State of the environment.
-            maze_layer: String. Layer in the environment containing the maze
-                wall sprites.
-        &#34;&#34;&#34;
-        wall_vertices = np.array([s.vertices for s in state[maze_layer]])
-        
-        # Find the smallest maze size N such that all wall vertices are a
-        # multiple of 1/N
-        maze_size = 1
-        valid_maze_size = False
-        while not valid_maze_size:
-            if maze_size &gt; _MAX_MAZE_SIZE:
-                raise ValueError(
-                    &#39;Cannot find a maze grid size. Your maze sprites are &#39;
-                    &#39;invalid.&#39;)
-            rounded_vertices = np.round(wall_vertices * maze_size) / maze_size
-            if np.allclose(rounded_vertices, wall_vertices, atol=_EPSILON):
-                valid_maze_size = True
-            else:
-                maze_size += 1
-        
-        # Get a matrix of grid square centerpoints
-        half_grid_side = 1. / (2 * maze_size)
-        edge_centers = np.linspace(
-            half_grid_side, 1 - half_grid_side, maze_size)
-        grid_centers = np.stack(np.meshgrid(edge_centers, edge_centers), axis=2)
-        flat_grid_centers = np.reshape(grid_centers, (maze_size * maze_size, 2))
-
-        # Now check which grid square centerpoints are inside walls
-        maze = np.zeros(maze_size * maze_size, dtype=bool)
-        for s in state[maze_layer]:
-            contained = s.contains_points(flat_grid_centers)
-            maze = np.logical_or(maze, contained)
-
-        maze = np.reshape(maze, (maze_size, maze_size)).astype(int)
-        return cls(maze)
-
-    def to_sprites(self, **color):
-        &#34;&#34;&#34;Turn a maze matrix into a list of sprites.
-        
-        Each sprite is a single square for one brick in the maze walls.
-
-        Args:
-            color: Dict. May contain keys {&#39;c0&#39;, &#39;c1&#39;, &#39;c2&#39;} for the wall sprite
-                color factors.
-
-        Returns:
-            sprites: List of maze wall sprites.
-        &#34;&#34;&#34;
-        maze_size = self.maze_size
-        vertex_linspace = np.linspace(0., 1., maze_size + 1)
-        sprites = []
-        for x in range(maze_size):
-            for y in range(maze_size):
-                if self.maze[y, x]:
-                    shape = np.array([
-                        [vertex_linspace[x], vertex_linspace[y]],
-                        [vertex_linspace[x], vertex_linspace[y + 1]],
-                        [vertex_linspace[x + 1], vertex_linspace[y + 1]],
-                        [vertex_linspace[x + 1], vertex_linspace[y]],
-                    ])
-                    new_sprite = sprite.Sprite(x=0., y=0., shape=shape, **color)
-                    sprites.append(new_sprite)
-        return sprites
-
-    def open_vertex(self, i, j):
-        &#34;&#34;&#34;Returns whether the (i, j) cell is open, i.e. not a maze wall.&#34;&#34;&#34;
-        if i &lt; 0 or j &lt; 0 or i &gt;= self.maze_size or j &gt;= self.maze_size:
-            return False
-        else:
-            return not self.maze[j, i]
-
-    def valid_directions(self, i, j):
-        &#34;&#34;&#34;Computes the open neighbords of the (i, j) cell.&#34;&#34;&#34;
-        valid_directions = np.array([
-            [self.open_vertex(k, j) for k in [i - 1, i + 1]],
-            [self.open_vertex(i, k) for k in [j - 1, j + 1]],
-        ])
-        return valid_directions
-
-    def sample_random_position(self, off_intersection=True):
-        &#34;&#34;&#34;Sample random open position on the edges of the maze.&#34;&#34;&#34;
-        # First find edges
-        neg_maze = 1 - self.maze
-        v_edges = np.logical_and(neg_maze[1:], neg_maze[:-1])
-        h_edges = np.logical_and(neg_maze[:, 1:], neg_maze[:, :-1])
-        v_edges = np.stack(np.nonzero(v_edges)[::-1]).T
-        h_edges = np.stack(np.nonzero(h_edges)[::-1]).T
-        num_h_edges = len(h_edges)
-        num_v_edges = len(v_edges)
-        num_edges = num_h_edges + num_v_edges
-        if np.random.rand() &lt; float(num_h_edges) / num_edges:
-            # Pick a horizontal edge
-            edge = h_edges[np.random.choice(num_h_edges)]
-            position = edge
-            if off_intersection:
-                position = edge + np.random.rand() * np.array([1., 0.])
-        else:
-            # Pick a vertical edge
-            edge = v_edges[np.random.choice(num_v_edges)]
-            position = edge
-            if off_intersection:
-                position = edge + np.random.rand() * np.array([0., 1.])
-        position = self.half_grid_side + position * self.grid_side
-        return position
-
-    def to_background_grid(self, line_thickness=0.01, **color):
-        &#34;&#34;&#34;Get static grid of background lines as list of sprites.
-
-        These lines are in the channels of the maze and when rendered can
-        provide a nice visual effect.
-        
-        Args:
-            line_thickness: Float. How thick the grid lines should be.
-            color: Dict. May contain keys {&#39;c0&#39;, &#39;c1&#39;, &#39;c2&#39;} for the background
-                line sprite color factors.
-
-        Returns:
-            grid_sprites: List of sprites, the grid lines.
-        &#34;&#34;&#34;
-        grid_sprites = []
-        def _add_sprite(min_x, max_x, min_y, max_y):
-            shape = np.array([
-                [min_x, min_y], [max_x, min_y], [max_x, max_y], [min_x, max_y]
-            ])
-            grid_sprites.append(sprite.Sprite(x=0., y=0., shape=shape, **color))
-        
-        for x in self.side_vertices:
-            min_x = x - 0.5 * line_thickness
-            max_x = x + 0.5 * line_thickness
-            _add_sprite(min_x, max_x, 0., 1.)
-
-        for y in self.side_vertices:
-            min_y = y - 0.5 * line_thickness
-            max_y = y + 0.5 * line_thickness
-            _add_sprite(0., 1., min_y, max_y)
-
-        return grid_sprites
-
-    def sample_open_point(self):
-        &#34;&#34;&#34;Sample an open point in the maze.
-
-        Returns:
-            Tuple of integers (i, j), coordinates of open point.
-        &#34;&#34;&#34;
-        if np.sum(1 - self.maze) == 0:
-            raise ValueError(&#39;Maze has no open point.&#39;)
-        candidates = np.argwhere(self.maze == 0)
-        point = candidates[np.random.randint(len(candidates))]
-        return tuple(point)
-
-    def sample_distinct_open_points(self, num_points):
-        &#34;&#34;&#34;Sample distinct open points in the maze.
-
-        Args:
-            num_points: Int. Number of distinct open points to sample.
-
-        Returns:
-            Tuple of integers (i, j), coordinates of open point.
-        &#34;&#34;&#34;
-        if np.sum(1 - self.maze) &lt; num_points:
-            raise ValueError(&#39;Maze has no open point.&#39;)
-        candidates = np.argwhere(self.maze == 0)
-        inds = np.random.choice(len(candidates), size=num_points, replace=False)
-        points = [tuple(candidates[i]) for i in inds]
-        return points
-    
-    def get_neighbors(self, i, j):
-        &#34;&#34;&#34;Get list of neighbors of point (i, j).&#34;&#34;&#34;
-        neighbors = []
-        if i &gt; 0 and not self.maze[i - 1, j]:
-            neighbors.append((i - 1, j))
-        if i &lt; self.maze_size - 1 and not self.maze[i + 1, j]:
-            neighbors.append((i + 1, j))
-        if j &gt; 0 and not self.maze[i, j - 1]:
-            neighbors.append((i, j - 1))
-        if j &lt; self.maze_size - 1 and not self.maze[i, j + 1]:
-            neighbors.append((i, j + 1))
-        return neighbors
-    
-    def get_neighbor_dict(self):
-        &#34;&#34;&#34;Get dictionary of neighbors of all points.
-        
-        Returns:
-            neighbor_dict: Keys are int tuples (i, j) and values are lists of
-                int tuples for all open neighbors of (i, j).
-        &#34;&#34;&#34;
-        neighbor_dict = {
-            (i, j): self.get_neighbors(i, j)
-            for i in range(self.maze_size)
-            for j in range(self.maze_size)
-        }
-        return neighbor_dict
-
-    def add_wall(self, x_range, y_range):
-        &#34;&#34;&#34;Add a rectangular wall to the maze.
-
-        Args:
-            x_range: start and end point of the wall in the x-coordinate
-            y_range: start and end point of the wall in the y-coordinate
-        &#34;&#34;&#34;
-        self.maze[x_range[0] : x_range[1] + 1, y_range[0] : y_range[1] + 1] = 1
-
-    def add_outer_walls(self):
-        &#34;&#34;&#34;Make the maze borders walls.
-        
-        Warning: This could distrupt properties of the maze. For example, if the
-        maze originally had no dead ends, this could introduce dead ends.
-        &#34;&#34;&#34;
-        self.maze[0, :] = 1
-        self.maze[-1, :] = 1
-        self.maze[:, 0] = 1
-        self.maze[:, -1] = 1</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -307,15 +55,6 @@ class Maze():
 <span>(</span><span>maze)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Maze class.</p>
-<p>Constructor.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>maze</code></strong></dt>
-<dd>Square numpy array with binary values (may be a boolean array,
-or an int/float array with 0/1 values). The 1's are the walls of
-the maze.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -563,6 +302,15 @@ the maze.</dd>
         self.maze[:, 0] = 1
         self.maze[:, -1] = 1</code></pre>
 </details>
+<div class="desc"><p>Maze class.</p>
+<p>Constructor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>maze</code></strong></dt>
+<dd>Square numpy array with binary values (may be a boolean array,
+or an int/float array with 0/1 values). The 1's are the walls of
+the maze.</dd>
+</dl></div>
 <h3>Static methods</h3>
 <dl>
 <dt id="moog.maze_lib.maze.Maze.from_state"><code class="name flex">
@@ -583,58 +331,6 @@ compute the maze matrix.</p>
 <dd>String. Layer in the environment containing the maze
 wall sprites.</dd>
 </dl></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">@classmethod
-def from_state(cls, state, maze_layer=&#39;walls&#39;):
-    &#34;&#34;&#34;Get a maze object from environment state.
-
-    This method works by first inferring the maze size by looking for the
-    smallest integer N such that 1/N divides the vertex values of the
-    sprites in the maze values. Then it checks whether each of the
-    centerpoints of an NxN grid are contained in a maze wall sprite to
-    compute the maze matrix.
-    
-    Args:
-        state: OrderedDict of sprites. State of the environment.
-        maze_layer: String. Layer in the environment containing the maze
-            wall sprites.
-    &#34;&#34;&#34;
-    wall_vertices = np.array([s.vertices for s in state[maze_layer]])
-    
-    # Find the smallest maze size N such that all wall vertices are a
-    # multiple of 1/N
-    maze_size = 1
-    valid_maze_size = False
-    while not valid_maze_size:
-        if maze_size &gt; _MAX_MAZE_SIZE:
-            raise ValueError(
-                &#39;Cannot find a maze grid size. Your maze sprites are &#39;
-                &#39;invalid.&#39;)
-        rounded_vertices = np.round(wall_vertices * maze_size) / maze_size
-        if np.allclose(rounded_vertices, wall_vertices, atol=_EPSILON):
-            valid_maze_size = True
-        else:
-            maze_size += 1
-    
-    # Get a matrix of grid square centerpoints
-    half_grid_side = 1. / (2 * maze_size)
-    edge_centers = np.linspace(
-        half_grid_side, 1 - half_grid_side, maze_size)
-    grid_centers = np.stack(np.meshgrid(edge_centers, edge_centers), axis=2)
-    flat_grid_centers = np.reshape(grid_centers, (maze_size * maze_size, 2))
-
-    # Now check which grid square centerpoints are inside walls
-    maze = np.zeros(maze_size * maze_size, dtype=bool)
-    for s in state[maze_layer]:
-        contained = s.contains_points(flat_grid_centers)
-        maze = np.logical_or(maze, contained)
-
-    maze = np.reshape(maze, (maze_size, maze_size)).astype(int)
-    return cls(maze)</code></pre>
-</details>
 </dd>
 </dl>
 <h3>Methods</h3>
@@ -643,9 +339,6 @@ def from_state(cls, state, maze_layer=&#39;walls&#39;):
 <span>def <span class="ident">add_outer_walls</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Make the maze borders walls.</p>
-<p>Warning: This could distrupt properties of the maze. For example, if the
-maze originally had no dead ends, this could introduce dead ends.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -661,19 +354,14 @@ maze originally had no dead ends, this could introduce dead ends.</p></div>
     self.maze[:, 0] = 1
     self.maze[:, -1] = 1</code></pre>
 </details>
+<div class="desc"><p>Make the maze borders walls.</p>
+<p>Warning: This could distrupt properties of the maze. For example, if the
+maze originally had no dead ends, this could introduce dead ends.</p></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.add_wall"><code class="name flex">
 <span>def <span class="ident">add_wall</span></span>(<span>self, x_range, y_range)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Add a rectangular wall to the maze.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>x_range</code></strong></dt>
-<dd>start and end point of the wall in the x-coordinate</dd>
-<dt><strong><code>y_range</code></strong></dt>
-<dd>start and end point of the wall in the y-coordinate</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -687,18 +375,19 @@ maze originally had no dead ends, this could introduce dead ends.</p></div>
     &#34;&#34;&#34;
     self.maze[x_range[0] : x_range[1] + 1, y_range[0] : y_range[1] + 1] = 1</code></pre>
 </details>
+<div class="desc"><p>Add a rectangular wall to the maze.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x_range</code></strong></dt>
+<dd>start and end point of the wall in the x-coordinate</dd>
+<dt><strong><code>y_range</code></strong></dt>
+<dd>start and end point of the wall in the y-coordinate</dd>
+</dl></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.get_neighbor_dict"><code class="name flex">
 <span>def <span class="ident">get_neighbor_dict</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get dictionary of neighbors of all points.</p>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>neighbor_dict</code></dt>
-<dd>Keys are int tuples (i, j) and values are lists of
-int tuples for all open neighbors of (i, j).</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -717,12 +406,18 @@ int tuples for all open neighbors of (i, j).</dd>
     }
     return neighbor_dict</code></pre>
 </details>
+<div class="desc"><p>Get dictionary of neighbors of all points.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>neighbor_dict</code></dt>
+<dd>Keys are int tuples (i, j) and values are lists of
+int tuples for all open neighbors of (i, j).</dd>
+</dl></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.get_neighbors"><code class="name flex">
 <span>def <span class="ident">get_neighbors</span></span>(<span>self, i, j)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get list of neighbors of point (i, j).</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -740,12 +435,12 @@ int tuples for all open neighbors of (i, j).</dd>
         neighbors.append((i, j + 1))
     return neighbors</code></pre>
 </details>
+<div class="desc"><p>Get list of neighbors of point (i, j).</p></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.open_vertex"><code class="name flex">
 <span>def <span class="ident">open_vertex</span></span>(<span>self, i, j)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns whether the (i, j) cell is open, i.e. not a maze wall.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -757,19 +452,12 @@ int tuples for all open neighbors of (i, j).</dd>
     else:
         return not self.maze[j, i]</code></pre>
 </details>
+<div class="desc"><p>Returns whether the (i, j) cell is open, i.e. not a maze wall.</p></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.sample_distinct_open_points"><code class="name flex">
 <span>def <span class="ident">sample_distinct_open_points</span></span>(<span>self, num_points)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sample distinct open points in the maze.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>num_points</code></strong></dt>
-<dd>Int. Number of distinct open points to sample.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<p>Tuple of integers (i, j), coordinates of open point.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -790,14 +478,19 @@ int tuples for all open neighbors of (i, j).</dd>
     points = [tuple(candidates[i]) for i in inds]
     return points</code></pre>
 </details>
+<div class="desc"><p>Sample distinct open points in the maze.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num_points</code></strong></dt>
+<dd>Int. Number of distinct open points to sample.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Tuple of integers (i, j), coordinates of open point.</p></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.sample_open_point"><code class="name flex">
 <span>def <span class="ident">sample_open_point</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sample an open point in the maze.</p>
-<h2 id="returns">Returns</h2>
-<p>Tuple of integers (i, j), coordinates of open point.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -814,12 +507,14 @@ int tuples for all open neighbors of (i, j).</dd>
     point = candidates[np.random.randint(len(candidates))]
     return tuple(point)</code></pre>
 </details>
+<div class="desc"><p>Sample an open point in the maze.</p>
+<h2 id="returns">Returns</h2>
+<p>Tuple of integers (i, j), coordinates of open point.</p></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.sample_random_position"><code class="name flex">
 <span>def <span class="ident">sample_random_position</span></span>(<span>self, off_intersection=True)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sample random open position on the edges of the maze.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -850,27 +545,12 @@ int tuples for all open neighbors of (i, j).</dd>
     position = self.half_grid_side + position * self.grid_side
     return position</code></pre>
 </details>
+<div class="desc"><p>Sample random open position on the edges of the maze.</p></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.to_background_grid"><code class="name flex">
 <span>def <span class="ident">to_background_grid</span></span>(<span>self, line_thickness=0.01, **color)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Get static grid of background lines as list of sprites.</p>
-<p>These lines are in the channels of the maze and when rendered can
-provide a nice visual effect.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>line_thickness</code></strong></dt>
-<dd>Float. How thick the grid lines should be.</dd>
-<dt><strong><code>color</code></strong></dt>
-<dd>Dict. May contain keys {'c0', 'c1', 'c2'} for the background
-line sprite color factors.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>grid_sprites</code></dt>
-<dd>List of sprites, the grid lines.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -908,24 +588,27 @@ line sprite color factors.</dd>
 
     return grid_sprites</code></pre>
 </details>
+<div class="desc"><p>Get static grid of background lines as list of sprites.</p>
+<p>These lines are in the channels of the maze and when rendered can
+provide a nice visual effect.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>line_thickness</code></strong></dt>
+<dd>Float. How thick the grid lines should be.</dd>
+<dt><strong><code>color</code></strong></dt>
+<dd>Dict. May contain keys {'c0', 'c1', 'c2'} for the background
+line sprite color factors.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>grid_sprites</code></dt>
+<dd>List of sprites, the grid lines.</dd>
+</dl></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.to_sprites"><code class="name flex">
 <span>def <span class="ident">to_sprites</span></span>(<span>self, **color)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Turn a maze matrix into a list of sprites.</p>
-<p>Each sprite is a single square for one brick in the maze walls.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>color</code></strong></dt>
-<dd>Dict. May contain keys {'c0', 'c1', 'c2'} for the wall sprite
-color factors.</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>sprites</code></dt>
-<dd>List of maze wall sprites.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -958,12 +641,24 @@ color factors.</dd>
                 sprites.append(new_sprite)
     return sprites</code></pre>
 </details>
+<div class="desc"><p>Turn a maze matrix into a list of sprites.</p>
+<p>Each sprite is a single square for one brick in the maze walls.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>color</code></strong></dt>
+<dd>Dict. May contain keys {'c0', 'c1', 'c2'} for the wall sprite
+color factors.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>sprites</code></dt>
+<dd>List of maze wall sprites.</dd>
+</dl></div>
 </dd>
 <dt id="moog.maze_lib.maze.Maze.valid_directions"><code class="name flex">
 <span>def <span class="ident">valid_directions</span></span>(<span>self, i, j)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Computes the open neighbords of the (i, j) cell.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -976,6 +671,7 @@ color factors.</dd>
     ])
     return valid_directions</code></pre>
 </details>
+<div class="desc"><p>Computes the open neighbords of the (i, j) cell.</p></div>
 </dd>
 </dl>
 </dd>
@@ -983,7 +679,6 @@ color factors.</dd>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -1018,7 +713,7 @@ color factors.</dd>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
 </footer>
 </body>
 </html>

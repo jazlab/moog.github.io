@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-<meta name="generator" content="pdoc 0.9.2" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
 <title>moog.physics.maze_physics API documentation</title>
-<meta name="description" content="Maze physics …" />
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
-<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
-<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
-<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<meta name="description" content="Maze physics …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
-<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
 </head>
 <body>
 <main>
@@ -26,222 +40,6 @@
 <p>The MazePhysics class in this file is a physics object that forces sprites in
 specified layers to move on a grid in a maze.</p>
 <p>It is typically used as corrective physics for a physics.Physics instance.</p>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">&#34;&#34;&#34;Maze physics.
-
-The MazePhysics class in this file is a physics object that forces sprites in
-specified layers to move on a grid in a maze.
-
-It is typically used as corrective physics for a physics.Physics instance.
-&#34;&#34;&#34;
-
-import numpy as np
-from moog import maze_lib
-from moog import physics as physics_lib
-
-# Small imprecision tolerance when determining whether a sprite is on a grid
-# line in a maze.
-_EPSILON = 1e-5
-
-
-class MazePhysics(physics_lib.AbstractPhysics):
-    &#34;&#34;&#34;Maze physics class.&#34;&#34;&#34;
-
-    def __init__(self, maze_layer=&#39;walls&#39;, avatar_layers=(),
-                 constant_speed=None, max_speed=None):
-        &#34;&#34;&#34;Constructor.
-
-        This class constrains sprites in avatar_layers to move in the maze
-        specified by the sprites in maze_layer.
-        
-        Args:
-            maze_layer: String. Name of the layer in the environment containing
-                the maze wall sprites.
-            avatar_layers: Iterable of strings. Sprites in these layers are
-                constrained to move in the maze.
-            constant_speed. None or float. If Float, all sprites in
-                avatar_layers move with this constant speed.
-            max_speed: None or float. If float, all sprites in avatar_layers
-                move no faster than max_speed. If None, then no speed limit. If
-                constant_speed is not None, then max_speed is ignored.
-        &#34;&#34;&#34;
-        super(MazePhysics, self).__init__(updates_per_env_step=1)
-        self._maze_layer = maze_layer
-        self._avatar_layers = avatar_layers
-        self._constant_speed = constant_speed
-        self._max_speed = max_speed
-
-    def reset(self, state):
-        &#34;&#34;&#34;Resetting re-infers the maze from the state.&#34;&#34;&#34;
-        self._maze = maze_lib.Maze.from_state(
-            state, maze_layer=self._maze_layer)
-
-    def _get_position_affordances(self, position):
-        &#34;&#34;&#34;Get affordances of a position.
-        
-        The affordances of a position indicate how far one can travel from that
-        position in each direction.
-
-        Args:
-            position: Numpy float array of size (2,).
-        
-        Returns:
-            position: Numpy float array of size (2,). The input position,
-                possibly perturbed if any coordinates are within _EPSILON of
-                grid lines. This rounding (essentially snapping the position to
-                the grid if it&#39;s close) ensures that numerical instabilities
-                don&#39;t accumulate.
-            affordances: Numpy float array of size (2, 2). affordances[:, 0]
-                indicate how far the position could be moved in the negative
-                direction for each axis before hitting an intersection or going
-                off the maze. affordances[:, 1] are similiar for the positive
-                direction.
-        &#34;&#34;&#34;
-        grid_side = self._maze.grid_side
-        half_grid_side = self._maze.half_grid_side
-
-        # Figure out which axes are on grid lines, and snap position to grid
-        nearest_inds = (np.round(position / grid_side - 0.5)).astype(int)
-        rounded_position = half_grid_side + nearest_inds * grid_side
-        on_grid = np.abs(rounded_position - position) &lt; _EPSILON
-        new_position = np.copy(position)
-        new_position[on_grid] = rounded_position[on_grid]
-
-        # Get the affordances
-        affordances = np.zeros((2, 2))
-        inds = ((position - half_grid_side) // grid_side).astype(int)
-        inds[on_grid] = nearest_inds[on_grid]
-        if not any(on_grid):  # This should never happen
-            raise ValueError(
-                &#39;Object is not on the maze grid. This could happen if you &#39;
-                &#39;initialized or somehow forced a sprite position to lie off &#39;
-                &#39;the maze grid. This could also happen if you are using a &#39;
-                &#39;corrective_physics after the MazePhysics, in which case that &#39;
-                &#39;later corrective_physics is adjusting the velocities produced &#39;
-                &#39;by the MazePhysics and making the sprites run off the maze. &#39;
-                &#39;This is bad --- if MazePhysics is used, it must be the last &#39;
-                &#39;corrective_physics object in the physics, so that the &#39;
-                &#39;velocities it produces are immediately enacted.&#39;)
-        elif all(on_grid):  # The position lies at a grid vertex
-            valid_directions = self._maze.valid_directions(inds[0], inds[1])
-            affordances = valid_directions * grid_side * np.array(
-                [[-1., 1.], [-1., 1.]])
-        else:  # The position lies on a grid edge
-            i = 1 - np.argwhere(on_grid)[0][0]
-            lower = inds[i] * grid_side + half_grid_side - position[i]
-            upper = (inds[i] + 1) * grid_side + half_grid_side - position[i]
-            affordances[i] = np.array([lower, upper])
-
-        return position, affordances            
-
-    def _get_new_velocity(self, position, velocity, affordances, axis=None):
-        &#34;&#34;&#34;Get the maze-adjusted velocity.
-
-        Args:
-            position: Numpy float array of size (2,).
-            velocity: Numpy float array of size (2,).
-            affordances: Numpy float array of size (2, 2) containing how far one
-                can travel from position in each direction.
-            axis: Axis on which to travel. If None, uses the highest-speed axis.
-        &#34;&#34;&#34;
-        if axis is None:  # Find the highest-speed axis
-            axis = np.argmax(np.abs(velocity))
-            
-        if affordances[axis, 0] &lt;= velocity[axis] &lt;= affordances[axis, 1]:
-            # Can travel with velocity along axis without hitting walls or
-            # intersections
-            velocity[1 - axis] = 0
-            return velocity
-        else:
-            direction = int(0.5 + 0.5 * np.sign(velocity[axis]))
-            if affordances[axis, direction] == 0:
-                # We cannot move in the axis direction, so resort to other axis
-                axis = 1 - axis
-                direction = int(0.5 + 0.5 * np.sign(velocity[axis]))
-                if affordances[axis, direction] == 0 or velocity[axis] == 0:
-                    # Cannot move anywhere
-                    return np.zeros(2)
-                else:  # Move along other axis
-                    return self._get_new_velocity(
-                        position, velocity, affordances, axis=axis)
-            else:  # Affordances let us reach a vertex
-                # Compute the affordances at the vertex
-                position[axis] += affordances[axis, direction]
-                _, vertex_affordances = self._get_position_affordances(position)
-
-                # Compute the remaining velocity at the vertex
-                scaling = affordances[axis, direction] / velocity[axis]
-                velocity_remainder = (1. - scaling) * np.copy(velocity)
-
-                # Compute the velocity after hitting the vertex
-                velocity_post_vertex = self._get_new_velocity(
-                    position, velocity_remainder, vertex_affordances)
-                
-                # Update velocity to travel to the vertex then add the
-                # post-vertex velocity
-                velocity *= scaling
-                velocity[1 - axis] = 0
-                velocity += velocity_post_vertex
-
-                return velocity
-
-    def _update_sprite_angle(self, sprite, new_velocity):
-        &#34;&#34;&#34;Update sprite angle if necessary.
-        
-        This makes sprites rotate as they take turns in a maze.
-        &#34;&#34;&#34;
-        # We have a little case-work to do here, because of the possibility of
-        # some velocity components being zero
-        if new_velocity[0] == 0 and new_velocity[1] == 0:
-            new_angle = np.nan
-        elif new_velocity[1] == 0:
-            new_angle = -0.5 * np.sign(new_velocity[0]) * np.pi
-        else:
-            if np.sign(new_velocity[1]) &gt; 0:
-                new_angle = np.arctan(-new_velocity[0] / new_velocity[1])
-            else:
-                new_angle = np.pi + np.arctan(
-                    -new_velocity[0] / new_velocity[1])
-        
-        # Update the sprite&#39;s angle
-        if (not np.isnan(new_angle) and
-                np.abs(new_angle - sprite.angle) &gt; _EPSILON):
-            sprite.angle = new_angle
-                
-    def _update_sprite_in_maze(self, sprite):
-        &#34;&#34;&#34;Update a sprite velocity to abide by the maze.&#34;&#34;&#34;
-        position = sprite.position
-        velocity = sprite.velocity
-        
-        if np.all(velocity == 0) or np.any(np.isnan(velocity)):
-            return
-
-        if self._max_speed is not None:
-            velocity = np.clip(velocity, -self._max_speed, self._max_speed)
-        
-        if self._constant_speed is not None:
-            velocity += np.sign(velocity)
-            velocity *= self._constant_speed
-
-        position, affordances = self._get_position_affordances(position)
-        sprite.position = np.copy(position)
-        new_velocity = self._get_new_velocity(position, velocity, affordances)
-        
-        # Update sprite angle and velocity
-        self._update_sprite_angle(sprite, new_velocity)
-        sprite.velocity = new_velocity
-
-    def apply_physics(self, state, updates_per_env_step):
-        &#34;&#34;&#34;Move the sprites according to the physics.&#34;&#34;&#34;
-        if updates_per_env_step != 1:
-            raise ValueError(&#39;Must have updates_per_env_step be 1 for maze.&#39;)
-        for layer in self._avatar_layers:
-            for sprite in state[layer]:
-                self._update_sprite_in_maze(sprite)</code></pre>
-</details>
 </section>
 <section>
 </section>
@@ -257,25 +55,6 @@ class MazePhysics(physics_lib.AbstractPhysics):
 <span>(</span><span>maze_layer='walls', avatar_layers=(), constant_speed=None, max_speed=None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Maze physics class.</p>
-<p>Constructor.</p>
-<p>This class constrains sprites in avatar_layers to move in the maze
-specified by the sprites in maze_layer.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>maze_layer</code></strong></dt>
-<dd>String. Name of the layer in the environment containing
-the maze wall sprites.</dd>
-<dt><strong><code>avatar_layers</code></strong></dt>
-<dd>Iterable of strings. Sprites in these layers are
-constrained to move in the maze.</dd>
-<dt>constant_speed. None or float. If Float, all sprites in</dt>
-<dt>avatar_layers move with this constant speed.</dt>
-<dt><strong><code>max_speed</code></strong></dt>
-<dd>None or float. If float, all sprites in avatar_layers
-move no faster than max_speed. If None, then no speed limit. If
-constant_speed is not None, then max_speed is ignored.</dd>
-</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -475,6 +254,25 @@ constant_speed is not None, then max_speed is ignored.</dd>
             for sprite in state[layer]:
                 self._update_sprite_in_maze(sprite)</code></pre>
 </details>
+<div class="desc"><p>Maze physics class.</p>
+<p>Constructor.</p>
+<p>This class constrains sprites in avatar_layers to move in the maze
+specified by the sprites in maze_layer.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>maze_layer</code></strong></dt>
+<dd>String. Name of the layer in the environment containing
+the maze wall sprites.</dd>
+<dt><strong><code>avatar_layers</code></strong></dt>
+<dd>Iterable of strings. Sprites in these layers are
+constrained to move in the maze.</dd>
+<dt>constant_speed. None or float. If Float, all sprites in</dt>
+<dt>avatar_layers move with this constant speed.</dt>
+<dt><strong><code>max_speed</code></strong></dt>
+<dd>None or float. If float, all sprites in avatar_layers
+move no faster than max_speed. If None, then no speed limit. If
+constant_speed is not None, then max_speed is ignored.</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>moog.physics.abstract_physics.AbstractPhysics</li>
@@ -486,7 +284,6 @@ constant_speed is not None, then max_speed is ignored.</dd>
 <span>def <span class="ident">apply_physics</span></span>(<span>self, state, updates_per_env_step)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Move the sprites according to the physics.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -499,12 +296,12 @@ constant_speed is not None, then max_speed is ignored.</dd>
         for sprite in state[layer]:
             self._update_sprite_in_maze(sprite)</code></pre>
 </details>
+<div class="desc"><p>Move the sprites according to the physics.</p></div>
 </dd>
 <dt id="moog.physics.maze_physics.MazePhysics.reset"><code class="name flex">
 <span>def <span class="ident">reset</span></span>(<span>self, state)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Resetting re-infers the maze from the state.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -514,6 +311,7 @@ constant_speed is not None, then max_speed is ignored.</dd>
     self._maze = maze_lib.Maze.from_state(
         state, maze_layer=self._maze_layer)</code></pre>
 </details>
+<div class="desc"><p>Resetting re-infers the maze from the state.</p></div>
 </dd>
 </dl>
 </dd>
@@ -521,7 +319,6 @@ constant_speed is not None, then max_speed is ignored.</dd>
 </section>
 </article>
 <nav id="sidebar">
-<h1>Index</h1>
 <div class="toc">
 <ul></ul>
 </div>
@@ -546,7 +343,7 @@ constant_speed is not None, then max_speed is ignored.</dd>
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
 </footer>
 </body>
 </html>
