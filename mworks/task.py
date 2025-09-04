@@ -88,6 +88,8 @@ class TaskManager():
         else:
             raise ValueError(
                 'Unrecognized action space {}'.format(config['action_space']))
+        
+        self.complete = False
 
     def reset(self):
         """Reset environment.

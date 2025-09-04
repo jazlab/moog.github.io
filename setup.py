@@ -36,7 +36,7 @@ setup(
         ['moog.' + x for x in find_packages('moog')]
     ),
     install_requires=[
-        'cmake'
+        'cmake',
         'numpy==2.2.3',
         'matplotlib==3.10.0',
         'imageio==2.37.0',
